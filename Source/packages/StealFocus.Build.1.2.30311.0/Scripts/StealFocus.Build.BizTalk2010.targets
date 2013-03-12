@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - please do not customise this .targets file. Modifications will affect all Solutions using the software 
+    factory and maybe overridden by future updates to the software factory. Customise your build process by editing 
+    the *.targets/*.proj files in your solution.
+  -->
+
+  <Import Project="StealFocus.MSBuildExtensions.Targets" />
+  <Import Project="StealFocus.MSBuildExtensions.Tasks.BizTalk.Targets" />
+
+  <PropertyGroup>
+    <RemoveDependentBizTalkApplicationsDependsOn>
+      RemoveDependentBizTalkApplicationsMessage;
+      BeforeRemoveDependentBizTalkApplicationsCustom;
+      CoreRemoveDependentBizTalkApplications;
+      AfterRemoveDependentBizTalkApplicationsCustom
+    </RemoveDependentBizTalkApplicationsDependsOn>
+    <StopBizTalkApplicationDependsOn>
+      StopBizTalkApplicationMessage;
+      BeforeStopBizTalkApplicationCustom;
+      CoreStopBizTalkApplication;
+      AfterStopBizTalkApplicationCustom
+    </StopBizTalkApplicationDependsOn>
+    <RemoveBizTalkApplicationAssembliesFromGacDependsOn>
+      RemoveBizTalkApplicationAssembliesFromGacMessage;
+      BeforeRemoveBizTalkApplicationAssembliesFromGacCustom;
+      CoreRemoveBizTalkApplicationAssembliesFromGac;
+      AfterRemoveBizTalkApplicationAssembliesFromGacCustom
+    </RemoveBizTalkApplicationAssembliesFromGacDependsOn>
+    <RemoveBizTalkApplicationDependsOn>
+      RemoveBizTalkApplicationMessage;
+      BeforeRemoveBizTalkApplicationCustom;
+      CoreRemoveBizTalkApplication;
+      AfterRemoveBizTalkApplicationCustom
+    </RemoveBizTalkApplicationDependsOn>
+    <DeleteBizTalkHandlersDependsOn>
+      DeleteBizTalkHandlersMessage;
+      BeforeDeleteBizTalkHandlersCustom;
+      CoreDeleteBizTalkHandlers;
+      AfterDeleteBizTalkHandlersCustom
+    </DeleteBizTalkHandlersDependsOn>
+    <DeleteBizTalkHostsDependsOn>
+      DeleteBizTalkHostsMessage;
+      BeforeDeleteBizTalkHostsCustom;
+      CoreDeleteBizTalkHosts;
+      AfterDeleteBizTalkHostsCustom
+    </DeleteBizTalkHostsDependsOn>
+    <CreateBizTalkHostsDependsOn>
+      CreateBizTalkHostsMessage;
+      BeforeCreateBizTalkHostsCustom;
+      CoreCreateBizTalkHosts;
+      AfterCreateBizTalkHostsCustom
+    </CreateBizTalkHostsDependsOn>
+    <CreateBizTalkHandlersDependsOn>
+      CreateBizTalkHandlersMessage;
+      BeforeCreateBizTalkHandlersCustom;
+      CoreCreateBizTalkHandlers;
+      AfterCreateBizTalkHandlersCustom
+    </CreateBizTalkHandlersDependsOn>
+    <CreateBizTalkApplicationDependsOn>
+      CreateBizTalkApplicationMessage;
+      BeforeCreateBizTalkApplicationCustom;
+      CoreCreateBizTalkApplication;
+      AfterCreateBizTalkApplicationCustom
+    </CreateBizTalkApplicationDependsOn>
+    <ExportBizTalkApplicationDependsOn>
+      ExportBizTalkApplicationMessage;
+      BeforeExportBizTalkApplicationCustom;
+      CoreExportBizTalkApplication;
+      AfterExportBizTalkApplicationCustom
+    </ExportBizTalkApplicationDependsOn>
+    <ImportBindingsForBizTalkApplicationDependsOn>
+      ImportBindingsForBizTalkApplicationMessage;
+      BeforeImportBindingsForBizTalkApplicationCustom;
+      CoreImportBindingsForBizTalkApplication;
+      AfterImportBindingsForBizTalkApplicationCustom;
+    </ImportBindingsForBizTalkApplicationDependsOn>
+    <StartBizTalkApplicationDependsOn>
+      StartBizTalkApplicationMessage;
+      BeforeStartBizTalkApplicationCustom;
+      CoreStartBizTalkApplication;
+      AfterStartBizTalkApplicationCustom
+    </StartBizTalkApplicationDependsOn>
+    <BuildBizTalkApplicationDependsOn>
+      RemoveDependentBizTalkApplications;
+      StopBizTalkApplication;
+      RemoveBizTalkApplicationAssembliesFromGac;
+      RemoveBizTalkApplication;
+      DeleteBizTalkHandlers;
+      DeleteBizTalkHosts;
+      CreateBizTalkHosts;
+      CreateBizTalkHandlers;
+      CreateBizTalkApplication;
+      ExportBizTalkApplication;
+      ImportBindingsForBizTalkApplication;
+      StartBizTalkApplication
+    </BuildBizTalkApplicationDependsOn>
+  </PropertyGroup>
+
+  <Target Name="ValidateBizTalkAdapters">
+    <Error
+      Condition=" '%(Adapter.Identity)'=='' "
+      Text="Please populate a 'Adapter' MSBuild Item Group." />
+  </Target>
+
+  <Target Name="ValidateBizTalkApplicationName">
+    <Error
+      Condition=" '$(BizTalkApplicationName)'=='' "
+      Text="Please provide a 'BizTalkApplicationName' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkBindingLog">
+    <Error
+      Condition=" '$(BizTalkBindingLog)'=='' "
+      Text="Please provide a 'BizTalkBindingLog' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkConfigDatabaseName">
+    <Error
+      Condition=" '$(BizTalkConfigDatabaseName)'=='' "
+      Text="Please provide a 'BizTalkConfigDatabaseName' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkDatabaseServerName">
+    <Error
+      Condition=" '$(BizTalkDatabaseServerName)'=='' "
+      Text="Please provide a 'BizTalkDatabaseServerName' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkDevelopmentTargetEnvironmentName">
+    <Error
+      Condition=" '$(BizTalkDevelopmentTargetEnvironmentName)'=='' "
+      Text="Please provide a 'BizTalkDevelopmentTargetEnvironmentName' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkGacFilters">
+    <Error
+      Condition=" '$(BizTalkGacAssemblyNameFilter)'=='' "
+      Text="Please provide a 'BizTalkGacAssemblyNameFilter' MSBuild property." />
+    <Error
+      Condition=" '$(BizTalkGacLocaleFilter)'=='' "
+      Text="Please provide a 'BizTalkGacLocaleFilter' MSBuild property." />
+    <Error
+      Condition=" '$(BizTalkGacPublicKeyTokenFilter)'=='' "
+      Text="Please provide a 'BizTalkGacPublicKeyTokenFilter' MSBuild property." />
+    <Error
+      Condition=" '$(BizTalkGacVersionFilter)'=='' "
+      Text="Please provide a 'BizTalkGacVersionFilter' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkHostWindowsGroupName">
+    <Error
+      Condition=" '$(BizTalkHostWindowsGroupName)'=='' "
+      Text="Please provide a 'BizTalkHostWindowsGroupName' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkInstallDirectory">
+    <Error
+      Condition=" '$(BizTalkInstallDirectory)'=='' "
+      Text="Please provide a 'BizTalkInstallDirectory' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkInstallerPackageOutputPath">
+    <Error
+      Condition=" '$(BizTalkInstallerPackageOutputPath)'=='' "
+      Text="Please provide a 'BizTalkInstallerPackageOutputPath' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkManagementDatabaseConnectionString">
+    <Error
+      Condition=" '$(BizTalkManagementDatabaseConnectionString)'=='' "
+      Text="Please provide a 'BizTalkManagementDatabaseConnectionString' MSBuild property." />
+  </Target>
+
+  <Target Name="ValidateBizTalkHosts">
+    <Error
+      Condition=" '%(BizTalkHost.Identity)'=='' "
+      Text="Please populate a 'BizTalkHost' MSBuild Item Group with metadata 'Username', 'Password', 'HostTracking', 'HostType', 'IsDefault' and 'Trusted'." />
+  </Target>
+
+  <Target Name="ValidateBizTalkServerName">
+    <Error
+      Condition=" '$()'=='BizTalkServerName' "
+      Text="Please provide a 'BizTalkServerName' MSBuild property." />
+  </Target>
+
+  <Target Name="RemoveDependentBizTalkApplicationsMessage">
+    <Message
+      Importance="high"
+      Text="Removing the following dependent BizTalk Applications:" />
+    <Message
+      Condition=" '%(DependentBizTalkApplication.Identity)'!='' "
+      Importance="high"
+      Text="- %(DependentBizTalkApplication.Identity)" />
+    <Message
+      Condition=" '%(DependentBizTalkApplication.Identity)'=='' "
+      Importance="high"
+      Text="- (None configured)" />
+  </Target>
+
+  <Target Name="BeforeRemoveDependentBizTalkApplicationsCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreRemoveDependentBizTalkApplications">
+    <!-- Stop dependent application(s). -->
+    <Message
+      Condition=" '%(DependentBizTalkApplication.Identity)'!='' "
+      Importance="high"
+      Text="Stopping dependent BizTalk Application '%(DependentBizTalkApplication.Identity)'." />
+    <BizTalkStopApplication
+      Condition=" '%(DependentBizTalkApplication.Identity)'!='' "
+      ApplicationName="%(DependentBizTalkApplication.Identity)"
+      ManagementDatabaseConnectionString="$(BizTalkManagementDatabaseConnectionString)"
+      TerminateOrchestrations="true" />
+    <!-- Remove dependent application(s) assemblies from the GAC. -->
+    <Message
+      Condition=" '%(DependentBizTalkApplication.Identity)'!='' "
+      Importance="high"
+      Text="Removing dependent BizTalk Application(s) Assemblies from the Global Assembly Cache (GAC)." />
+    <Message
+      Condition=" '%(DependentBizTalkApplication.Identity)'!='' "
+      Importance="high"
+      Text="Deleting assemblies from the GAC matching '%(DependentBizTalkApplication.BizTalkGacAssemblyNameFilter), Version=%(DependentBizTalkApplication.BizTalkGacVersionFilter), Culture=%(DependentBizTalkApplication.BizTalkGacLocaleFilter), PublicKeyToken=%(DependentBizTalkApplication.BizTalkGacPublicKeyTokenFilter)'." />
+    <GacUninstall
+      Condition=" '%(DependentBizTalkApplication.Identity)'!='' "
+      AssemblyName="%(DependentBizTalkApplication.BizTalkGacAssemblyNameFilter)"
+      Locale="%(DependentBizTalkApplication.BizTalkGacLocaleFilter)"
+      PublicKeyToken="%(DependentBizTalkApplication.BizTalkGacPublicKeyTokenFilter)"
+      Version="%(DependentBizTalkApplication.BizTalkGacVersionFilter)"
+      FrameworkVersion="$(FrameworkVersion)" />
+    <!-- Removing dependent application(s). -->
+    <Message
+      Condition=" '%(DependentBizTalkApplication.Identity)'!='' "
+      Importance="high"
+      Text="Removing dependent BizTalk Application '%(DependentBizTalkApplication.Identity)'." />
+    <BizTalkRemoveApplication
+      Condition=" '%(DependentBizTalkApplication.Identity)'!='' "
+      ApplicationName="%(DependentBizTalkApplication.Identity)"
+      ManagementDatabaseConnectionString="$(BizTalkManagementDatabaseConnectionString)" />
+  </Target>
+
+  <Target Name="AfterRemoveDependentBizTalkApplicationsCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="RemoveDependentBizTalkApplications" DependsOnTargets="$(RemoveDependentBizTalkApplicationsDependsOn)" />
+
+  <Target Name="StopBizTalkApplicationMessage">
+    <Message
+      Importance="high"
+      Text="Stopping BizTalk Application '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeStopBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreStopBizTalkApplication" DependsOnTargets="ValidateBizTalkApplicationName;ValidateBizTalkManagementDatabaseConnectionString">
+    <BizTalkStopApplication
+      ApplicationName="$(BizTalkApplicationName)"
+      ManagementDatabaseConnectionString="$(BizTalkManagementDatabaseConnectionString)"
+      TerminateOrchestrations="true" />
+  </Target>
+
+  <Target Name="AfterStopBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="StopBizTalkApplication" DependsOnTargets="$(StopBizTalkApplicationDependsOn)" />
+
+  <Target Name="RemoveBizTalkApplicationAssembliesFromGacMessage">
+    <Message
+      Importance="high"
+      Text="Removing Solution's BizTalk Assemblies from the Global Assembly Cache (GAC)." />
+  </Target>
+
+  <Target Name="BeforeRemoveBizTalkApplicationAssembliesFromGacCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreRemoveBizTalkApplicationAssembliesFromGac" DependsOnTargets="ValidateBizTalkGacFilters">
+    <Message
+      Importance="high"
+      Text="Deleting assemblies from the GAC matching '$(BizTalkGacAssemblyNameFilter), Version=$(BizTalkGacVersionFilter), Culture=$(BizTalkGacLocaleFilter), PublicKeyToken=$(BizTalkGacPublicKeyTokenFilter)'." />
+    <GacUninstall
+      AssemblyName="$(BizTalkGacAssemblyNameFilter)"
+      Locale="$(BizTalkGacLocaleFilter)"
+      PublicKeyToken="$(BizTalkGacPublicKeyTokenFilter)"
+      Version="$(BizTalkGacVersionFilter)" 
+      FrameworkVersion="$(FrameworkVersion)" />
+  </Target>
+
+  <Target Name="AfterRemoveBizTalkApplicationAssembliesFromGacCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="RemoveBizTalkApplicationAssembliesFromGac" DependsOnTargets="$(RemoveBizTalkApplicationAssembliesFromGacDependsOn)" />
+
+  <Target Name="RemoveBizTalkApplicationMessage">
+    <Message
+      Importance="high"
+      Text="Removing BizTalk Application '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeRemoveBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreRemoveBizTalkApplication" DependsOnTargets="ValidateBizTalkApplicationName;ValidateBizTalkManagementDatabaseConnectionString">
+    <BizTalkRemoveApplication
+      ApplicationName="$(BizTalkApplicationName)"
+      ManagementDatabaseConnectionString="$(BizTalkManagementDatabaseConnectionString)" />
+  </Target>
+
+  <Target Name="AfterRemoveBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="RemoveBizTalkApplication" DependsOnTargets="$(RemoveBizTalkApplicationDependsOn)" />
+
+  <Target Name="DeleteBizTalkHandlersMessage">
+    <Message
+      Importance="high"
+      Text="Deleting BizTalk Send and Receive Handlers for '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeDeleteBizTalkHandlersCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreDeleteBizTalkHandlers" DependsOnTargets="ValidateBizTalkHosts">
+    <BizTalkStopHost
+      HostName="%(BizTalkHost.Identity)" />
+    <BizTalkCleanHostQueue
+      HostName="%(BizTalkHost.Identity)" />
+    <BizTalkDeleteAllReceiveHandlers
+      HostName="%(BizTalkHost.Identity)" />
+    <BizTalkDeleteAllSendHandlers
+      HostName="%(BizTalkHost.Identity)" />
+  </Target>
+
+  <Target Name="AfterDeleteBizTalkHandlersCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="DeleteBizTalkHandlers" DependsOnTargets="$(DeleteBizTalkHandlersDependsOn)" />
+
+  <Target Name="DeleteBizTalkHostsMessage">
+    <Message
+      Importance="high"
+      Text="Deleting BizTalk Hosts and Host Instances for '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeDeleteBizTalkHostsCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreDeleteBizTalkHosts" DependsOnTargets="ValidateBizTalkHosts">
+    <BizTalkDeleteHost
+      HostName="%(BizTalkHost.Identity)" />
+    <BizTalkDeleteHost
+      HostName="%(BizTalkHost.Identity)" />
+    <BizTalkDeleteHost
+      HostName="%(BizTalkHost.Identity)" />
+  </Target>
+
+  <Target Name="AfterDeleteBizTalkHostsCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="DeleteBizTalkHosts" DependsOnTargets="$(DeleteBizTalkHostsDependsOn)" />
+
+  <Target Name="CreateBizTalkHostsMessage">
+    <Message
+      Importance="high"
+      Text="Creating BizTalk Hosts and Host Instances for '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeCreateBizTalkHostsCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreCreateBizTalkHosts" DependsOnTargets="ValidateBizTalkHostWindowsGroupName;ValidateBizTalkHosts;ValidateBizTalkServerName">
+    <BizTalkCreateHost
+      HostName="%(BizTalkHost.Identity)"
+      HostTracking="%(BizTalkHost.HostTracking)"
+      HostType="%(BizTalkHost.HostType)"
+      IsDefault="%(BizTalkHost.IsDefault)"
+      Trusted="%(BizTalkHost.Trusted)"
+      WindowsGroupName="$(BizTalkHostWindowsGroupName)" />
+    <BizTalkCreateHostInstance
+      HostName="%(BizTalkHost.Identity)"
+      ServerName="$(BizTalkServerName)"
+      UserName="%(BizTalkHost.Username)"
+      Password="%(BizTalkHost.Password)" />
+  </Target>
+
+  <Target Name="AfterCreateBizTalkHostsCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CreateBizTalkHosts" DependsOnTargets="$(CreateBizTalkHostsDependsOn)" />
+
+  <Target Name="CreateBizTalkHandlersMessage">
+    <Message
+      Importance="high"
+      Text="Creating BizTalk Handlers for '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeCreateBizTalkHandlersCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreCreateBizTalkHandlers" DependsOnTargets="ValidateBizTalkAdapters">
+    <BizTalkCreateReceiveHandler
+      Condition=" '%(Adapter.BizTalkReceiveHostName)'!='' "
+      AdapterName="%(Adapter.BizTalkAdapterName)"
+      HostName="%(Adapter.BizTalkReceiveHostName)" />
+    <BizTalkCreateSendHandler
+      Condition=" '%(Adapter.BizTalkSendHostName)'!='' "
+      AdapterName="%(Adapter.BizTalkAdapterName)"
+      HostName="%(Adapter.BizTalkSendHostName)" />
+  </Target>
+
+  <Target Name="AfterCreateBizTalkHandlersCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CreateBizTalkHandlers" DependsOnTargets="$(CreateBizTalkHandlersDependsOn)" />
+
+  <Target Name="CreateBizTalkApplicationMessage">
+    <Message
+      Importance="high"
+      Text="Creating BizTalk Application '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeCreateBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreCreateBizTalkApplication" DependsOnTargets="ValidateBizTalkApplicationName;ValidateBizTalkConfigDatabaseName;ValidateBizTalkDatabaseServerName;ValidateBizTalkInstallDirectory">
+    <Message
+      Importance="high"
+      Text="Adding BizTalk Application '$(BizTalkApplicationName)'." />
+    <Exec
+      Command="BTSTask AddApp -ApplicationName:$(BizTalkApplicationName) -Description:$(BizTalkApplicationName) -Server:$(BizTalkDatabaseServerName) -Database:$(BizTalkConfigDatabaseName)" />
+    <!-- Check Assembly paths. -->
+    <Error
+      Condition=" !Exists('%(BizTalkAssembly.FullPath)') "
+      Text=" The '%(BizTalkAssembly.FullPath)' Assembly was not found. Was the given path valid?" />
+    <!-- Check Bindings paths. -->
+    <Error
+      Condition=" !Exists('%(BindingsFile.FullPath)') "
+      Text=" The '%(BindingsFile.TargetEnvironment)' Bindings file was not found. Was the given path valid?" />
+    <!-- Update version number in Bindings files. -->
+    <File.RegEx
+      Condition=" '$(BuildLabelNumber)'!='$(DefaultBuildOrVersionNumber)' "
+      Path="%(BindingsFile.FullPath)"
+      RegularExpression="$(DefaultBuildOrVersionNumber)"
+      NewValue="$(BuildLabelNumber)"
+      Force="true" />
+    <!-- Add Resources. -->
+    <Message
+      Importance="high"
+      Text="Adding Binding files to BizTalk Application '$(BizTalkApplicationName)'." />
+    <Exec
+      Command='BTSTask AddResource /Source:"%(BindingsFile.FullPath)" /Property:TargetEnvironment="%(BindingsFile.TargetEnvironment)" /ApplicationName:"$(BizTalkApplicationName)" /Type:System.BizTalk:BizTalkBinding' />
+    <Message
+      Importance="high"
+      Text="Adding Assemblies to BizTalk Application '$(BizTalkApplicationName)'." />
+    <Exec
+      Command='BTSTask AddResource /Source:"%(BizTalkAssembly.FullPath)" /ApplicationName:"$(BizTalkApplicationName)" /Type:%(BizTalkAssembly.Type) /Overwrite /Destination:"$(BizTalkInstallDirectory)\%(BizTalkAssembly.Filename).%(BizTalkAssembly.Extension)" /Options:%(BizTalkAssembly.InstallOptions)' />
+  </Target>
+
+  <Target Name="AfterCreateBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CreateBizTalkApplication" DependsOnTargets="$(CreateBizTalkApplicationDependsOn)" />
+
+  <Target Name="ExportBizTalkApplicationMessage">
+    <Message
+      Importance="high"
+      Text="Exporting BizTalk Application '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeExportBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreExportBizTalkApplication" DependsOnTargets="ValidateBizTalkApplicationName;ValidateBizTalkInstallerPackageOutputPath">
+    <Exec
+      Command='BTSTask ExportApp /ApplicationName:$(BizTalkApplicationName) /Package:$(BizTalkInstallerPackageOutputPath)' />
+  </Target>
+
+  <Target Name="AfterExportBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="ExportBizTalkApplication" DependsOnTargets="$(ExportBizTalkApplicationDependsOn)" />
+
+  <Target Name="ImportBindingsForBizTalkApplicationMessage">
+    <Message
+      Importance="high"
+      Text="Importing bindings for BizTalk Application '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeImportBindingsForBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreImportBindingsForBizTalkApplication" DependsOnTargets="ValidateBizTalkApplicationName;ValidateBizTalkBindingLog;ValidateBizTalkDevelopmentTargetEnvironmentName">
+    <!-- Delete any old binding log and then Bind. -->
+    <Delete
+      Files="$(BizTalkBindingLog)" />
+    <Message
+      Importance="high"
+      Text="Importing Bindings for '$(BizTalkDevelopmentTargetEnvironmentName)' environment to BizTalk Application '$(BizTalkApplicationName)'." />
+    <Exec
+      Condition=" '%(BindingsFile.TargetEnvironment)'=='$(BizTalkDevelopmentTargetEnvironmentName)' "
+      Command='BTSTask ImportBindings -Source:"%(BindingsFile.FullPath)" -ApplicationName:$(BizTalkApplicationName) > $(BizTalkBindingLog)' />
+  </Target>
+
+  <Target Name="AfterImportBindingsForBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="ImportBindingsForBizTalkApplication" DependsOnTargets="$(ImportBindingsForBizTalkApplicationDependsOn)" />
+
+  <Target Name="StartBizTalkApplicationMessage">
+    <Message
+      Importance="high"
+      Text="Starting BizTalk Application '$(BizTalkApplicationName)'." />
+  </Target>
+
+  <Target Name="BeforeStartBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreStartBizTalkApplication" DependsOnTargets="ValidateBizTalkApplicationName;ValidateBizTalkManagementDatabaseConnectionString">
+    <Message
+      Importance="high"
+      Text="Starting all BizTalk Send Ports for '$(BizTalkApplicationName)'." />
+    <BizTalkStartAllSendPorts
+      ApplicationName="$(BizTalkApplicationName)"
+      ManagementDatabaseConnectionString="$(BizTalkManagementDatabaseConnectionString)" />
+    <Message
+      Importance="high"
+      Text="Starting all BizTalk Receive Locations for '$(BizTalkApplicationName)'." />
+    <BizTalkEnableAllReceiveLocations
+      ApplicationName="$(BizTalkApplicationName)"
+			ManagementDatabaseConnectionString="$(BizTalkManagementDatabaseConnectionString)" />
+    <Message
+      Importance="high"
+      Text="Starting all BizTalk Orchestrations for '$(BizTalkApplicationName)'." />
+    <BizTalkStartAllOrchestrations
+      ApplicationName="$(BizTalkApplicationName)"
+			ManagementDatabaseConnectionString="$(BizTalkManagementDatabaseConnectionString)" />
+    <Message
+      Importance="high"
+      Text="Starting all BizTalk Hosts for '$(BizTalkApplicationName)'." />
+    <BizTalkStartHost
+      HostName="%(BizTalkHost.Identity)" />
+  </Target>
+
+  <Target Name="AfterStartBizTalkApplicationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="StartBizTalkApplication" DependsOnTargets="$(StartBizTalkApplicationDependsOn)" />
+
+  <Target Name="BuildBizTalkApplication" DependsOnTargets="$(BuildBizTalkApplicationDependsOn)" />
+
+  <Target Name="DeleteBizTalkApplication" DependsOnTargets="RemoveBizTalkApplication;DeleteBizTalkHandlers;DeleteBizTalkHosts" />
+
+</Project>

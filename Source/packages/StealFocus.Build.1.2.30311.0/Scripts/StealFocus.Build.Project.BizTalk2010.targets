@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - please do not customise this .targets file. Modifications will affect all Solutions using the software 
+    factory and maybe overridden by future updates to the software factory. Customise your build process by editing 
+    the *.targets/*.proj files in your solution.
+  -->
+
+  <!--<ItemGroup>
+    <XmlFileCheckerFilesToCheck Include="$(SolutionDir)*\*.btproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <XmlFileCheckerConfigurationFilePath>$(SolutionDir)Scripts\XmlFileCheckerConfiguration-AssemblyProjectFile-BizTalk2009.xml</XmlFileCheckerConfigurationFilePath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CodeLanguage>CS</CodeLanguage>
+    <AssemblyInfoCommonFilePath>$(SolutionDir)AssemblyInfoCommon.cs</AssemblyInfoCommonFilePath>
+  </PropertyGroup>-->
+
+</Project>

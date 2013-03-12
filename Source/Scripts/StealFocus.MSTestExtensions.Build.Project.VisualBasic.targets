@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - you must import these targets for the build scripts to function.
+  -->
+  <Import Project="..\packages\StealFocus.Build.1.2.30311.0\Scripts\StealFocus.Build.Project.VisualBasic.targets" />
+  <Import Project="StealFocus.MSTestExtensions.Build.Project.Assembly.targets" />
+
+  <PropertyGroup>
+    <AssemblyInfoCommonFileName>AssemblyInfoCommon.g.vb</AssemblyInfoCommonFileName>
+    <AssemblyInfoCommonFilePath>$(MSBuildProjectDirectory)\Properties\$(AssemblyInfoCommonFileName)</AssemblyInfoCommonFilePath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyInfoCommonFileLine Include="To Do: To be completed in Steal Focus Build script."/>
+  </ItemGroup>
+
+  <Target Name="CodeGeneration">
+    <!-- 
+      Peform any code generation steps here. This will be called when the "Rebuild" target is called. This will occur 
+      from building the Solution/Project at the command line with MSBuild specifying the "Rebuild" target or by 
+      choosing "Rebuild Solution" or "Rebuild" in Visual Studio.
+    -->
+  </Target>
+
+</Project>

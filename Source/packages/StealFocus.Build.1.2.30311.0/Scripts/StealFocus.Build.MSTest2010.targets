@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - please do not customise this .targets file. Modifications will affect all Solutions using the software 
+    factory and maybe overridden by future updates to the software factory. Customise your build process by editing 
+    the *.targets/*.proj files in your solution.
+  -->
+
+  <PropertyGroup Condition=" '$(MSTest2010ExePath)'=='' ">
+    <MSTest2010ExePath>$(SystemDrive)\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\MSTest.exe</MSTest2010ExePath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(MSTestAssemblyNameFilter)'=='' And '$(MSTestMetadataFilePath)'=='' ">
+    <MSTestAssemblyNameFilter>*Tests*.dll</MSTestAssemblyNameFilter>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(MSTestWebTestFilter)'=='' And '$(MSTestMetadataFilePath)'=='' ">
+    <MSTestWebTestFilter>*.webtest</MSTestWebTestFilter>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(MSTestLoadTestFilter)'=='' And '$(MSTestMetadataFilePath)'=='' ">
+    <MSTestLoadTestFilter>*.loadtest</MSTestLoadTestFilter>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(MSTestSettingsFilePath)'=='' And '$(MSTestMetadataFilePath)'=='' ">
+    <MSTestSettingsFilePath>$(SolutionDirectoryPath)\Local.testsettings</MSTestSettingsFilePath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--
+    <MSTestMetadataFilePath>$(SolutionDirectoryPath)\Acme.PetShop.vsmdi</MSTestMetadataFilePath>
+    <MSTestCategoryFilter>MyFilter</MSTestCategoryFilter>
+    <MSTestMaxPriority>100</MSTestMaxPriority>
+    <MSTestMinPriority>0</MSTestMinPriority>
+    -->
+  </PropertyGroup>
+
+  <Target Name="ShowMSTestProperties">
+    <Message
+      Importance="high"
+      Text="Using the following properties for MSTest." />
+    <Message
+      Importance="high"
+      Text="'MSTest2010ExePath' is '$(MSTest2010ExePath)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestAssemblyNameFilter' is '$(MSTestAssemblyNameFilter)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestWebTestFilter' is '$(MSTestWebTestFilter)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestLoadTestFilter' is '$(MSTestLoadTestFilter)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestSettingsFilePath' is '$(MSTestSettingsFilePath)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestMetadataFilePath' is '$(MSTestMetadataFilePath)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestCategoryFilter' is '$(MSTestCategoryFilter)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestMaxPriority' is '$(MSTestMaxPriority)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestMinPriority' is '$(MSTestMinPriority)'." />
+  </Target>
+
+  <Target Name="RunMSTest" DependsOnTargets="ShowMSTestProperties">
+    <Message
+      Importance="high"
+      Text="Running tests for configuration '$(Configuration)'." />
+    <ItemGroup>
+      <TestContainer Include="$(BuildDirectoryPath)\$(Configuration)\$(MSTestAssemblyNameFilter)" />
+      <TestContainer Include="$(BuildDirectoryPath)\$(Configuration)\$(MSTestWebTestFilter)" />
+      <TestContainer Include="$(BuildDirectoryPath)\$(Configuration)\$(MSTestLoadTestFilter)" />
+    </ItemGroup>
+    <PropertyGroup>
+      <TestContainerSwitchesTemp>@(TestContainer->' /testcontainer:"%(fullpath)"')</TestContainerSwitchesTemp>
+      <TestContainerSwitches>$(TestContainerSwitchesTemp.Replace(";", ""))</TestContainerSwitches>
+    </PropertyGroup>
+    <ConvertToAbsolutePath Paths="$(MSTestSettingsFilePath)">
+      <Output 
+        TaskParameter="AbsolutePaths" 
+        PropertyName="MSTestSettingsAbsoluteFilePath"/>
+    </ConvertToAbsolutePath>
+    <PropertyGroup Condition=" '$(MSTestMetadataFilePath)'=='' ">
+      <MSTestArgs>$(TestContainerSwitches) /testsettings:"$(MSTestSettingsAbsoluteFilePath)"</MSTestArgs>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(MSTestMetadataFilePath)'!='' ">
+      <MSTestArgs>/testmetadata:"$(MSTestMetadataFilePath)" /maxpriority:$(MSTestMaxPriority) /minpriority:$(MSTestMinPriority) /category:$(MSTestCategoryFilter)</MSTestArgs>
+    </PropertyGroup>
+    <Exec
+      Command='"$(MSTest2010ExePath)" $(MSTestArgs)'
+      WorkingDirectory="$(SolutionDirectoryPath)" />
+  </Target>
+  
+</Project>

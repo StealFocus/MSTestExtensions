@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - please do not customise this .targets file. Modifications will affect all Solutions using the software 
+    factory and maybe overridden by future updates to the software factory. Customise your build process by editing 
+    the *.targets/*.proj files in your solution.
+  -->
+
+  <!-- For StyleCop v4.3 and v4.4 -->
+  <PropertyGroup Condition=" '$(StyleCopVersion)'!='' And ( '$(StyleCopVersion)'=='4.3' Or '$(StyleCopVersion)'=='4.4' ) ">
+    <StyleCopTargetsFilePath>$(MSBuildExtensionsPath)\Microsoft\StyleCop\v$(StyleCopVersion)\Microsoft.StyleCop.targets</StyleCopTargetsFilePath>
+  </PropertyGroup>
+
+  <!-- For StyleCop v4.5 onwards -->
+  <PropertyGroup Condition=" '$(StyleCopVersion)'!='' And '$(StyleCopVersion)'!='4.3' And '$(StyleCopVersion)'!='4.4' ">
+    <StyleCopTargetsFilePath>$(MSBuildExtensionsPath)\StyleCop\v$(StyleCopVersion)\StyleCop.targets</StyleCopTargetsFilePath>
+  </PropertyGroup>
+
+  <Target Name="FixStyleCopOn64Bit" Condition=" '$(Is64bitOS)'=='true' And ( '$(StyleCopVersion)'=='4.4' Or '$(StyleCopVersion)'=='4.5' Or '$(StyleCopVersion)'=='4.6' Or '$(StyleCopVersion)'=='4.7' ) ">
+    <PropertyGroup>
+      <StyleCopTargetsBackupPath>$(StyleCopTargetsFilePath).bak</StyleCopTargetsBackupPath>
+    </PropertyGroup>
+    <CreateProperty
+      Condition=" !Exists('$(StyleCopTargetsBackupPath)') "
+      Value="true">
+      <Output
+        TaskParameter="Value"
+        PropertyName="UpdateStyleCopTargetsFile" />
+    </CreateProperty>
+    <Warning
+      Condition=" '$(UpdateStyleCopTargetsFile)'=='true' "
+      Text="Backing up and modifying StyleCop v$(StyleCopVersion) targets file to fix known issue on 64-bit platforms." />
+    <Copy
+      Condition=" '$(UpdateStyleCopTargetsFile)'=='true' "
+      SourceFiles="$(StyleCopTargetsFilePath)"
+      DestinationFiles="$(StyleCopTargetsBackupPath)" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(UpdateStyleCopTargetsFile)'=='true' "
+      TaskAction="RemoveAttribute"
+      File="$(StyleCopTargetsFilePath)"
+      Namespaces="@(XmlNamespace)"
+      XPath="/def:Project/def:UsingTask[@TaskName = 'StyleCopTask']"
+      Key="AssemblyFile" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(UpdateStyleCopTargetsFile)'=='true' "
+      TaskAction="AddAttribute"
+      File="$(StyleCopTargetsFilePath)"
+      Namespaces="@(XmlNamespace)"
+      XPath="/def:Project/def:UsingTask[@TaskName = 'StyleCopTask']"
+      Key="AssemblyFile"
+      Value="%24(SystemDrive)\Program Files (x86)\StyleCop $(StyleCopVersion)\StyleCop.dll" />
+  </Target>
+
+</Project>

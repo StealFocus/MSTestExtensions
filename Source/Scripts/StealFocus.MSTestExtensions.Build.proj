@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+  ToolsVersion="4.0">
+
+  <!-- IMPORTANT - you must import these targets for the build scripts to function. -->
+  <Import Project="StealFocus.MSTestExtensions.targets" />
+  <Import Project="..\packages\StealFocus.Build.1.2.30311.0\Scripts\StealFocus.Build.targets" />
+
+  <PropertyGroup Condition=" '$(BuildReleaseConfiguration)'=='' ">
+    <BuildReleaseConfiguration>true</BuildReleaseConfiguration>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <CSharpProjectFileConfigurationIncludeFilter>$(SolutionDirectoryPath)\**\*.csproj</CSharpProjectFileConfigurationIncludeFilter>
+    <VisualBasicProjectFileConfigurationIncludeFilter>$(SolutionDirectoryPath)\**\*.vbproj</VisualBasicProjectFileConfigurationIncludeFilter>
+    <WindowsAzureProjectFileConfigurationIncludeFilter>$(SolutionDirectoryPath)\**\*.ccproj</WindowsAzureProjectFileConfigurationIncludeFilter>
+    <ProjectFileConfigurationExcludeFilter>$(SolutionDirectoryPath)\SomeProject\SomeProject.csproj</ProjectFileConfigurationExcludeFilter>
+    <CSharpProjectImportFilePath>$(SolutionDirectoryPath)\Scripts\StealFocus.MSTestExtensions.Build.Project.CSharp.targets</CSharpProjectImportFilePath>
+    <VisualBasicProjectImportFilePath>$(SolutionDirectoryPath)\Scripts\StealFocus.MSTestExtensions.Build.Project.VisualBasic.targets</VisualBasicProjectImportFilePath>
+    <CodeAnalysisRuleSetFilePath>$(SolutionDirectoryPath)\StealFocus.MSTestExtensions.ruleset</CodeAnalysisRuleSetFilePath>
+    <StrongNameKeyPairPath>$(SolutionDirectoryPath)\StealFocus.MSTestExtensions.StrongNameKeyPair.snk</StrongNameKeyPairPath>
+    <StrongNamePublicKeyPath>$(SolutionDirectoryPath)\StealFocus.MSTestExtensions.StrongNamePublicKey.snk</StrongNamePublicKeyPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SolutionToBuild Include="$(SolutionDirectoryPath)\StealFocus.MSTestExtensions.sln">
+      <!-- 
+      Use "Targets" to control which Targets are called e.g. you can switch from the default of "Build" to "Rebuild".
+      Use "Properties" to send additional properties to the Solution build.
+      <Targets>Rebuild</Targets>
+      <Properties>FirstHelloWorldProperty=HelloYou!;SecondHelloWorldProperty=HelloMe!</Properties>
+      -->
+      <Targets />
+      <Properties />
+    </SolutionToBuild>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ConfigurationToBuild Include="Debug|Any CPU">
+      <FlavorToBuild>Debug</FlavorToBuild>
+      <PlatformToBuild>Any CPU</PlatformToBuild>
+    </ConfigurationToBuild>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(BuildReleaseConfiguration)'=='true' ">
+    <ConfigurationToBuild Include="Release|Any CPU">
+      <FlavorToBuild>Release</FlavorToBuild>
+      <PlatformToBuild>Any CPU</PlatformToBuild>
+    </ConfigurationToBuild>
+  </ItemGroup>
+
+  <!-- Only called if "IsInitialiseEnvironmentBuild" property is set to "true". -->
+  <Target Name="BeforeInitialiseBuildCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <!-- Only called if "IsInitialiseEnvironmentBuild" property is set to "true". -->
+  <Target Name="AfterInitialiseBuildCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="BeforeInitialiseEnvironmentCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="AfterInitialiseEnvironmentCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="BeforeCodeGenerationCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="AfterCodeGenerationCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="BeforeSolutionCompileCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="AfterSolutionCompileCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="BeforeDeployForTestCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="AfterDeployForTestCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="BeforeRunTestsCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+  
+  <Target Name="BeforeRunTestsForConfigurationCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+  
+  <Target Name="AfterRunTestsForConfigurationCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="AfterRunTestsCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="BeforePackageCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="CreateNuGetPackages">
+    <!-- Create NuGet Packages - Copy files -->
+    <ItemGroup>
+      <StlFcsLibFiles Include="$(BuildDirectoryPath)\Release\StealFocus.MSTestExtensions.dll" />
+      <StlFcsLibFiles Include="$(BuildDirectoryPath)\Release\StealFocus.MSTestExtensions.pdb" />
+    </ItemGroup>
+    <Copy
+      SourceFiles="@(StlFcsLibFiles)"
+      DestinationFolder="..\Artefacts\NuGet\StealFocus.MSTestExtensions\lib\net40-Client" />
+    <Copy
+      SourceFiles="@(StlFcsLibFiles)"
+      DestinationFolder="..\Artefacts\NuGet\StealFocus.MSTestExtensions\lib\net40-Full" />
+    <!-- Create NuGet Packages - Create package -->
+    <Exec
+      Command="..\..\..\.nuget\NuGet.exe pack StealFocus.MSTestExtensions.nuspec -Version $(VersionNumber)"
+      WorkingDirectory="..\Artefacts\NuGet\StealFocus.MSTestExtensions" />
+    <!-- Create NuGet Packages - Clean-up -->
+    <RemoveDir
+      Directories="..\Artefacts\NuGet\StealFocus.MSTestExtensions\lib" />
+  </Target>
+
+  <Target Name="AfterPackageCustom">
+    <!-- Enter your custom steps here. -->
+    <!-- Create NuGet Packages. -->
+    <CallTarget 
+      Condition=" '$(BuildReleaseConfiguration)'=='true' "
+      Targets="CreateNuGetPackages" />
+    <!-- ZIP up each configuration in the build output folder. -->
+    <MSBuild.ExtensionPack.Compression.Zip 
+		  TaskAction="Create" 
+		  CompressPath="$(BuildDirectoryPath)\%(ConfigurationToBuild.FlavorToBuild)" 
+		  ZipFileName="$(BuildDirectoryPath)\%(ConfigurationToBuild.FlavorToBuild).zip"/>
+  </Target>
+
+  <Target Name="BeforeBuildDocumentationCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="AfterBuildDocumentationCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="BeforeDropBuildCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <Target Name="AfterDropBuildCustom">
+    <!-- Enter your custom steps here. -->
+    <!-- Copy ZIP files to drop location. -->
+    <Copy
+      SourceFiles="$(BuildDirectoryPath)\%(ConfigurationToBuild.FlavorToBuild).zip" 
+      DestinationFolder="$(DropLocationForBuild)" />
+    <!-- Deploy NuGet packages. -->
+    <ItemGroup Condition=" '$(IsDesktopBuild)'!='true' ">
+      <NuGetPackages Include="..\Artefacts\NuGet\StealFocus.MSTestExtensions\*.nupkg" />
+    </ItemGroup>
+    <Copy
+      Condition=" '$(IsDesktopBuild)'!='true' "
+      SourceFiles="@(NuGetPackages)"
+      DestinationFolder="$(DropLocationForBuild)" />
+    <!-- Copy Trunk build to StealFocus NuGet feed. -->
+    <Copy
+      Condition=" '$(IsDesktopBuild)'!='true' And '$(BranchName)'=='Master' "
+      SourceFiles="@(NuGetPackages)"
+      DestinationFolder="\\IP-0A3A46D1\NuGetPackages\" />
+    <!-- Push non-Trunk builds to NuGet.org feed -->
+    <Exec
+      Condition=" '$(IsDesktopBuild)'!='true' And '$(BranchName)'!='Master' "
+      Command='..\..\..\.nuget\NuGet.exe Push "%(NuGetPackages.FullPath)"'
+      WorkingDirectory="..\Artefacts\NuGet\StealFocus.MSTestExtensions" />
+  </Target>
+
+  <!-- Only called if "IsEnvironmentDeployBuild" property is set to "true". -->
+  <Target Name="BeforeEnvironmentDeployCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+
+  <!-- Only called if "IsEnvironmentDeployBuild" property is set to "true". -->
+  <Target Name="AfterEnvironmentDeployCustom">
+    <!-- Enter your custom steps here. -->
+  </Target>
+  
+</Project>

@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6AACE80-AE03-4DCC-94C7-474BF2A1C919}"
+	ProjectSection(SolutionItems) = preProject
+		BuildServer.testsettings = BuildServer.testsettings
+		FxCopCustomDictionary.xml = FxCopCustomDictionary.xml
+		Local.testsettings = Local.testsettings
+		Settings.StyleCop = Settings.StyleCop
+		StealFocus.MSTestExtensions.ruleset = StealFocus.MSTestExtensions.ruleset
+		StealFocus.MSTestExtensions.StrongNameKeyPair.snk = StealFocus.MSTestExtensions.StrongNameKeyPair.snk
+		StealFocus.MSTestExtensions.StrongNamePublicKey.snk = StealFocus.MSTestExtensions.StrongNamePublicKey.snk
+		StealFocus.MSTestExtensions.vsmdi = StealFocus.MSTestExtensions.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StealFocus.MSTestExtensions", "StealFocus.MSTestExtensions\StealFocus.MSTestExtensions.csproj", "{7F709232-919D-4FC7-9082-3ACE171A6D8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StealFocus.MSTestExtensions.Tests", "StealFocus.MSTestExtensions.Tests\StealFocus.MSTestExtensions.Tests.csproj", "{1E842F65-CC67-49F3-9F90-53D8B488C912}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E70E6A49-20A1-42DA-8878-1C48FA957966}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C037BCA9-D345-4B17-B1A5-CE0FD0D69C70}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Artefacts", "Artefacts", "{20B18EFA-89E6-41F1-8C84-678980DB8BFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandFiles", "CommandFiles", "{DCD090D0-A706-4652-B96B-32906F260AE4}"
+	ProjectSection(SolutionItems) = preProject
+		CommandFiles\StealFocus.MSTestExtensions.Build.cmd = CommandFiles\StealFocus.MSTestExtensions.Build.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{89C2C7B8-0FE5-4ECD-BA42-FAB0834ECB96}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\StealFocus.MSTestExtensions.Build.proj = Scripts\StealFocus.MSTestExtensions.Build.proj
+		Scripts\StealFocus.MSTestExtensions.Build.Project.Assembly.targets = Scripts\StealFocus.MSTestExtensions.Build.Project.Assembly.targets
+		Scripts\StealFocus.MSTestExtensions.Build.Project.CSharp.targets = Scripts\StealFocus.MSTestExtensions.Build.Project.CSharp.targets
+		Scripts\StealFocus.MSTestExtensions.Build.Project.targets = Scripts\StealFocus.MSTestExtensions.Build.Project.targets
+		Scripts\StealFocus.MSTestExtensions.Build.Project.VisualBasic.targets = Scripts\StealFocus.MSTestExtensions.Build.Project.VisualBasic.targets
+		Scripts\StealFocus.MSTestExtensions.CCNet.proj = Scripts\StealFocus.MSTestExtensions.CCNet.proj
+		Scripts\StealFocus.MSTestExtensions.targets = Scripts\StealFocus.MSTestExtensions.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{38FAA416-87DD-4669-B03F-BF9B27575089}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StealFocus.MSTestExtensions", "StealFocus.MSTestExtensions", "{97801BA6-AD49-4537-B2AD-21D70F4F0450}"
+	ProjectSection(SolutionItems) = preProject
+		Artefacts\NuGet\StealFocus.MSTestExtensions\StealFocus.MSTestExtensions.nuspec = Artefacts\NuGet\StealFocus.MSTestExtensions\StealFocus.MSTestExtensions.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{538E6268-A618-4318-BBB1-94B2EDA58F19}"
+	ProjectSection(SolutionItems) = preProject
+		Artefacts\NuGet\StealFocus.MSTestExtensions\Content\MSTestExtensionsExampleTests.cs.pp = Artefacts\NuGet\StealFocus.MSTestExtensions\Content\MSTestExtensionsExampleTests.cs.pp
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = StealFocus.MSTestExtensions.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F709232-919D-4FC7-9082-3ACE171A6D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F709232-919D-4FC7-9082-3ACE171A6D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F709232-919D-4FC7-9082-3ACE171A6D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F709232-919D-4FC7-9082-3ACE171A6D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E842F65-CC67-49F3-9F90-53D8B488C912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E842F65-CC67-49F3-9F90-53D8B488C912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E842F65-CC67-49F3-9F90-53D8B488C912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E842F65-CC67-49F3-9F90-53D8B488C912}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1E842F65-CC67-49F3-9F90-53D8B488C912} = {E70E6A49-20A1-42DA-8878-1C48FA957966}
+		{38FAA416-87DD-4669-B03F-BF9B27575089} = {20B18EFA-89E6-41F1-8C84-678980DB8BFF}
+		{97801BA6-AD49-4537-B2AD-21D70F4F0450} = {38FAA416-87DD-4669-B03F-BF9B27575089}
+		{538E6268-A618-4318-BBB1-94B2EDA58F19} = {97801BA6-AD49-4537-B2AD-21D70F4F0450}
+	EndGlobalSection
+EndGlobal

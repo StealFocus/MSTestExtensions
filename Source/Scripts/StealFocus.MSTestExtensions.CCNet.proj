@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003" 
+  DefaultTargets="Default">
+
+  <Target Name="Default">
+    <Error
+      Condition=" '$(BranchName)'=='' "
+      Text="Please provide a 'BranchName' MSBuild variable e.g. 'Trunk'." />
+    <Error
+      Condition=" '$(CCNetLabel)'=='' "
+      Text="Please provide a 'CCNetLabel' MSBuild variable e.g. 'CCNetLabel'." />
+    <Error
+      Condition=" '$(DropLocation)'=='' "
+      Text="Please provide a 'DropLocation' MSBuild variable e.g. '\\Share\Project'." />
+    <Error
+      Condition=" '$(MajorVersionNumber)'=='' "
+      Text="Please provide a 'MajorVersionNumber' MSBuild variable e.g. '1' (the 1 in 1.0.0.0)." />
+    <Error
+      Condition=" '$(MinorVersionNumber)'=='' "
+      Text="Please provide a 'MinorVersionNumber' MSBuild variable e.g. '2' (the 2 in 1.2.0.0)." />
+    <PropertyGroup>
+      <BuildLabelNumber>$(CCNetLabel)</BuildLabelNumber>
+      <BuildLabel>$(BranchName)-$(BuildLabelNumber)</BuildLabel>
+      <DropLocationForBuild>$(DropLocation)\$(BranchName)\$(BuildLabelNumber)</DropLocationForBuild>
+      <IsAllConfigurationsBuild>true</IsAllConfigurationsBuild>
+      <IsCommandLineBuild>true</IsCommandLineBuild>
+      <IsDesktopBuild>false</IsDesktopBuild>
+    </PropertyGroup>
+    <!-- Determine whether to build the documentation. -->
+    <PropertyGroup Condition=" '$(CCNetRequestSource)'=='IntervalTrigger' ">
+      <IsDocumentationBuild>false</IsDocumentationBuild>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(CCNetRequestSource)'!='Scheduled' And '$(CCNetBuildCondition)'=='ForceBuild' ">
+      <IsDocumentationBuild>false</IsDocumentationBuild>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(CCNetRequestSource)'=='Scheduled' And '$(CCNetBuildCondition)'=='ForceBuild' ">
+      <IsDocumentationBuild>true</IsDocumentationBuild>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(IsDocumentationBuild)'=='' ">
+      <IsDocumentationBuild>false</IsDocumentationBuild>
+    </PropertyGroup>
+    <!-- Determine other properties. -->
+    <PropertyGroup>
+      <IsInitialiseEnvironmentBuild>true</IsInitialiseEnvironmentBuild>
+      <IsPackagedBuild>true</IsPackagedBuild>
+      <VersionNumber>$(CCNetLabel)</VersionNumber>
+    </PropertyGroup>
+    <!-- Log the properties we are using. -->
+    <Message
+      Importance="high"
+      Text="Build information:" />
+    <Message 
+      Importance="high" 
+      Text="Using 'BranchName' = '$(BranchName)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'BuildLabel' = '$(BuildLabel)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'BuildLabelNumber' = '$(BuildLabelNumber)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'DropLocation' = '$(DropLocation)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'DropLocationForBuild' = '$(DropLocationForBuild)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'IsAllConfigurationsBuild' = '$(IsAllConfigurationsBuild)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'IsCommandLineBuild' = '$(IsCommandLineBuild)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'IsDesktopBuild' = '$(IsDesktopBuild)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'IsDocumentationBuild' = '$(IsDocumentationBuild)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'IsInitialiseEnvironmentBuild' = '$(IsInitialiseEnvironmentBuild)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'IsPackagedBuild' = '$(IsPackagedBuild)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'MajorVersionNumber' = '$(MajorVersionNumber)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'MinorVersionNumber' = '$(MinorVersionNumber)'." />
+    <Message 
+      Importance="high" 
+      Text="Using 'VersionNumber' = '$(VersionNumber)'." />
+    <MSBuild
+      Projects="StealFocus.MSTestExtensions.Build.proj"
+      Properties="MaxBuildTimeInMinutes=60;BranchName=$(BranchName);BuildLabel=$(BuildLabel);BuildLabelNumber=$(BuildLabelNumber);DropLocationForBuild=$(DropLocationForBuild);IsAllConfigurationsBuild=$(IsAllConfigurationsBuild);IsCommandLineBuild=$(IsCommandLineBuild);IsDesktopBuild=$(IsDesktopBuild);IsDocumentationBuild=$(IsDocumentationBuild);IsInitialiseEnvironmentBuild=$(IsInitialiseEnvironmentBuild);IsPackagedBuild=$(IsPackagedBuild);VersionNumber=$(VersionNumber);MSTestSettingsFilePath=..\BuildServer.testsettings" />
+  </Target>
+
+</Project>

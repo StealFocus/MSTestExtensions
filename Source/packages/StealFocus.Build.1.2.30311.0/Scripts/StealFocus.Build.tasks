@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - please do not customise this .targets file. Modifications will affect all Solutions using the software 
+    factory and maybe overridden by future updates to the software factory. Customise your build process by editing 
+    the *.targets/*.proj files in your solution.
+  -->
+
+  <PropertyGroup Condition=" !Exists('$(SYSTEMDRIVE)\Program Files (x86)') ">
+    <Is32bitOS>true</Is32bitOS>
+    <Is64bitOS>false</Is64bitOS>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" Exists('$(SYSTEMDRIVE)\Program Files (x86)') ">
+    <Is32bitOS>false</Is32bitOS>
+    <Is64bitOS>true</Is64bitOS>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <MSBuildExtensionPackX86ImportPath>$(MSBuildExtensionsPath)\ExtensionPack\4.0</MSBuildExtensionPackX86ImportPath>
+    <MSBuildExtensionPackX64ImportPath>$(SYSTEMDRIVE)\Program Files\MSBuild\ExtensionPack\4.0</MSBuildExtensionPackX64ImportPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Is32bitOS)'=='true' And Exists('$(MSBuildExtensionPackX86ImportPath)') ">
+    <MSBuildExtensionPackImportPathToUse>$(MSBuildExtensionPackX86InstallPath)</MSBuildExtensionPackImportPathToUse>
+    <MSBuildExtensionPackIsOkay>true</MSBuildExtensionPackIsOkay>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Is64bitOS)'=='true' And !Exists('$(MSBuildExtensionPackX64ImportPath)') And Exists('$(MSBuildExtensionPackX86ImportPath)') ">
+    <MSBuildExtensionPackImportPathToUse>$(MSBuildExtensionPackX86InstallPath)</MSBuildExtensionPackImportPathToUse>
+    <MSBuildExtensionPackIsOkay>true</MSBuildExtensionPackIsOkay>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Is64bitOS)'=='true' And Exists('$(MSBuildExtensionPackX64ImportPath)') ">
+    <MSBuildExtensionPackImportPathToUse>$(MSBuildExtensionPackX64ImportPath)</MSBuildExtensionPackImportPathToUse>
+    <MSBuildExtensionPackIsOkay>true</MSBuildExtensionPackIsOkay>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ExtensionTasksPath>$(MSBuildExtensionPackImportPathToUse)\</ExtensionTasksPath>
+  </PropertyGroup>
+
+  <Import
+    Condition=" '$(MSBuildExtensionPackIsOkay)'=='true' "
+    Project="$(MSBuildExtensionPackImportPathToUse)\MSBuild.ExtensionPack.tasks" />
+
+  <PropertyGroup Condition=" '$(BranchName)' == '' ">
+    <BranchName>Unspecified</BranchName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(IsDesktopBuild)'=='' ">
+    <IsDesktopBuild>true</IsDesktopBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(ForceCodeGeneration)'=='' ">
+    <ForceCodeGeneration>false</ForceCodeGeneration>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(SdkPath)'=='' And '$(Is64bitOS)'!='true' ">
+    <SdkPath>$(SYSTEMDRIVE)\Program Files\Microsoft SDKs\Windows\v7.0A</SdkPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(SdkPath)'=='' And '$(Is64bitOS)'=='true' ">
+    <SdkPath>$(SYSTEMDRIVE)\Program Files (x86)\Microsoft SDKs\Windows\v7.0A</SdkPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(SdkBinPath)'=='' ">
+    <SdkBinPath>$(SdkPath)\bin</SdkBinPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Is64bitOS)'=='true' ">
+    <Sdk64BitBinPath>$(SdkBinPath)\x64</Sdk64BitBinPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(SolutionDirectoryPath)'=='' ">
+    <SolutionDirectoryPath>..</SolutionDirectoryPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DefaultBuildOrVersionNumber>0.0.0.0</DefaultBuildOrVersionNumber>
+  </PropertyGroup>
+
+  <!-- 
+    BuildLabel example - "Trunk.1.0.11020.0" or "Branch.UAT.1.0.11020.0", where the Build number component is YMMdd.
+  -->
+  <PropertyGroup Condition=" '$(BuildLabel)'=='' ">
+    <BuildLabel>Branch.$(BranchName).$(DefaultBuildOrVersionNumber)</BuildLabel>
+  </PropertyGroup>
+
+  <!-- 
+    BuildLabelNumber example - "1.0.11020.0", where the Build number component is YMMdd.
+  -->
+  <PropertyGroup Condition=" '$(BuildLabelNumber)'=='' ">
+    <BuildLabelNumber>$(DefaultBuildOrVersionNumber)</BuildLabelNumber>
+  </PropertyGroup>
+
+  <!-- 
+    VersionNumber example - "1.0.11020.0", where the Build number component is YMMdd.
+  -->
+  <PropertyGroup Condition=" '$(VersionNumber)'=='' ">
+    <VersionNumber>$(DefaultBuildOrVersionNumber)</VersionNumber>
+  </PropertyGroup>
+  
+</Project>

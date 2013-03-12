@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - please do not customise this .targets file. Modifications will affect all Solutions using the software 
+    factory and maybe overridden by future updates to the software factory. Customise your build process by editing 
+    the *.targets/*.proj files in your solution.
+  -->
+
+  <PropertyGroup Condition=" '$(ForceCodeGeneration)'=='true' ">
+    <RebuildDependsOn>
+      BeforeRebuildCustom;
+      $(RebuildDependsOn);
+      AfterRebuildCustom
+    </RebuildDependsOn>
+    <BuildDependsOn>
+      CodeGeneration;
+      BeforeBuildCustom;
+      $(BuildDependsOn);
+      AfterBuildCustom
+    </BuildDependsOn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(ForceCodeGeneration)'!='true' ">
+    <RebuildDependsOn>
+      CodeGeneration;
+      BeforeRebuildCustom;
+      $(RebuildDependsOn);
+      AfterRebuildCustom
+    </RebuildDependsOn>
+    <BuildDependsOn>
+      BeforeBuildCustom;
+      $(BuildDependsOn);
+      AfterBuildCustom
+    </BuildDependsOn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ResolveReferencesDependsOn>
+      BeforeResolveReferencesCustom;
+      $(ResolveReferencesDependsOn);
+      AfterResolveReferencesCustom
+    </ResolveReferencesDependsOn>
+    <ResGenDependsOn>
+      BeforeResGenCustom;
+      $(ResGenDependsOn);
+      AfterResGenCustom
+    </ResGenDependsOn>
+    <CompileDependsOn>
+      BeforeCompileCustom;
+      $(CompileDependsOn);
+      AfterCompileCustom
+    </CompileDependsOn>
+    <CleanDependsOn>
+      BeforeCleanCustom;
+      $(CleanDependsOn);
+      AfterCleanCustom
+    </CleanDependsOn>
+    <PublishDependsOn>
+      BeforePublishCustom;
+      $(PublishDependsOn);
+      AfterPublishCustom
+    </PublishDependsOn>
+  </PropertyGroup>
+
+  <Target Name="GenerateAssemblyInfoFile">
+    <Error
+      Condition=" '$(AssemblyInfoCommonFileName)'=='' "
+      Text="Please supply 'AssemblyInfoCommonFileName' property." />
+    <Error
+      Condition=" '$(AssemblyInfoCommonFilePath)'=='' "
+      Text="Please supply 'AssemblyInfoCommonFilePath' property." />
+    <MSBuild.ExtensionPack.Framework.DateAndTime TaskAction="Get" Format="yyyy">
+      <Output 
+        TaskParameter="Result" 
+        PropertyName="Year"/>
+    </MSBuild.ExtensionPack.Framework.DateAndTime>
+    <ReadLinesFromFile
+      File="$(AssemblyInfoCommonFilePath)" >
+      <Output
+        TaskParameter="Lines"
+        ItemName="ItemsFromFile" />
+    </ReadLinesFromFile>
+    <PropertyGroup Condition=" '$(AssemblyInfoCommonRegex)'=='' ">
+      <AssemblyInfoCommonRegex>\[assembly: AssemblyConfiguration\(&quot;$(BuildLabel) $(Configuration)&quot;\)\]</AssemblyInfoCommonRegex>
+    </PropertyGroup>
+    <CreateProperty
+      Condition=" '$([System.Text.RegularExpressions.Regex]::Match(%(ItemsFromFile.Identity), `$(AssemblyInfoCommonRegex)`))'!='' "
+      Value="true">
+      <Output
+        TaskParameter="Value"
+        PropertyName="AssemblyInfoVersionMatch" />
+    </CreateProperty>
+    <Message
+      Condition=" '$(AssemblyInfoVersionMatch)'=='true' "
+      Importance="high"
+      Text="Skipping regenerating '$(AssemblyInfoCommonFileName)' at '$(AssemblyInfoCommonFilePath)' (for project '$(MSBuildProjectName)') as the version information in the file matches the version for this build." />
+    <Message
+      Condition=" '$(AssemblyInfoVersionMatch)'!='true' "
+      Importance="high"
+      Text="Regenerating '$(AssemblyInfoCommonFileName)' at '$(AssemblyInfoCommonFilePath)' (for project '$(MSBuildProjectName)') as the version information in the file does not match the version for this build (or the file was not found)." />
+    <WriteLinesToFile
+      Condition=" '$(AssemblyInfoVersionMatch)'!='true' "
+      File="$(AssemblyInfoCommonFilePath)"
+      Lines="@(AssemblyInfoCommonFileLine)"
+      Overwrite="true" />
+  </Target>
+
+  <Target Name="RestoreBinariesToWebProjectBin" Condition=" '$(IsWebProject)'=='true' And '$(OutputPath)'!='bin\$(Configuration)' And '$(Configuration)'=='Debug' ">
+    <ItemGroup>
+      <WebProjectBinFolderFiles Include="$(OutputPath)\_PublishedWebsites\$(MSBuildProjectName)\bin\**\*.*" />
+    </ItemGroup>
+    <Copy
+      SourceFiles="@(WebProjectBinFolderFiles)"
+      DestinationFiles="@(WebProjectBinFolderFiles->'$(ProjectDir)bin\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+
+  <!-- Note: "$(BeforeBuildDependsOn)" added to "DependsOnTargets" for BizTalk support. -->
+  <Target Name="BeforeBuild" DependsOnTargets="GenerateAssemblyInfoFile;$(BeforeBuildDependsOn)">
+    <Message Importance="high" Text="The project is $(MSBuildProjectName) ($(Configuration)|$(Platform))." />
+    <Message Importance="high" Text="'SolutionDirectoryPath' is '$(SolutionDirectoryPath)'." />
+    <Message Importance="high" Text="'BranchName' is '$(BranchName)'." />
+    <Message Importance="high" Text="'VersionNumber' is '$(VersionNumber)'." />
+    <Message Importance="high" Text="'ForceCodeGeneration' is '$(ForceCodeGeneration)'." />
+  </Target>
+
+  <!-- Note: "$(AfterBuildDependsOn )" added to "DependsOnTargets" for BizTalk support. -->
+  <Target Name="AfterBuild" DependsOnTargets="RestoreBinariesToWebProjectBin;$(AfterBuildDependsOn)">
+    <!-- This "AspNetCompiler" is here for ASP.NET MVC Projects but don't think this is needed as of ASP.NET MVC v3. -->
+    <!--
+    <AspNetCompiler
+      Condition=" '$(MvcBuildViews)'=='true' "
+      VirtualPath="temp"
+      PhysicalPath="$(ProjectDir)\" />
+    -->
+    <!-- Check StyleCop -->
+    <Message
+      Importance="normal"
+      Text="StyleCopTargetsFilePath = '$(StyleCopTargetsFilePath)'" />
+    <Message
+      Importance="normal"
+      Text="StyleCopIsOkay = '$(StyleCopIsOkay)'" />
+    <Message
+      Importance="normal"
+      Text="RunStyleCop = '$(RunStyleCop)'" />
+    <Error
+      Condition=" '$(StyleCopIsOkay)'!='true' And $(RunStyleCop)=='true' "
+      Text="No StyleCop targets file could be found at '$(StyleCopTargetsFilePath)'. Please install StyleCop v$(StyleCopVersion) (StyleCop can be downloaded from http://stylecop.codeplex.com/, note version compatibility with ReSharper)." />
+  </Target>
+
+  <Target Name="BeforeRebuild" DependsOnTargets="GenerateAssemblyInfoFile" />
+
+  <Target Name="AfterRebuild" />
+
+  <Target Name="BeforeResolveReferences" />
+
+  <Target Name="AfterResolveReferences" />
+
+  <Target Name="BeforeResGen" />
+
+  <Target Name="AfterResGen" />
+
+  <Target Name="BeforeCompile" />
+
+  <Target Name="AfterCompile" />
+
+  <!-- Note: "$(BeforeCleanDependsOn )" added to "DependsOnTargets" for BizTalk support. -->
+  <Target Name="BeforeClean" DependsOnTargets="$(BeforeCleanDependsOn)" />
+
+  <Target Name="AfterClean" />
+
+  <Target Name="BeforePublish" />
+
+  <Target Name="AfterPublish" />
+
+</Project>

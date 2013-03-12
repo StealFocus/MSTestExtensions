@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - please do not customise this .targets file. Modifications will affect all Solutions using the software 
+    factory and maybe overridden by future updates to the software factory. Customise your build process by editing 
+    the *.targets/*.proj files in your solution.
+  -->
+
+  <Import Project="StealFocus.Build.StyleCop.targets" />
+
+  <PropertyGroup Condition=" Exists('$(StyleCopTargetsFilePath)') ">
+    <StyleCopIsOkay>true</StyleCopIsOkay>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunStyleCop)'=='' ">
+    <RunStyleCop>true</RunStyleCop>
+  </PropertyGroup>
+
+  <Import
+    Condition=" '$(StyleCopIsOkay)'=='true' And '$(RunStyleCop)'=='true' "
+    Project="$(StyleCopTargetsFilePath)" />
+
+  <!--
+  ASP.NET MVC Project - '$(MvcBuildViews)'!=''
+  ASP.NET Web Forms Project - '$(ProjectTypeGuids)'=='{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}'
+  -->
+  <PropertyGroup Condition=" '$(MvcBuildViews)'!='' Or '$(ProjectTypeGuids)'=='{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}' ">
+    <IsWebProject>true</IsWebProject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(ProjectTypeGuids)'=='{BAA0C2D2-18E2-41B9-852F-F413020CAA33};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}' ">
+    <IsOffice2007AddInProject>true</IsOffice2007AddInProject>
+    <IsOffice2010AddInProject>true</IsOffice2010AddInProject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(UseVSHostingProcess)'!='' ">
+    <IsSharePointProject>true</IsSharePointProject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(ProjectTypeGuids)'=='{f85a9f57-1aa8-4dce-b4cd-bc1780d0a071}' ">
+    <IsAzureProject>true</IsAzureProject>
+  </PropertyGroup>
+
+  <!--<PropertyGroup Condition=" '$(IsWebProject)'=='true' Or '$(IsOffice2007AddInProject)'=='true' Or '$(IsSharePointProject)'=='true' Or Exists('$(MSBuildProjectDirectory)\app.config') Or '$(OutputType)'=='Module' Or '$(OutputType)'=='Package' ">
+    <IsDependantOnConfigurationFiles>true</IsDependantOnConfigurationFiles>
+  </PropertyGroup>-->
+  
+</Project>

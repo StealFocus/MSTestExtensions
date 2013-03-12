@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - please do not customise this .targets file. Modifications will affect all Solutions using the software 
+    factory and maybe overridden by future updates to the software factory. Customise your build process by editing 
+    the *.targets/*.proj files in your solution.
+  -->
+  
+  <Target Name="CleanSystemWebServerHttpErrorsSection">
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="ReadElementXml"
+      File="$(WebPackageArchiveXmlFilePath)"
+      XPath="/sitemanifest/appHostConfig/relativeLocation/section[@name='system.webServer/httpErrors']">
+      <Output
+        TaskParameter="Value"
+        PropertyName="HttpErrorsSectionXmlContent"/>
+    </MSBuild.ExtensionPack.Xml.XmlFile>
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(HttpErrorsSectionXmlContent)'!='' "
+      ContinueOnError="true"
+      TaskAction="RemoveElement"
+      File="$(WebPackageArchiveXmlFilePath)"
+      Element="httpErrors"
+      ParentElement="/sitemanifest/appHostConfig/relativeLocation/section[@name='system.webServer/httpErrors']" />
+  </Target>
+
+  <Target Name="CleanArchiveXmlFiles">
+    <!-- 
+      Remove the "system.webServer/httpErrors" section from the manifest (when it exists) as this causes an error in MSDeploy (it 
+      seems this is a known issue with MSDeploy). The "system.webServer/httpErrors" section takes the default values anyway.
+    -->
+    <ItemGroup>
+      <WebPackageArchiveXmlFile Include="$(BuildDirectoryPath)\**\Archive\archive.xml" />
+    </ItemGroup>
+    <Message
+      Importance="high"
+      Text="Removing 'system.webServer/httpErrors' section from the following MSDeploy packages as the presence of this section can cause a fatal error in some scenarios (this is know issue with MSDeploy)." />
+    <Message
+      Condition=" '%(WebPackageArchiveXmlFile.Identity)'!='' "
+      Importance="high"
+      Text="- %(WebPackageArchiveXmlFile.FullPath)" />
+    <Message
+      Condition=" '%(WebPackageArchiveXmlFile.Identity)'=='' "
+      Importance="high"
+      Text="- (None found)" />
+    <MSBuild
+      Condition=" '%(WebPackageArchiveXmlFile.Identity)'!='' "
+      Projects="$(MSBuildProjectFile)"
+      Targets="CleanSystemWebServerHttpErrorsSection"
+      Properties="WebPackageArchiveXmlFilePath=%(WebPackageArchiveXmlFile.FullPath)" />
+  </Target>
+
+  <Target Name="AddAppPoolCredentialsToParametersFile">
+    <!-- Insert 2 x "parameter" elements to the "Parameters.xml" file for the AppPool credentials.
+    <parameter name="username" description="AppPool identity username" defaultValue="domain\username">
+      <parameterValidation type="RegularExpression" validationString="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
+      <parameterEntry type="DeploymentObjectAttribute" scope="processModel" match="/processModel/@userName" /> 
+    </parameter>
+    <parameter name="password" description="AppPool identity password" tags="password" defaultValue="DefaultPassword">
+      <parameterEntry type="DeploymentObjectAttribute" scope="processModel" match="/processModel/@password" /> 
+    </parameter>
+    -->
+    <!-- Parameter for "username" -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddElement"
+      File="$(ParametersXmlFilePath)"
+      Element="parameter"
+      XPath="/parameters" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]"
+      Key="name"
+      Value="username" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]"
+      Key="description"
+      Value="AppPool identity username" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]"
+      Key="defaultValue"
+      Value="domain\username" />
+    <!-- Parameter for "password" - parameterValidation -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddElement"
+      File="$(ParametersXmlFilePath)"
+      Element="parameterValidation"
+      XPath="/parameters/parameter[last()]" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]/parameterValidation"
+      Key="type"
+      Value="RegularExpression" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]/parameterValidation"
+      Key="validationString"
+      Value="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" />
+    <!-- Parameter for "password" - parameterEntry -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddElement"
+      File="$(ParametersXmlFilePath)"
+      Element="parameterEntry"
+      XPath="/parameters/parameter[last()]" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]/parameterEntry"
+      Key="type"
+      Value="DeploymentObjectAttribute" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]/parameterEntry"
+      Key="scope"
+      Value="processModel" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]/parameterEntry"
+      Key="match"
+      Value="/processModel/@userName" />
+    <!-- Parameter for "password" -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddElement"
+      File="$(ParametersXmlFilePath)"
+      Element="parameter"
+      XPath="/parameters" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]"
+      Key="name"
+      Value="password" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]"
+      Key="description"
+      Value="AppPool identity password" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]"
+      Key="tags"
+      Value="password" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]"
+      Key="defaultValue"
+      Value="DefaultPassword" />
+    <!-- Parameter for "password" - parameterEntry -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddElement"
+      File="$(ParametersXmlFilePath)"
+      Element="parameterEntry"
+      XPath="/parameters/parameter[last()]" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]/parameterEntry"
+      Key="type"
+      Value="DeploymentObjectAttribute" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]/parameterEntry"
+      Key="scope"
+      Value="processModel" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(ParametersXmlFilePath)"
+      Element="/parameters/parameter[last()]/parameterEntry"
+      Key="match"
+      Value="/processModel/@password" />
+  </Target>
+
+  <Target Name="AddAppPoolCredentialsParametersToSetParametersFile">
+    <!-- Insert 2 x "parameter" elements to the "Parameters.xml" file for the AppPool credentials.
+    <setParameter name="username" value="domain\username" /> 
+    <setParameter name="password" value="password" />
+    -->
+    <!-- SetParameter for "username" -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddElement"
+      File="$(SetParametersXmlFilePath)"
+      Element="setParameter"
+      XPath="/parameters" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(SetParametersXmlFilePath)"
+      Element="/parameters/setParameter[last()]"
+      Key="name"
+      Value="username" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(SetParametersXmlFilePath)"
+      Element="/parameters/setParameter[last()]"
+      Key="value"
+      Value="domain\username" />
+    <!-- SetParameter for "password" -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddElement"
+      File="$(SetParametersXmlFilePath)"
+      Element="setParameter"
+      XPath="/parameters" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(SetParametersXmlFilePath)"
+      Element="/parameters/setParameter[last()]"
+      Key="name"
+      Value="password" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      TaskAction="AddAttribute"
+      File="$(SetParametersXmlFilePath)"
+      Element="/parameters/setParameter[last()]"
+      Key="value"
+      Value="password" />
+  </Target>
+  
+  <Target Name="RunMSDeploy">
+    <!-- Set "IIS Web Application Name" value in "SetParameters.xml". -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebApplicationName)'!=''"
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='IIS Web Application Name']"
+      Key="value" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebApplicationName)'!=''"
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='IIS Web Application Name']"
+      Key="value"
+      Value="$(IisWebApplicationName)" />
+    <!-- Set "IIS Web Application Pool Name" value in "SetParameters.xml". -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebApplicationPoolName)'!=''"
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='IIS Web Application Pool Name']"
+      Key="value" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebApplicationPoolName)'!=''"
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='IIS Web Application Pool Name']"
+      Key="value"
+      Value="$(IisWebApplicationPoolName)" />
+    <!-- Set "IisVirtualDirectoryPhysicalPath" value in "SetParameters.xml". -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisVirtualDirectoryPhysicalPath)'!=''"
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='IisVirtualDirectoryPhysicalPath']"
+      Key="value" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisVirtualDirectoryPhysicalPath)'!=''"
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='IisVirtualDirectoryPhysicalPath']"
+      Key="value"
+      Value="$(IisVirtualDirectoryPhysicalPath)" />
+    <!-- Set "username" value in "SetParameters.xml". -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='username']"
+      Key="value" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='username']"
+      Key="value"
+      Value="$(IisAppPoolUsername)" />
+    <!-- Set "password" value in "SetParameters.xml". -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='password']"
+      Key="value" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive.SetParameters.xml"
+      Element="/parameters/setParameter[@name='password']"
+      Key="value"
+      Value="$(IisAppPoolPassword)" />
+    <!-- Set website bindings in "Archive\archive.xml" -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='http']"
+      Key="bindingInformation" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='http']"
+      Key="bindingInformation"
+      Value="$(IisWebSiteBinding)" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='https']"
+      Key="bindingInformation" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='https']"
+      Key="bindingInformation"
+      Value="$(IisWebSiteBinding)" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='net.tcp']"
+      Key="bindingInformation" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='net.tcp']"
+      Key="bindingInformation"
+      Value="$(IisWebSiteBinding)" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='net.pipe']"
+      Key="bindingInformation" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='net.pipe']"
+      Key="bindingInformation"
+      Value="$(IisWebSiteBinding)" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='net.msmq']"
+      Key="bindingInformation" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='net.msmq']"
+      Key="bindingInformation"
+      Value="$(IisWebSiteBinding)" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="RemoveAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='msmq.formatname']"
+      Key="bindingInformation" />
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(IisWebSiteBinding)'!=''"
+      ContinueOnError="true"
+      TaskAction="AddAttribute"
+      File="$(PackageDirectoryPath)\Archive\archive.xml"
+      Element="/sitemanifest/appHostConfig/site/bindings/binding[@protocol='msmq.formatname']"
+      Key="bindingInformation"
+      Value="$(IisWebSiteBinding)" />
+    <!-- DoNotDeleteRule = do not delete files on the target. -->
+    <Exec
+      Condition=" '$(DeleteFilesOnTarget)'=='true' "
+      Command="Archive.deploy.cmd /y /m:$(TargetServer)"
+      WorkingDirectory="$(PackageDirectoryPath)" />
+    <Exec
+      Condition=" '$(DeleteFilesOnTarget)'!='true' "
+      Command="Archive.deploy.cmd /y /m:$(TargetServer) -enableRule:DoNotDeleteRule"
+      WorkingDirectory="$(PackageDirectoryPath)" />
+  </Target>
+
+  <Target Name="MSDeploy">
+    <MSBuild
+      Condition=" '$(BranchName)'=='%(MSDeployAction.RequiredBranchName)' And ( '$(BuildName)'=='%(MSDeployAction.RequiredBuildName)' Or ''=='%(MSDeployAction.RequiredBuildName)' ) "
+      Projects="$(MSBuildProjectFile)"
+      Targets="RunMSDeploy"
+      Properties="
+        TargetServer=%(MSDeployAction.TargetServer);
+        IisWebApplicationName=%(MSDeployAction.IisWebApplicationName);
+        IisWebApplicationPoolName=%(MSDeployAction.IisWebApplicationPoolName);
+        IisVirtualDirectoryPhysicalPath=%(MSDeployAction.IisVirtualDirectoryPhysicalPath);
+        IisAppPoolUsername=%(MSDeployAction.IisAppPoolUsername);
+        IisAppPoolPassword=%(MSDeployAction.IisAppPoolPassword);
+        PackageDirectoryPath=%(MSDeployAction.PackageDirectoryPath);
+        DeleteFilesOnTarget=%(MSDeployAction.DeleteFilesOnTarget)" />
+  </Target>
+
+</Project>

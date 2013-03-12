@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- IMPORTANT - you must import these targets for the build scripts to function. -->
+  <Import Project="..\packages\StealFocus.Build.1.2.30311.0\Scripts\StealFocus.Build.tasks" />
+
+  <PropertyGroup>
+    <CompanyName>StealFocus</CompanyName>
+    <Culture>en-GB</Culture>
+    <ProductName>MSTestExtensions</ProductName>
+    <StrongNamePublicKey>00240000048000009400000006020000002400005253413100040000010001004b83898e53adc58bdb0f6269e06329fa4ba790559f564a35bc945ee4cf7910da51f929f7c138b2c27d14506b11b325badf43c21ebb0a40a7fc96e0c86e4020e144adbf9f218cce6fbd8a49cae5f0d5714aa4756ae3824774607caedf096a37b8a8a8871342a3060ddb7760bb685c47f25f6a80a4e184dcd8a42c8e9c5ccfbeeb</StrongNamePublicKey>
+    <StrongNamePublicKeyToken>0852b8a0f1458a87</StrongNamePublicKeyToken>
+    <StyleCopVersion>4.7</StyleCopVersion>
+  </PropertyGroup>
+
+</Project>

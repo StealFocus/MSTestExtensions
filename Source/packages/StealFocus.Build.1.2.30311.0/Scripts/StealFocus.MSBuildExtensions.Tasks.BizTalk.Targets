@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkAddAdapter" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkCleanHostQueue" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkCreateApplication" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkCreateHost" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkCreateHostInstance" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkCreateReceiveHandler" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkCreateSendHandler" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkDeleteAllReceiveHandlers" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkDeleteAllSendHandlers" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkDeleteHost" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkDeleteReceiveHandler" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkDeleteSendHandler" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkDisableAllReceiveLocations" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkDisableReceiveLocations" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkEnableAllReceiveLocations" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkEnableReceiveLocations" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkHostExists" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkRemoveApplication" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStartAllOrchestrations" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStartAllSendPorts" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStartApplication" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStartHost" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStartOrchestrations" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStartSendPorts" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStopAllSendPorts" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStopApplication" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStopHost" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkStopSendPorts" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkTerminateAllOrchestrations" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+  <UsingTask TaskName="StealFocus.MSBuildExtensions.Tasks.BizTalk.BizTalkTerminateOrchestrations" AssemblyFile="StealFocus.MSBuildExtensions.Tasks.BizTalk.dll" />
+</Project>

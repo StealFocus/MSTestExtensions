@@ -1,0 +1,1258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project 
+  DefaultTargets="Build" 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+  ToolsVersion="4.0">
+
+  <!-- 
+    IMPORTANT - please do not customise this .targets file. Modifications will affect all Solutions using the software 
+    factory and maybe overridden by future updates to the software factory. Customise your build process by editing 
+    the *.targets/*.proj files in your solution.
+  -->
+
+  <PropertyGroup Condition=" '$(BizTalkVersion)' == '' ">
+    <BizTalkVersion>2010</BizTalkVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(IisVersion)' == '' ">
+    <IisVersion>7.0</IisVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(MSDeployVersion)' == '' ">
+    <MSDeployVersion>2.1</MSDeployVersion>
+  </PropertyGroup>
+
+  <!-- To Do: Issue here as 'VisualStudioVersion' is a reserved property and defaults to '10.0' (for VS2010). -->
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' ">
+    <VisualStudioVersion>2010</VisualStudioVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(MSTestVersion)' == '' ">
+    <MSTestVersion>2010</MSTestVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(MaxBuildTimeInMinutes)'=='' ">
+    <MaxBuildTimeInMinutes>10</MaxBuildTimeInMinutes>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CleanupAzureFilesInOutputDirectory>true</CleanupAzureFilesInOutputDirectory>
+    <DeleteBuildDirectory>false</DeleteBuildDirectory>
+    <DeleteMSTestResultsDirectory>false</DeleteMSTestResultsDirectory>
+    <ForceInitialiseEnvironment>false</ForceInitialiseEnvironment>
+    <IsInitialiseEnvironmentBuild>true</IsInitialiseEnvironmentBuild>
+    <IsEnvironmentDeployBuild>false</IsEnvironmentDeployBuild>
+    <StartTimeStamp>$([System.DateTime]::Now.ToString("yyyy/MM/dd HH:mm:ss"))</StartTimeStamp>
+    <StateFilePath>.\StealFocus.Build.state</StateFilePath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(BuildDirectoryPath)' == '' ">
+    <BuildDirectoryPath>$(SolutionDirectoryPath)\..\Build</BuildDirectoryPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(DropLocationForBuild)'=='' ">
+    <DropLocationForBuild>$(SolutionDirectoryPath)\..\Drop</DropLocationForBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(IsDesktopBuild)'=='true' And '$(PopulateDropLocationForBuild)'=='' ">
+    <PopulateDropLocationForBuild>false</PopulateDropLocationForBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(IsDesktopBuild)'!='true' And '$(PopulateDropLocationForBuild)'=='' ">
+    <PopulateDropLocationForBuild>true</PopulateDropLocationForBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(MSTestResultsDirectoryPath)' == '' ">
+    <MSTestResultsDirectoryPath>$(SolutionDirectoryPath)\TestResults</MSTestResultsDirectoryPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <XmlNamespace Include="MSBuild2003XmlNamespace">
+      <Prefix>def</Prefix>
+      <Uri>http://schemas.microsoft.com/developer/msbuild/2003</Uri>
+    </XmlNamespace>
+  </ItemGroup>
+
+  <Import Project="StealFocus.Build.StyleCop.targets" />
+
+  <Import 
+    Condition=" '$(IisVersion)'=='7.0' " 
+    Project="StealFocus.Build.IIS7.x.targets" />
+
+  <Import
+    Condition=" '$(IisVersion)'=='7.5' "
+    Project="StealFocus.Build.IIS7.x.targets" />
+
+  <Import
+    Condition=" '$(BizTalkVersion)'=='2009' "
+    Project="StealFocus.Build.BizTalk2009.targets" />
+
+  <Import
+    Condition=" '$(BizTalkVersion)'=='2010' "
+    Project="StealFocus.Build.BizTalk2010.targets" />
+
+  <Import
+    Condition=" '$(MSDeployVersion)'=='2.1' "
+    Project="StealFocus.Build.MSDeploy2.1.targets" />
+  
+  <Import
+    Condition=" '$(MSTestVersion)'=='2010' "
+    Project="StealFocus.Build.MSTest2010.targets" />
+
+  <Import Project="StealFocus.Build.NUnit.targets" />
+
+  <Import Project="StealFocus.Build.WindowsAzure.targets" />
+
+  <PropertyGroup Condition=" '$(IsInitialiseEnvironmentBuild)'=='true' ">
+    <InitialiseEnvironmentDependsOn>
+      BeforeInitialiseEnvironmentCustom;
+      CoreInitialiseEnvironment;
+      AfterInitialiseEnvironmentCustom
+    </InitialiseEnvironmentDependsOn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(IsEnvironmentDeployBuild)'=='true' ">
+    <EnvironmentDeployDependsOn>
+      BeforeEnvironmentDeployCustom;
+      CoreEnvironmentDeploy;
+      AfterEnvironmentDeployCustom
+    </EnvironmentDeployDependsOn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <InitialiseBuildDependsOn>
+      BeforeInitialiseBuildCustom;
+      CoreInitialiseBuild;
+      AfterInitialiseBuildCustom
+    </InitialiseBuildDependsOn>
+    <CodeGenerationDependsOn>
+      BeforeCodeGenerationCustom;
+      CoreCodeGeneration;
+      AfterCodeGenerationCustom
+    </CodeGenerationDependsOn>
+    <SolutionCompileDependsOn>
+      BeforeSolutionCompileCustom;
+      CoreSolutionCompile;
+      AfterSolutionCompileCustom
+    </SolutionCompileDependsOn>
+    <DeployForTestDependsOn>
+      BeforeDeployForTestCustom;
+      CoreDeployForTest;
+      AfterDeployForTestCustom
+    </DeployForTestDependsOn>
+    <RunTestsDependsOn>
+      BeforeRunTestsCustom;
+      CoreRunTests;
+      AfterRunTestsCustom
+    </RunTestsDependsOn>
+    <PackageDependsOn>
+      BeforePackageCustom;
+      CorePackage;
+      AfterPackageCustom
+    </PackageDependsOn>
+    <BuildDocumentationDependsOn>
+      BeforeBuildDocumentationCustom;
+      CoreBuildDocumentation;
+      AfterBuildDocumentationCustom
+    </BuildDocumentationDependsOn>
+    <DropBuildDependsOn>
+      BeforeDropBuildCustom;
+      CoreDropBuild;
+      AfterDropBuildCustom
+    </DropBuildDependsOn>
+    <BuildDependsOn>
+      $(InitialiseBuildDependsOn);
+      $(InitialiseEnvironmentDependsOn);
+      $(CodeGenerationDependsOn);
+      $(SolutionCompileDependsOn);
+      $(DeployForTestDependsOn);
+      $(RunTestsDependsOn);
+      $(PackageDependsOn);
+      $(BuildDocumentationDependsOn);
+      $(DropBuildDependsOn);
+      $(EnvironmentDeployDependsOn);
+      End
+    </BuildDependsOn>
+  </PropertyGroup>
+
+  <Target Name="DeleteStateFile">
+    <Message
+      Condition=" '$(ForceInitialiseEnvironment)'=='true' And Exists('$(StateFilePath)') "
+      Importance="high"
+      Text="Deleting the 'state file because 'ForceInitialiseEnvironment' was true." />
+    <Delete
+      Condition=" '$(ForceInitialiseEnvironment)'=='true' And Exists('$(StateFilePath)') "
+      Files="$(StateFilePath)" />
+  </Target>
+
+  <Target Name="DeleteBuildDirectory">
+    <Message
+      Condition=" '$(DeleteBuildDirectory)'=='true' And Exists('$(BuildDirectoryPath)') "
+      Importance="high"
+      Text="Deleting Build directory at '$(BuildDirectoryPath)'." />
+    <Message
+      Condition=" '$(DeleteBuildDirectory)'=='true' And !Exists('$(BuildDirectoryPath)') "
+      Importance="high"
+      Text="No Build directory at '$(BuildDirectoryPath)' to delete." />
+    <RemoveDir
+      Condition=" '$(DeleteBuildDirectory)'=='true' And Exists('$(BuildDirectoryPath)') "
+      Directories="$(BuildDirectoryPath)" />
+  </Target>
+
+  <Target Name="DeleteMSTestResultsDirectory">
+    <Message
+      Condition=" '$(DeleteMSTestResultsDirectory)'=='true' And Exists('$(MSTestResultsDirectoryPath)') "
+      Importance="high"
+      Text="Deleting the Test Results directory at '$(MSTestResultsDirectoryPath)'." />
+    <Message
+      Condition=" '$(DeleteMSTestResultsDirectory)'=='true' And !Exists('$(MSTestResultsDirectoryPath)') "
+      Importance="high"
+      Text="No Test Results directory at '$(MSTestResultsDirectoryPath)' to delete." />
+    <RemoveDir
+      Condition=" '$(DeleteMSTestResultsDirectory)'=='true' And Exists('$(MSTestResultsDirectoryPath)') "
+      Directories="$(MSTestResultsDirectoryPath)" />
+  </Target>
+
+  <Target Name="DeleteFilesFromPreviousBuilds" DependsOnTargets="DeleteStateFile;DeleteBuildDirectory;DeleteMSTestResultsDirectory" />
+
+  <Target Name="ValidatePrerequisites">
+    <Message
+      Importance="high"
+      Text="Validating pre-requisites..." />
+    <Error
+      Condition=" '$(MSBuildExtensionPackIsOkay)'!='true' "
+      Text="Please install the MSBuild Extensions Pack v4.0.3.0 or higher (MSBuild Extensions Pack can be downloaded from http://msbuildextensionpack.codeplex.com/)." />
+    <CallTarget
+      Condition=" !Exists('$(StateFilePath)') "
+      Targets="FixStyleCopOn64Bit" />
+    <CreateProperty
+      Condition=" '%(AzureSubscription.Identity)'!='' "
+      Value="true">
+      <Output
+        TaskParameter="Value"
+        PropertyName="AzurePublishActionRequired" />
+    </CreateProperty>
+    <PropertyGroup Condition=" '$(AzurePublishActionRequired)'=='' ">
+      <AzurePublishActionRequired>false</AzurePublishActionRequired>
+    </PropertyGroup>
+    <Exec
+      Condition=" !Exists('$(StateFilePath)') "
+      Command="powershell -ExecutionPolicy Unrestricted -NonInteractive -File $(MSBuildThisFileDirectory)\StealFocus.Build.ValidatePrerequisites.ps1 -currentDirectory $(MSBuildThisFileDirectory) -azurePublishActionRequired $(AzurePublishActionRequired)"
+      LogStandardErrorAsError="true"
+      ContinueOnError="false"
+      WorkingDirectory="." />
+    <Message
+      Importance="high"
+      Text="...complete." />
+  </Target>
+  
+  <Target Name="ValidateProperties">
+    <Message
+      Importance="high"
+      Text="Validating properties..." />
+    <Error
+      Condition=" !Exists('$(SdkBinPath)') "
+      Text="The value set for the SDK Bin Path ('$(SdkBinPath)') did not exist." />
+    <Error
+      Condition=" !Exists('$(Sdk64BitBinPath)') And '$(Is64bitOS)'=='true' "
+      Text="The value set for the SDK 64-bit Bin Path ('$(Sdk64BitBinPath)') did not exist." />
+    <Error
+      Condition=" '%(EventLogSource.EventLogName)'=='' And '%(EventLogSource.Identity)'!='' "
+      Text="When configuring 'EventLogSource' ItemGroups, you must supply 'EventLogName' metadata." />
+    <Message
+      Importance="high"
+      Text="...complete." />
+  </Target>
+
+  <Target Name="ShowProperties">
+    <Message
+      Importance="high"
+      Text="Using the following properties for this build." />
+    <Message
+      Importance="high"
+      Text="'BizTalkVersion' is '$(BizTalkVersion)'." />
+    <Message
+      Importance="high"
+      Text="'BuildDirectoryPath' is '$(BuildDirectoryPath)'." />
+    <Message
+      Importance="high"
+      Text="'BuildName' is '$(BuildName)'." />
+    <Message
+      Importance="high"
+      Text="'DeleteBuildDirectory' is '$(DeleteBuildDirectory)'." />
+    <Message
+      Importance="high"
+      Text="'DeleteMSTestResultsDirectory' is '$(DeleteMSTestResultsDirectory)'." />
+    <Message
+      Importance="high"
+      Text="'ForceCodeGeneration' is '$(ForceCodeGeneration)'." />
+    <Message
+      Importance="high"
+      Text="'ForceInitialiseEnvironment' is '$(ForceInitialiseEnvironment)'." />
+    <Message
+      Importance="high"
+      Text="'IisVersion' is '$(IisVersion)'." />
+    <Message
+      Importance="high"
+      Text="'Is32bitOS' is '$(Is32bitOS)'." />
+    <Message
+      Importance="high"
+      Text="'Is64bitOS' is '$(Is64bitOS)'." />
+    <Message
+      Importance="high"
+      Text="'IsDesktopBuild' is '$(IsDesktopBuild)'." />
+    <Message
+      Importance="high"
+      Text="'IsInitialiseEnvironmentBuild' is '$(IsInitialiseEnvironmentBuild)'." />
+    <Message
+      Importance="high"
+      Text="'IsEnvironmentDeployBuild' is '$(IsEnvironmentDeployBuild)'." />
+    <Message
+      Importance="high"
+      Text="'MSBuildExtensionPackImportPathToUse' is '$(MSBuildExtensionPackImportPathToUse)'." />
+    <Message
+      Importance="high"
+      Text="'MSDeployVersion' is '$(MSDeployVersion)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestResultsDirectoryPath' is '$(MSTestResultsDirectoryPath)'." />
+    <Message
+      Importance="high"
+      Text="'MSTestVersion' is '$(MSTestVersion)'." />
+    <Message
+      Importance="high"
+      Text="'SdkPath' is '$(SdkPath)'." />
+    <Message
+      Importance="high"
+      Text="'SdkBinPath' is '$(SdkBinPath)'." />
+    <Message
+      Condition=" '$(Is64bitOS)'=='true' "
+      Importance="high"
+      Text="'Sdk64BitBinPath' is '$(Sdk64BitBinPath)'." />
+    <Message
+      Importance="high"
+      Text="'SolutionDirectoryPath' is '$(SolutionDirectoryPath)'." />
+    <Message
+      Importance="high"
+      Text="'StateFilePath' is '$(StateFilePath)'." />
+    <Message
+      Importance="high"
+      Text="'StrongNameKeyPairPath' is '$(StrongNameKeyPairPath)'." />
+    <Message
+      Importance="high"
+      Text="'VisualStudioVersion' is '$(VisualStudioVersion)'." />
+  </Target>
+
+  <Target Name="SetupStrongNameVerificationSkipping">
+    <Message
+      Importance="high"
+      Text="Adding Strong Name Verification Skipping Entry for Public Key Token '$(StrongNamePublicKeyToken)'." />
+    <Message
+      Importance="high"
+      Text="For 32-bit processes." />
+    <Exec
+      Command='"$(SdkBinPath)\sn.exe" -Vr *,$(StrongNamePublicKeyToken)'  />
+    <Message
+      Importance="high"
+      Text="For 64-bit processes." />
+    <Exec
+      Command='"$(Sdk64BitBinPath)\sn.exe" -Vr *,$(StrongNamePublicKeyToken)'  />
+    <Message
+      Importance="high"
+      Text="Performing IIS Reset so that the Strong Name verification skipping entry is" />
+    <Message
+      Importance="high"
+      Text="picked up by IIS. Note that this operation is only performed for local" />
+    <Message
+      Importance="high"
+      Text="builds, the build server uses fully signed assemblies so no IIS Reset is" />
+    <Message
+      Importance="high"
+      Text="required on the build server." />
+    <CallTarget
+      Targets="IisReset" />
+  </Target>
+
+  <Target Name="SetupEventLog">
+    <Message
+      Importance="high"
+      Text="Setting up the following Event Log sources:" />
+    <Message
+      Condition=" '%(EventLogSource.Identity)'!='' "
+      Importance="high"
+      Text="- %(EventLogSource.EventLogName)\%(EventLogSource.Identity)" />
+    <Message
+      Condition=" '%(EventLogSource.Identity)'=='' "
+      Importance="high"
+      Text="- (None configured)" />
+    <MSBuild.ExtensionPack.Computer.Registry
+      Condition=" '%(EventLogSource.Identity)'!= '' "
+      TaskAction="CreateKey"
+      RegistryHive="LocalMachine"
+      Key="SYSTEM\ControlSet001\Services\Eventlog\%(EventLogSource.EventLogName)\%(EventLogSource.Identity)" />
+    <MSBuild.ExtensionPack.Computer.Registry
+      Condition=" '%(EventLogSource.Identity)'!= '' "
+      TaskAction="Set"
+      RegistryHive="LocalMachine"
+      Key="SYSTEM\ControlSet001\Services\Eventlog\%(EventLogSource.EventLogName)\%(EventLogSource.Identity)"
+      Value="EventMessageFile"
+      Data="$(systemdrive)\Windows\Microsoft.NET\Framework\v2.0.50727\EventLogMessages.dll"/>
+  </Target>
+
+  <Target Name="CreateStateFile">
+    <WriteLinesToFile
+      File="$(StateFilePath)"
+      Overwrite="true"
+      Lines="Created on $([System.DateTime]::Now.ToString(`yyyy-MM-dd hh:mm:ss`))." />
+  </Target>
+
+  <!-- Initialise Build -->
+
+  <Target Name="BeforeInitialiseBuildCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreInitialiseBuild" DependsOnTargets="ValidatePrerequisites;ValidateProperties;ShowProperties;DeleteFilesFromPreviousBuilds" />
+
+  <Target Name="AfterInitialiseBuildCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="InitialiseBuild" DependsOnTargets="$(InitialiseBuildDependsOn)" />
+
+  <!-- Initialise Environment -->
+
+  <Target Name="BeforeInitialiseEnvironmentCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreInitialiseEnvironment">
+    <PropertyGroup Condition=" '$(IsDesktopBuild)'=='true' And !Exists('$(StateFilePath)') ">
+      <SetupStrongNameVerificationSkipping>true</SetupStrongNameVerificationSkipping>
+    </PropertyGroup>
+    <PropertyGroup Condition=" !Exists('$(StateFilePath)') ">
+      <SetupEventLog>true</SetupEventLog>
+      <SetupIis>true</SetupIis>
+      <CreateStateFile>true</CreateStateFile>
+    </PropertyGroup>
+    <Message
+      Condition=" '$(SetupStrongNameVerificationSkipping)'!='true' And '$(IsDesktopBuild)'=='true' "
+      Importance="high"
+      Text="Skipping creation of Strong Name verification skipping entry (the state file was found indicating this had already been performed)." />
+    <Message
+      Condition=" '$(SetupStrongNameVerificationSkipping)'!='true' And '$(IsDesktopBuild)'!='true' "
+      Importance="high"
+      Text="Skipping creation of Strong Name verification skipping entry (this is a build server)." />
+    <CallTarget
+      Condition=" '$(SetupStrongNameVerificationSkipping)'=='true' "
+      Targets="SetupStrongNameVerificationSkipping" />
+    <Message
+      Condition=" '$(SetupEventLog)'!='true' "
+      Importance="high"
+      Text="Skipping set up of Event Log (the state file was found indicating this had already been performed)." />
+    <CallTarget
+      Condition=" '$(SetupEventLog)'=='true' "
+      Targets="SetupEventLog" />
+    <Message
+      Condition=" '$(SetupIis)'!='true' "
+      Importance="high"
+      Text="Skipping set up of IIS (the state file was found indicating this had already been performed)." />
+    <CallTarget
+      Condition=" '$(SetupIis)'=='true' "
+      Targets="SetupIis" />
+    <Message
+      Condition=" '$(CreateStateFile)'!='true' "
+      Importance="high"
+      Text="Skipping creation of state file (existing state file found)." />
+    <CallTarget
+      Condition=" '$(CreateStateFile)'=='true' "
+      Targets="CreateStateFile" />
+  </Target>
+
+  <Target Name="AfterInitialiseEnvironmentCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="InitialiseEnvironment" DependsOnTargets="$(InitialiseEnvironmentDependsOn)" />
+  
+  <!-- Code Generation -->
+
+  <Target Name="BeforeCodeGenerationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreCodeGeneration" />
+
+  <Target Name="AfterCodeGenerationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CodeGeneration" DependsOnTargets="$(CodeGenerationDependsOn)" />
+  
+  <!-- Solution Compile -->
+
+  <Target Name="BeforeSolutionCompileCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CorePackageWebProjectsForConfiguration">
+    <!-- To Do: "IntermediateOutputPath" instead of "_PackageTempDir"? -->
+    <!-- Package with delay signing (it's a desktop build). -->
+    <MSBuild
+      Condition=" '$(IsDesktopBuild)'=='true' And '%(WebProject.Package)'=='true' "
+      Projects="%(WebProject.Identity)"
+      Properties="Configuration=$(Configuration);OutputPath=$(OutputPath);PackageAsSingleFile=%(WebProject.PackageAsSingleFile);PackageLocation=$(OutputPath)\_PublishedWebsites\%(WebProject.PackageName);_PackageTempDir=%(WebProject.PackageTempDir);IncludeIisSettings=%(WebProject.IncludeIisSettings);IncludeAppPool=%(WebProject.IncludeAppPool);DeployEncryptKey=%(WebProject.DeployEncryptKey);$(Properties);$(CustomPropertiesForBuild)"
+      Targets="Package" />
+    <!-- Package with full signing (it's a server build). -->
+    <MSBuild
+      Condition=" '$(IsDesktopBuild)'!='true' And '%(WebProject.Package)'=='true' "
+      Projects="%(WebProject.Identity)"
+      Properties="Configuration=$(Configuration);OutputPath=$(OutputPath);PackageAsSingleFile=%(WebProject.PackageAsSingleFile);PackageLocation=$(OutputPath)\_PublishedWebsites\%(WebProject.PackageName);_PackageTempDir=%(WebProject.PackageTempDir);IncludeIisSettings=%(WebProject.IncludeIisSettings);IncludeAppPool=%(WebProject.IncludeAppPool);DeployEncryptKey=%(WebProject.DeployEncryptKey);$(Properties);$(CustomPropertiesForBuild);DelaySign=false;AssemblyOriginatorKeyFile=$(StrongNameKeyPairPath)"
+      Targets="Package" />
+    <!-- Clean-up the MSDeploy XML. -->
+    <CallTarget Targets="CleanArchiveXmlFiles" />
+    <!-- Add the AppPool credentials as parameters to the MSDeploy package(s). -->
+    <MSBuild
+      Condition=" '%(WebProject.Package)'=='true' "
+      Projects="$(MSBuildProjectFile)"
+      Properties="ParametersXmlFilePath=$(BuildDirectoryPath)\$(Configuration)\_PublishedWebsites\%(WebProject.PackageName)\Archive\parameters.xml"
+      Targets="AddAppPoolCredentialsToParametersFile" />
+    <MSBuild
+      Condition=" '%(WebProject.Package)'=='true' "
+      Projects="$(MSBuildProjectFile)"
+      Properties="SetParametersXmlFilePath=$(BuildDirectoryPath)\$(Configuration)\_PublishedWebsites\%(WebProject.PackageName)\Archive.SetParameters.xml"
+      Targets="AddAppPoolCredentialsParametersToSetParametersFile" />
+    <!-- Delete the 'PackageTempDir' so we don't leave artefacts on the file system. -->
+    <RemoveDir
+      Condition=" '%(WebProject.Package)'=='true' And Exists('%(WebProject.PackageTempDir)') "
+      Directories="%(WebProject.PackageTempDir)" />
+  </Target>
+
+  <Target Name="CorePackageSharePointProjectsForConfiguration">
+    <!-- Package with delay signing (it's a desktop build). -->
+    <MSBuild
+      Condition=" '$(IsDesktopBuild)'=='true' And '%(SharePointProject.Package)'=='true' "
+      Projects="%(SharePointProject.Identity)"
+      Properties="Configuration=$(Configuration);OutputPath=$(OutputPath);$(Properties);$(CustomPropertiesForBuild)"
+      Targets="Package" />
+    <!-- Package with full signing (it's a server build). -->
+    <MSBuild
+      Condition=" '$(IsDesktopBuild)'!='true' And '%(SharePointProject.Package)'=='true' "
+      Projects="%(SharePointProject.Identity)"
+      Properties="Configuration=$(Configuration);OutputPath=$(OutputPath);$(Properties);$(CustomPropertiesForBuild);DelaySign=false;AssemblyOriginatorKeyFile=$(StrongNameKeyPairPath)"
+      Targets="Package" />
+  </Target>
+
+  <Target Name="CorePublishAzureProjectsForConfigurationForTargetProfileAndCopy">
+    <PropertyGroup>
+      <DestinationFolderPathForTargetProfile>$(OutputPath)\_PublishedAzureProjects\$(AzureConfigurationIdentity)</DestinationFolderPathForTargetProfile>
+    </PropertyGroup>
+    <RemoveDir
+      Condition=" Exists('$(DestinationFolderPathForTargetProfile)') "
+      Directories="$(DestinationFolderPathForTargetProfile)" />
+    <!-- Publish with delay signing (it's a desktop build). -->
+    <MSBuild
+      Condition=" '$(IsDesktopBuild)'=='true' And '$(AzureConfigurationPackage)'=='true' "
+      Projects="$(AzureProjectFullPath)"
+      Properties="Configuration=$(Configuration);OutputPath=$(OutputPath);TargetProfile=$(AzureConfigurationIdentity);$(Properties);$(CustomPropertiesForBuild)"
+      Targets="Publish" />
+    <!-- Publish with full signing (it's a server build). -->
+    <MSBuild
+      Condition=" '$(IsDesktopBuild)'!='true' And '$(AzureConfigurationPackage)'=='true' "
+      Projects="$(AzureProjectFullPath)"
+      Properties="Configuration=$(Configuration);OutputPath=$(OutputPath);TargetProfile=$(AzureConfigurationIdentity);$(Properties);$(CustomPropertiesForBuild);DelaySign=false;AssemblyOriginatorKeyFile=$(StrongNameKeyPairPath)"
+      Targets="Publish" />
+    <ItemGroup>
+      <PublishedWindowsAzureProjectFiles Include="$(OutputPath)\app.publish\*.*" />
+    </ItemGroup>
+    <Copy
+      SourceFiles="@(PublishedWindowsAzureProjectFiles)"
+      DestinationFolder="$(DestinationFolderPathForTargetProfile)" />
+  </Target>
+
+  <Target Name="CorePublishAzureProjectsForConfigurationForTargetProfile">
+    <MSBuild
+      Condition=" '%(AzureConfiguration.Package)'=='true' "
+      Projects="$(MSBuildProjectFile)"
+      Properties="Configuration=$(Configuration);OutputPath=$(OutputPath);AzureProjectFullPath=$(AzureProjectFullPath);AzureConfigurationPackage=%(AzureConfiguration.Package);AzureConfigurationIdentity=%(AzureConfiguration.Identity);Properties=$(Properties)"
+      Targets="CorePublishAzureProjectsForConfigurationForTargetProfileAndCopy" />
+  </Target>
+  
+  <Target Name="CorePublishAzureProjectsForConfiguration">
+    <Message
+      Importance="high"
+      Text="Packaging the following Azure Projects:" />
+    <Message
+      Condition=" '%(AzureProject.Identity)'!='' "
+      Importance="high"
+      Text="- %(AzureProject.Filename)" />
+    <Message
+      Condition=" '%(AzureProject.Identity)'=='' "
+      Importance="high"
+      Text="- (None configured)" />
+    <Message
+     Importance="high"
+     Text="Packaging the following Azure Project Configurations:" />
+    <Message
+      Condition=" '%(AzureConfiguration.Identity)'!='' And '%(AzureConfiguration.Package)'=='true' "
+      Importance="high"
+      Text="- %(AzureConfiguration.Filename)" />
+    <Message
+      Condition=" '%(AzureConfiguration.Identity)'=='' "
+      Importance="high"
+      Text="- (None configured)" />
+    <MSBuild
+      Condition=" '%(AzureProject.Identity)'!='' And '%(AzureProject.Package)'=='true' "
+      Projects="$(MSBuildProjectFile)"
+      Properties="Configuration=$(Configuration);OutputPath=$(OutputPath)\;AzureProjectFullPath=%(AzureProject.FullPath);Properties=$(Properties)"
+      Targets="CorePublishAzureProjectsForConfigurationForTargetProfile" />
+    <!-- Clean-up Azure files in output directory. -->
+    <RemoveDir
+      Condition=" '$(CleanupAzureFilesInOutputDirectory)'=='true' And Exists('$(OutputPath)\app.publish') "
+      Directories="$(OutputPath)\app.publish" />
+    <RemoveDir
+      Condition=" '$(CleanupAzureFilesInOutputDirectory)'=='true' And Exists('$(OutputPath)\%(AzureProject.Filename).csx') "
+      Directories="$(OutputPath)\%(AzureProject.Filename).csx" />
+    <Delete
+      Condition=" '$(CleanupAzureFilesInOutputDirectory)'=='true' And Exists('$(OutputPath)\ServiceConfiguration.cscfg') "
+      Files="$(OutputPath)\ServiceConfiguration.cscfg" />
+  </Target>
+
+  <Target Name="CoreSolutionCompileForConfiguration">
+    <Error 
+      Condition=" '%(AzureProject.Identity)'!='' And '$(DefaultAzureTargetProfile)'=='' "
+      Text="Please define a 'DefaultAzureTargetProfile' property with a value matching a profile e.g. 'Local' or 'Cloud' etc." />
+    <!-- Compile with delay signing (it's a desktop build). -->
+    <MSBuild
+      Condition=" '$(IsDesktopBuild)'=='true' "
+      Projects="$(Solution)"
+      Properties="Configuration=%(ConfigurationToBuild.FlavorToBuild);OutputPath=$(BuildDirectoryPath)\%(ConfigurationToBuild.FlavorToBuild);TargetProfile=$(DefaultAzureTargetProfile);$(Properties)"
+      Targets="$(Targets)" />
+    <!-- Compile with full signing (it's a server build). -->
+    <MSBuild
+      Condition=" '$(IsDesktopBuild)'!='true' "
+      Projects="$(Solution)"
+      Properties="Configuration=%(ConfigurationToBuild.FlavorToBuild);OutputPath=$(BuildDirectoryPath)\%(ConfigurationToBuild.FlavorToBuild);TargetProfile=$(DefaultAzureTargetProfile);$(Properties);DelaySign=false;AssemblyOriginatorKeyFile=$(StrongNameKeyPairPath)"
+      Targets="$(Targets)" />
+    <!-- Package/Publish configured projects. -->
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Properties="Configuration=%(ConfigurationToBuild.FlavorToBuild);OutputPath=$(BuildDirectoryPath)\%(ConfigurationToBuild.FlavorToBuild);Properties=$(Properties)"
+      Targets="CorePackageWebProjectsForConfiguration;CorePackageSharePointProjectsForConfiguration;CorePublishAzureProjectsForConfiguration" />
+  </Target>
+
+  <Target Name="CheckProjectConfigurationElement">
+    <!-- Only test for Silverlight project if we are able to skip it. -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(SilverlightCheckedXPath)'=='false' Or ( '$(SilverlightCheckedXPath)'=='true' And '$(DefaultCheck)'=='false' ) "
+      TaskAction="ReadElementXml"
+      File="$(FullPath)"
+      Namespaces="@(XmlNamespace)"
+      XPath="/def:Project/def:PropertyGroup[def:TargetFrameworkIdentifier = 'Silverlight']/..">
+      <Output
+        TaskParameter="Value"
+        PropertyName="TargetFrameworkIdentifierConfigurationElementContent"/>
+    </MSBuild.ExtensionPack.Xml.XmlFile>
+    <PropertyGroup Condition=" '$(TargetFrameworkIdentifierConfigurationElementContent)'!='' ">
+      <IsSilverlightProject>true</IsSilverlightProject>
+    </PropertyGroup>
+    <!-- Only test for Office project if we are able to skip it. -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(OfficeAddInCheckedXPath)'=='false' Or ( '$(OfficeAddInCheckedXPath)'=='true' And '$(DefaultCheck)'=='false' ) "
+      TaskAction="ReadElementXml"
+      File="$(FullPath)"
+      Namespaces="@(XmlNamespace)"
+      XPath="/def:Project/def:PropertyGroup[def:OfficeApplication != '']/..">
+      <Output
+        TaskParameter="Value"
+        PropertyName="OfficeApplicationConfigurationElementContent"/>
+    </MSBuild.ExtensionPack.Xml.XmlFile>
+    <PropertyGroup Condition=" '$(OfficeApplicationConfigurationElementContent)'!='' ">
+      <IsOfficeAddInProject>true</IsOfficeAddInProject>
+    </PropertyGroup>
+    <!-- Only test for Azure project if we are able to skip it. -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(AzureCheckedXPath)'=='false' Or ( '$(AzureCheckedXPath)'=='true' And '$(DefaultCheck)'=='false' ) "
+      TaskAction="ReadElementXml"
+      File="$(FullPath)"
+      Namespaces="@(XmlNamespace)"
+      XPath="/def:Project/def:Import[@Project = '%24(CloudExtensionsDir)Microsoft.WindowsAzure.targets']/..">
+      <Output
+        TaskParameter="Value"
+        PropertyName="WindowsAzureImportElementContent"/>
+    </MSBuild.ExtensionPack.Xml.XmlFile>
+    <PropertyGroup Condition=" '$(WindowsAzureImportElementContent)'!='' ">
+      <IsAzureProject>true</IsAzureProject>
+    </PropertyGroup>
+    <!-- Only test for Azure Role project if we are able to skip it. -->
+    <!--
+    /def:Project/def:ItemGroup/def:Reference[substring(@Include, 1, 22) = 'Microsoft.WindowsAzure']/..
+    -->
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(AzureRoleCheckedXPath)'=='false' Or ( '$(AzureRoleCheckedXPath)'=='true' And '$(DefaultCheck)'=='false' ) "
+      TaskAction="ReadElementXml"
+      File="$(FullPath)"
+      Namespaces="@(XmlNamespace)"
+      XPath="/def:Project/def:ItemGroup/def:Compile[@Include = 'WebRole.cs' or @Include = 'WorkerRole.cs']/..">
+      <Output
+        TaskParameter="Value"
+        PropertyName="WindowsAzureReferenceElementContent"/>
+    </MSBuild.ExtensionPack.Xml.XmlFile>
+    <PropertyGroup Condition=" '$(WindowsAzureReferenceElementContent)'!='' ">
+      <IsAzureRoleProject>true</IsAzureRoleProject>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(DefaultCheck)'=='true' ">
+      <PerformDefaultCheck>true</PerformDefaultCheck>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(SilverlightCheckedXPath)'=='true' And '$(IsSilverlightProject)'=='true' ">
+      <PerformSilverlightCheck>true</PerformSilverlightCheck>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(SilverlightCheckedXPath)'=='false' And '$(IsSilverlightProject)'=='true' ">
+      <PerformSilverlightCheck>false</PerformSilverlightCheck>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(OfficeAddInCheckedXPath)'=='true' And '$(IsOfficeAddInProject)'=='true' ">
+      <PerformOfficeAddInCheck>true</PerformOfficeAddInCheck>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(OfficeAddInCheckedXPath)'=='false' And '$(IsOfficeAddInProject)'=='true' ">
+      <PerformOfficeAddInCheck>false</PerformOfficeAddInCheck>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(AzureCheckedXPath)'=='true' And '$(IsAzureProject)'=='true' ">
+      <PerformAzureCheck>true</PerformAzureCheck>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(AzureCheckedXPath)'=='false' And '$(IsAzureProject)'=='true' ">
+      <PerformAzureCheck>false</PerformAzureCheck>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(AzureRoleCheckedXPath)'=='true' And '$(IsAzureRoleProject)'=='true' ">
+      <PerformAzureRoleCheck>true</PerformAzureRoleCheck>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(AzureRoleCheckedXPath)'=='false' And '$(IsAzureRoleProject)'=='true' ">
+      <PerformAzureRoleCheck>false</PerformAzureRoleCheck>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(PerformDefaultCheck)'=='true' And ( '$(PerformSilverlightCheck)'!='false' And '$(PerformOfficeAddInCheck)'!='false' And '$(PerformAzureCheck)'!='false' And '$(PerformAzureRoleCheck)'!='false' ) ">
+      <CheckXPath>true</CheckXPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(PerformSilverlightCheck)'=='true' ">
+      <CheckXPath>true</CheckXPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(PerformOfficeAddInCheck)'=='true' ">
+      <CheckXPath>true</CheckXPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(PerformAzureCheck)'=='true' ">
+      <CheckXPath>true</CheckXPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(PerformAzureRoleCheck)'=='true' ">
+      <CheckXPath>true</CheckXPath>
+    </PropertyGroup>
+    <MSBuild.ExtensionPack.Xml.XmlFile
+      Condition=" '$(CheckXPath)'=='true' "
+      TaskAction="ReadElementXml"
+      File="$(FullPath)"
+      Namespaces="@(XmlNamespace)"
+      XPath="$(XPath)">
+      <Output
+        TaskParameter="Value"
+        PropertyName="ConfigurationElementContent"/>
+    </MSBuild.ExtensionPack.Xml.XmlFile>
+    <Error
+      Condition=" '$(CheckXPath)'=='true' And '$(ConfigurationElementContent)'=='' "
+      Text="The Project file '$(FullPath)' was not configured correctly. $(Message)." />
+  </Target>
+  
+  <Target Name="CheckProjectConfigurations">
+    <!-- To Do: *.dbproj (database), *.btproj (BizTalk) -->
+    <PropertyGroup Condition=" '$(CheckProjectsAreStrongNamed)'=='' ">
+      <CheckProjectsAreStrongNamed>true</CheckProjectsAreStrongNamed>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(CheckProjectsDebugConfig)'=='' ">
+      <CheckProjectsDebugConfig>true</CheckProjectsDebugConfig>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(CheckProjectsCodeAnalysisConfig)'=='' ">
+      <!-- Code Analysis is only applied to the Debug build. -->
+      <CheckProjectsCodeAnalysisConfig>true</CheckProjectsCodeAnalysisConfig>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(CheckProjectsReleaseConfig)'=='' ">
+      <CheckProjectsReleaseConfig>true</CheckProjectsReleaseConfig>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(CheckProjectsStealFocusBuildImport)'=='' ">
+      <CheckProjectsStealFocusBuildImport>true</CheckProjectsStealFocusBuildImport>
+    </PropertyGroup>
+    <ItemGroup Condition=" '$(CheckProjectsAreStrongNamed)'=='true' ">
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[def:SignAssembly = 'true']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Signing' tab and choose 'Sign the assembly' (you will also be prompted to choose a Strong Name Key file.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[def:AssemblyOriginatorKeyFile = '$(StrongNamePublicKeyPath)']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Signing' tab and choose the relevant Strong Name Key File.</Message>
+        <DefaultCheck>true</DefaultCheck>
+        <SilverlightCheck>false</SilverlightCheck>
+        <AzureRoleCheck>false</AzureRoleCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[def:AssemblyOriginatorKeyFile = '$(StrongNameKeyPairPath)']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Signing' tab and choose the relevant Strong Name Key File.</Message>
+        <DefaultCheck>false</DefaultCheck>
+        <SilverlightCheck>true</SilverlightCheck>
+        <AzureRoleCheck>true</AzureRoleCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[def:DelaySign = 'true']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Signing' tab and choose 'Delay sign only'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+        <SilverlightCheck>false</SilverlightCheck>
+        <AzureRoleCheck>false</AzureRoleCheck>
+      </XmlConfigElementsToCheck>
+    </ItemGroup>
+    <ItemGroup Condition=" '$(CheckProjectsDebugConfig)'=='true' Or '$(CheckProjectsReleaseConfig)'=='true' ">
+      <XmlConfigElementsToCheck Include="$(WindowsAzureProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[def:ValidationIssuesAreErrors = 'True']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Development' tab and choose 'Treat warnings as errors'.</Message>
+        <DefaultCheck>false</DefaultCheck>
+        <AzureCheck>true</AzureCheck>
+      </XmlConfigElementsToCheck>
+    </ItemGroup>
+    <ItemGroup Condition=" '$(CheckProjectsDebugConfig)'=='true' ">
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:DebugSymbols[text() = 'true']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and select 'Define DEBUG constant'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:DebugType[text() = 'full']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and select 'Define DEBUG constant'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:Optimize[text() = 'false']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and deselect 'Optimize code'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:OutputPath[substring(text(), 1, 4) = 'bin\' or substring(text(), 1, 4) = 'Bin\']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and change the 'Output path' to 'bin\[Configuration]'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:DefineConstants[text() = 'DEBUG;TRACE']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and ensure that 'Define DEBUG constant' and 'Define TRACE constant' are both selected.</Message>
+        <DefaultCheck>true</DefaultCheck>
+        <SilverlightCheck>false</SilverlightCheck>
+        <OfficeAddInCheck>false</OfficeAddInCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:ErrorReport[text() = 'prompt']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and under 'Treat warnings as errors' select 'All'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+        <OfficeAddInCheck>false</OfficeAddInCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:WarningLevel[text() = '4']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and under 'Errors and warnings' select a 'Warning level' of '4'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:TreatWarningsAsErrors[text() = 'true']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and under 'Treat warnings as errors' select 'All'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+    </ItemGroup>
+    <ItemGroup Condition=" '$(CheckProjectsCodeAnalysisConfig)'=='true' ">
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:RunCodeAnalysis[text() = 'true']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Code Analysis' tab and select 'Enable Code Analysis on Build (defines CODE_ANALYSIS constant)'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+    </ItemGroup>
+    <ItemGroup Condition=" '$(CheckProjectsCodeAnalysisConfig)'=='true' And '$(VisualStudioVersion)'=='2008' ">
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:CodeAnalysisRules[text() = '+!Microsoft.Design#CA1012;+!Microsoft.Design#CA2210;+!Microsoft.Design#CA1040;+!Microsoft.Design#CA1005;+!Microsoft.Design#CA1020;+!Microsoft.Design#CA1021;+!Microsoft.Design#CA1010;+!Microsoft.Design#CA1011;+!Microsoft.Design#CA1009;+!Microsoft.Design#CA1050;+!Microsoft.Design#CA1026;+!Microsoft.Design#CA1019;+!Microsoft.Design#CA1031;+!Microsoft.Design#CA1047;+!Microsoft.Design#CA1000;+!Microsoft.Design#CA1048;+!Microsoft.Design#CA1051;+!Microsoft.Design#CA1002;+!Microsoft.Design#CA1061;+!Microsoft.Design#CA1006;+!Microsoft.Design#CA1046;+!Microsoft.Design#CA1045;+!Microsoft.Design#CA1065;+!Microsoft.Design#CA1038;+!Microsoft.Design#CA1008;+!Microsoft.Design#CA1028;+!Microsoft.Design#CA1064;+!Microsoft.Design#CA1004;+!Microsoft.Design#CA1035;+!Microsoft.Design#CA1063;+!Microsoft.Design#CA1032;+!Microsoft.Design#CA1023;+!Microsoft.Design#CA1033;+!Microsoft.Design#CA1039;+!Microsoft.Design#CA1016;+!Microsoft.Design#CA1014;+!Microsoft.Design#CA1017;+!Microsoft.Design#CA1018;+!Microsoft.Design#CA1027;+!Microsoft.Design#CA1059;+!Microsoft.Design#CA1060;+!Microsoft.Design#CA1034;+!Microsoft.Design#CA1013;+!Microsoft.Design#CA1036;+!Microsoft.Design#CA1044;+!Microsoft.Design#CA1041;+!Microsoft.Design#CA1025;+!Microsoft.Design#CA1052;+!Microsoft.Design#CA1053;+!Microsoft.Design#CA1057;+!Microsoft.Design#CA1058;+!Microsoft.Design#CA1001;+!Microsoft.Design#CA1049;+!Microsoft.Design#CA1054;+!Microsoft.Design#CA1056;+!Microsoft.Design#CA1055;+!Microsoft.Design#CA1030;+!Microsoft.Design#CA1003;+!Microsoft.Design#CA1007;+!Microsoft.Design#CA1043;+!Microsoft.Design#CA1024;+!Microsoft.Globalization#CA1301;+!Microsoft.Globalization#CA1302;+!Microsoft.Globalization#CA1308;+!Microsoft.Globalization#CA1306;+!Microsoft.Globalization#CA1304;+!Microsoft.Globalization#CA1305;+!Microsoft.Globalization#CA2101;+!Microsoft.Globalization#CA1300;+!Microsoft.Globalization#CA1307;+!Microsoft.Globalization#CA1309;+!Microsoft.Interoperability#CA1403;+!Microsoft.Interoperability#CA1406;+!Microsoft.Interoperability#CA1413;+!Microsoft.Interoperability#CA1402;+!Microsoft.Interoperability#CA1407;+!Microsoft.Interoperability#CA1404;+!Microsoft.Interoperability#CA1410;+!Microsoft.Interoperability#CA1411;+!Microsoft.Interoperability#CA1405;+!Microsoft.Interoperability#CA1409;+!Microsoft.Interoperability#CA1415;+!Microsoft.Interoperability#CA1408;+!Microsoft.Interoperability#CA1414;+!Microsoft.Interoperability#CA1412;+!Microsoft.Interoperability#CA1400;+!Microsoft.Interoperability#CA1401;+!Microsoft.Maintainability#CA1506;+!Microsoft.Maintainability#CA1502;+!Microsoft.Maintainability#CA1501;+!Microsoft.Maintainability#CA1505;+!Microsoft.Maintainability#CA1504;+!Microsoft.Maintainability#CA1500;+!Microsoft.Mobility#CA1600;+!Microsoft.Mobility#CA1601;+!Microsoft.Naming#CA1702;+!Microsoft.Naming#CA1700;+!Microsoft.Naming#CA1712;+!Microsoft.Naming#CA1713;+!Microsoft.Naming#CA1714;+!Microsoft.Naming#CA1709;+!Microsoft.Naming#CA1704;+!Microsoft.Naming#CA1708;+!Microsoft.Naming#CA1715;+!Microsoft.Naming#CA1710;+!Microsoft.Naming#CA1720;+!Microsoft.Naming#CA1707;+!Microsoft.Naming#CA1722;+!Microsoft.Naming#CA1711;+!Microsoft.Naming#CA1716;+!Microsoft.Naming#CA1717;+!Microsoft.Naming#CA1725;+!Microsoft.Naming#CA1719;+!Microsoft.Naming#CA1721;+!Microsoft.Naming#CA1701;+!Microsoft.Naming#CA1703;+!Microsoft.Naming#CA1724;+!Microsoft.Naming#CA1726;+!Microsoft.Performance#CA1809;+!Microsoft.Performance#CA1811;+!Microsoft.Performance#CA1812;+!Microsoft.Performance#CA1813;+!Microsoft.Performance#CA1823;+!Microsoft.Performance#CA1800;+!Microsoft.Performance#CA1805;+!Microsoft.Performance#CA1810;+!Microsoft.Performance#CA1824;+!Microsoft.Performance#CA1822;+!Microsoft.Performance#CA1815;+!Microsoft.Performance#CA1814;+!Microsoft.Performance#CA1819;+!Microsoft.Performance#CA1821;+!Microsoft.Performance#CA1804;+!Microsoft.Performance#CA1820;+!Microsoft.Performance#CA1802;+!Microsoft.Portability#CA1903;+!Microsoft.Portability#CA1901;+!Microsoft.Portability#CA1900;+!Microsoft.Reliability#CA2001;+!Microsoft.Reliability#CA2002;+!Microsoft.Reliability#CA2003;+!Microsoft.Reliability#CA2004;+!Microsoft.Reliability#CA2006;+!Microsoft.Security#CA2116;+!Microsoft.Security#CA2117;+!Microsoft.Security#CA2105;+!Microsoft.Security#CA2115;+!Microsoft.Security#CA2102;+!Microsoft.Security#CA2104;+!Microsoft.Security#CA2122;+!Microsoft.Security#CA2114;+!Microsoft.Security#CA2123;+!Microsoft.Security#CA2111;+!Microsoft.Security#CA2108;+!Microsoft.Security#CA2107;+!Microsoft.Security#CA2103;+!Microsoft.Security#CA2118;+!Microsoft.Security#CA2109;+!Microsoft.Security#CA2119;+!Microsoft.Security#CA2106;+!Microsoft.Security#CA2112;+!Microsoft.Security#CA2120;+!Microsoft.Security#CA2121;+!Microsoft.Security#CA2126;+!Microsoft.Security#CA2124;+!Microsoft.Security#CA2127;+!Microsoft.Security#CA2128;+!Microsoft.Security#CA2129;+!Microsoft.Usage#CA2243;+!Microsoft.Usage#CA2236;+!Microsoft.Usage#CA1816;+!Microsoft.Usage#CA2227;+!Microsoft.Usage#CA2213;+!Microsoft.Usage#CA2216;+!Microsoft.Usage#CA2214;+!Microsoft.Usage#CA2222;+!Microsoft.Usage#CA1806;+!Microsoft.Usage#CA2217;+!Microsoft.Usage#CA2212;+!Microsoft.Usage#CA2219;+!Microsoft.Usage#CA2201;+!Microsoft.Usage#CA2228;+!Microsoft.Usage#CA2221;+!Microsoft.Usage#CA2220;+!Microsoft.Usage#CA2240;+!Microsoft.Usage#CA2229;+!Microsoft.Usage#CA2238;+!Microsoft.Usage#CA2207;+!Microsoft.Usage#CA2208;+!Microsoft.Usage#CA2235;+!Microsoft.Usage#CA2237;+!Microsoft.Usage#CA2232;+!Microsoft.Usage#CA2223;+!Microsoft.Usage#CA2211;+!Microsoft.Usage#CA2233;+!Microsoft.Usage#CA2225;+!Microsoft.Usage#CA2226;+!Microsoft.Usage#CA2231;+!Microsoft.Usage#CA2224;+!Microsoft.Usage#CA2218;+!Microsoft.Usage#CA2234;+!Microsoft.Usage#CA2239;+!Microsoft.Usage#CA2200;+!Microsoft.Usage#CA1801;+!Microsoft.Usage#CA2242;+!Microsoft.Usage#CA2205;+!Microsoft.Usage#CA2230']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Code Analysis' tab and select each 'Treat Warning as Error' option.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+    </ItemGroup>
+    <ItemGroup Condition=" '$(CheckProjectsCodeAnalysisConfig)'=='true' And '$(VisualStudioVersion)'=='2010' ">
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Debug|AnyCPU' "]/def:CodeAnalysisRuleSet[text() = '$(CodeAnalysisRuleSetFilePath)']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Code Analysis' tab, under the 'Run this rule set:' select 'Browse...' and select the '$(CodeAnalysisRuleSetFilePath)' file.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+    </ItemGroup>    
+    <ItemGroup Condition=" '$(CheckProjectsReleaseConfig)'=='true' ">
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Release|AnyCPU' "]/def:DebugType[text() = 'pdbonly']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and deselect 'Define DEBUG constant'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Release|AnyCPU' "]/def:Optimize[text() = 'true']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and select 'Optimize code'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Release|AnyCPU' "]/def:OutputPath[substring(text(), 1, 4) = 'bin\' or substring(text(), 1, 4) = 'Bin\']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and change the 'Output path' to 'bin\[Configuration]'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Release|AnyCPU' "]/def:DefineConstants[text() = 'TRACE']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and ensure that 'Define TRACE constant' is selected.</Message>
+        <DefaultCheck>true</DefaultCheck>
+        <SilverlightCheck>false</SilverlightCheck>
+        <OfficeAddInCheck>false</OfficeAddInCheck>
+    </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Release|AnyCPU' "]/def:ErrorReport[text() = 'prompt']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and under 'Treat warnings as errors' select 'All'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+        <OfficeAddInCheck>false</OfficeAddInCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Release|AnyCPU' "]/def:WarningLevel[text() = '4']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and under 'Errors and warnings' select a 'Warning level' of '4'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter);$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:PropertyGroup[@Condition = " '%24(Configuration)|%24(Platform)' == 'Release|AnyCPU' "]/def:TreatWarningsAsErrors[text() = 'true']</XPath>
+        <Message>To fix this problem, open the project Properties, select the 'Build' tab and under 'Treat warnings as errors' select 'All'.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+    </ItemGroup>
+    <ItemGroup Condition=" '$(CheckProjectsStealFocusBuildImport)'=='true' ">
+      <XmlConfigElementsToCheck Include="$(CSharpProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:Import[@Project = "$(CSharpProjectImportFilePath)"]/..</XPath>
+        <Message>To fix this problem, unload the Project in Visual Studio, edit the file directly and add the "Import" element as the next child of the "Project" element after any existing "Import" elements.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+      <XmlConfigElementsToCheck Include="$(VisualBasicProjectFileConfigurationIncludeFilter)" Exclude="$(ProjectFileConfigurationExcludeFilter)">
+        <XPath>/def:Project/def:Import[@Project = "$(VisualBasicProjectImportFilePath)"]/..</XPath>
+        <Message>To fix this problem, unload the Project in Visual Studio, edit the file directly and add the "Import" element as the next child of the "Project" element after any existing "Import" elements.</Message>
+        <DefaultCheck>true</DefaultCheck>
+      </XmlConfigElementsToCheck>
+    </ItemGroup>
+    <Message
+      Importance="normal"
+      Text="'CSharpProjectFileConfigurationIncludeFilter' is '$(CSharpProjectFileConfigurationIncludeFilter)'." />
+    <Message
+      Importance="normal"
+      Text="'VisualBasicProjectFileConfigurationIncludeFilter' is '$(VisualBasicProjectFileConfigurationIncludeFilter)'." />
+    <Message
+      Importance="normal"
+      Text="'WindowsAzureProjectFileConfigurationIncludeFilter' is '$(WindowsAzureProjectFileConfigurationIncludeFilter)'." />
+    <Message
+      Importance="normal"
+      Text="'ProjectFileConfigurationExcludeFilter' is '$(ProjectFileConfigurationExcludeFilter)'." />
+    <Message
+      Importance="normal"
+      Text="Checking the configuration of the following projects:" />
+    <Message
+      Condition=" '%(XmlConfigElementsToCheck.FullPath)'!='' "
+      Importance="normal"
+      Text="- %(XmlConfigElementsToCheck.FullPath)" />
+    <Message
+      Condition=" '%(XmlConfigElementsToCheck.FullPath)'=='' "
+      Importance="normal"
+      Text="- (None configured)" />
+    <MSBuild
+      Condition=" '%(XmlConfigElementsToCheck.Identity)'!='' "
+      Projects="$(MSBuildProjectFile)"
+      Targets="CheckProjectConfigurationElement"
+      Properties="
+        FullPath=%(XmlConfigElementsToCheck.FullPath);
+        XPath=%(XmlConfigElementsToCheck.XPath);
+        Message=%(XmlConfigElementsToCheck.Message);
+        DefaultCheck=%(XmlConfigElementsToCheck.DefaultCheck);
+        SilverlightCheckedXPath=%(XmlConfigElementsToCheck.SilverlightCheck);
+        AzureCheckedXPath=%(XmlConfigElementsToCheck.AzureCheck);
+        AzureRoleCheckedXPath=%(XmlConfigElementsToCheck.AzureRoleCheck);
+        OfficeAddInCheckedXPath=%(XmlConfigElementsToCheck.OfficeAddInCheck);" />
+  </Target>
+
+  <Target Name="CoreSolutionCompile" DependsOnTargets="CheckProjectConfigurations">
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Properties="Solution=%(SolutionToBuild.Identity);BuildDirectoryPath=$(BuildDirectoryPath);Properties=%(SolutionToBuild.Properties);Targets=%(SolutionToBuild.Targets);"
+      Targets="CoreSolutionCompileForConfiguration" />
+  </Target>
+
+  <Target Name="AfterSolutionCompileCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="SolutionCompile" DependsOnTargets="$(SolutionCompileDependsOn)" />
+
+  <!-- Deploy For Test -->
+
+  <Target Name="BeforeDeployForTestCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreDeployForTest">
+    <Message
+      Importance="high"
+      Text="Deploying the following Database Projects:" />
+    <Message
+      Condition=" '%(DatabaseProject.Identity)'!='' And '%(DatabaseProject.Deploy)'=='true' "
+      Importance="high"
+      Text="- %(DatabaseProject.Identity) (%(DatabaseProject.Deploy))" />
+    <MSBuild
+      Condition=" '%(DatabaseProject.Identity)'!='' And '%(DatabaseProject.Deploy)'=='true' "
+      Projects="%(DatabaseProject.FullPath)"
+      Properties="Configuration=%(DatabaseProject.ConfigurationToDeploy);OutputPath=$(BuildDirectoryPath)\%(DatabaseProject.ConfigurationToDeploy)"
+      Targets="Deploy" />
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Targets="CreateAzureSubscriptions"
+      Properties="DeployForTestStage=true" />
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Targets="CreateAzureAffinityGroups"
+      Properties="DeployForTestStage=true" />
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Targets="CreateAzureStorageAccounts"
+      Properties="DeployForTestStage=true" />
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Targets="PublishAzurePackages"
+      Properties="DeployForTestStage=true" />
+  </Target>
+
+  <Target Name="AfterDeployForTestCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="DeployForTest" DependsOnTargets="$(DeployForTestDependsOn)" />
+  
+  <!-- Run Tests -->
+
+  <Target Name="BeforeRunTestsCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="BeforeRunTestsForConfigurationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="BeforeRunTestsForConfiguration">
+    <!-- Notify user that we will skip the deployment of the current configuration to BizTalk. -->
+    <Message
+      Condition=" '$(BizTalkApplicationName)'!='' And '%(ConfigurationToBuild.FlavorToBuild)'=='$(Configuration)' And '%(ConfigurationToBuild.DeployToBizTalkApplicationForTestRun)'!='true' "
+      Importance="high"
+      Text="Skipping the deployment of '$(Configuration)' configuration to BizTalk." />
+    <!-- Notify user that we will deploy the current configuration to BizTalk and initialise the Hosts/Handlers. -->
+    <Message
+      Condition=" '$(BizTalkApplicationName)'!='' And '%(ConfigurationToBuild.FlavorToBuild)'=='$(Configuration)' And '%(ConfigurationToBuild.DeployToBizTalkApplicationForTestRun)'=='true' And '%(ConfigurationToBuild.InitialiseBizTalkHostsAndHandlers)'=='true' "
+      Importance="high"
+      Text="Deploying '$(Configuration)' configuration to BizTalk (initialising Hosts and Handlers)." />
+    <MSBuild
+      Condition=" '$(BizTalkApplicationName)'!='' And '%(ConfigurationToBuild.FlavorToBuild)'=='$(Configuration)' And '%(ConfigurationToBuild.DeployToBizTalkApplicationForTestRun)'=='true' And '%(ConfigurationToBuild.InitialiseBizTalkHostsAndHandlers)'=='true' "
+      Projects="$(MSBuildProjectFullPath)"
+      Targets="BuildBizTalkApplication"
+      Properties="SolutionConfigurationToDeploy=$(Configuration)" />
+    <!-- Notify user that we will deploy the current configuration to BizTalk but not initialise the Hosts/Handlers. -->
+    <Message
+      Condition=" '$(BizTalkApplicationName)'!='' And '%(ConfigurationToBuild.FlavorToBuild)'=='$(Configuration)' And '%(ConfigurationToBuild.DeployToBizTalkApplicationForTestRun)'=='true' And '%(ConfigurationToBuild.InitialiseBizTalkHostsAndHandlers)'!='true' "
+      Importance="high"
+      Text="Deploying '$(Configuration)' configuration to BizTalk (not initialising Hosts and Handlers)." />
+    <MSBuild
+      Condition=" '$(BizTalkApplicationName)'!='' And '%(ConfigurationToBuild.FlavorToBuild)'=='$(Configuration)' And '%(ConfigurationToBuild.DeployToBizTalkApplicationForTestRun)'=='true' And '%(ConfigurationToBuild.InitialiseBizTalkHostsAndHandlers)'!='true' "
+      Projects="$(MSBuildProjectFullPath)"
+      Targets="StopBizTalkApplication;RemoveBizTalkApplicationAssembliesFromGac;RemoveBizTalkApplication;CreateBizTalkApplication;ExportBizTalkApplication;ImportBindingsForBizTalkApplication;StartBizTalkApplication"
+      Properties="SolutionConfigurationToDeploy=$(Configuration)" />
+  </Target>
+
+  <Target Name="CoreRunTestsForConfiguration">
+    <CallTarget 
+	  Condition=" '$(IsTeamBuild)'!='true' "
+	  Targets="RunMSTest;RunNUnit" />
+  </Target>
+
+  <Target Name="AfterRunTestsForConfiguration">
+    <!-- Empty, here for future extensibility. -->
+  </Target>
+
+  <Target Name="AfterRunTestsForConfigurationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <PropertyGroup>
+    <RunTestsForConfigurationDependsOn>
+      BeforeRunTestsForConfigurationCustom;
+      BeforeRunTestsForConfiguration;
+      CoreRunTestsForConfiguration;
+      AfterRunTestsForConfiguration;
+      AfterRunTestsForConfigurationCustom
+    </RunTestsForConfigurationDependsOn>
+  </PropertyGroup>
+
+  <Target Name="RunTestsForConfiguration" DependsOnTargets="$(RunTestsForConfigurationDependsOn)" />
+
+  <Target Name="CoreRunTests">
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Targets="RunTestsForConfiguration"
+      Properties="Configuration=%(ConfigurationToBuild.FlavorToBuild)" />
+  </Target>
+
+  <Target Name="AfterRunTestsCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="RunTests" DependsOnTargets="$(RunTestsDependsOn)" />
+
+  <!-- Package -->
+
+  <Target Name="BeforePackageCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CorePackage" />
+
+  <Target Name="AfterPackageCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="Package" DependsOnTargets="$(PackageDependsOn)" />
+  
+  <!-- Build Documentation -->
+
+  <Target Name="BeforeBuildDocumentationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreBuildDocumentation" />
+
+  <Target Name="AfterBuildDocumentationCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="BuildDocumentation" DependsOnTargets="$(BuildDocumentationDependsOn)" />
+
+  <!-- Drop Build -->
+
+  <Target Name="BeforeDropBuildCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreDropBuild" Condition=" '$(PopulateDropLocationForBuild)'=='true' ">
+    <!-- 
+      If the drop location already exists, delete it as we don't want to mix up the new artefacts with old ones. 
+      The supplied 'DropLocationForBuild' property should be unique for each build.
+    -->
+    <Warning
+      Condition=" Exists('$(DropLocationForBuild)') "
+      Text="Deleting the drop location '$(DropLocationForBuild)' as it was found to exist." />
+    <RemoveDir
+      Condition=" Exists('$(DropLocationForBuild)') "
+      Directories="$(DropLocationForBuild)" />
+    <!-- Copy Build directory contents to drop location. -->
+    <ItemGroup>
+      <BuildDirectoryFilesToCopy Include="$(BuildDirectoryPath)\**\*.*" />
+    </ItemGroup>
+    <Copy
+      SourceFiles="@(BuildDirectoryFilesToCopy)"
+      DestinationFiles="@(BuildDirectoryFilesToCopy->'$(DropLocationForBuild)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <!-- Copy TestResults directory contents to drop location. -->
+    <ItemGroup>
+      <MSTestResultsDirectoryFilesToCopy Include="$(MSTestResultsDirectoryPath)\**\*.*" />
+    </ItemGroup>
+    <Copy
+      SourceFiles="@(MSTestResultsDirectoryFilesToCopy)"
+      DestinationFiles="@(MSTestResultsDirectoryFilesToCopy->'$(DropLocationForBuild)\TestResults\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+          
+  <Target Name="AfterDropBuildCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="DropBuild" DependsOnTargets="$(DropBuildDependsOn)" />
+  
+  <!-- Environment Deploy -->
+
+  <Target Name="BeforeEnvironmentDeployCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="CoreEnvironmentDeploy">
+    <CallTarget Targets="MSDeploy" />
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Targets="CreateAzureSubscriptions"
+      Properties="DeployForTestStage=false" />
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Targets="CreateAzureAffinityGroups"
+      Properties="DeployForTestStage=false" />
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Targets="CreateAzureStorageAccounts"
+      Properties="DeployForTestStage=false" />
+    <MSBuild
+      Projects="$(MSBuildProjectFile)"
+      Targets="PublishAzurePackages" 
+      Properties="DeployForTestStage=false" />
+  </Target>
+
+  <Target Name="AfterEnvironmentDeployCustom">
+    <!-- To be overridden in inheriting script. -->
+  </Target>
+
+  <Target Name="End">
+    <PropertyGroup>
+      <EndTimeStamp>$([System.DateTime]::Now.ToString("yyyy/MM/dd HH:mm:ss"))</EndTimeStamp>
+    </PropertyGroup>
+    <Message
+      Importance="high"
+      Text="Build start time stamp: $(StartTimeStamp)" />
+    <Message
+      Importance="high"
+      Text="Build end time stamp: $(EndTimeStamp)" />
+    <MSBuild.ExtensionPack.Framework.DateAndTime
+      TaskAction="GetElapsed"
+      Start="$(StartTimeStamp)"
+      End="$(EndTimeStamp)"
+      Format="MilliSeconds">
+      <Output
+        TaskParameter="Result"
+        PropertyName="BuildTimeInMilliSeconds" />
+    </MSBuild.ExtensionPack.Framework.DateAndTime>
+    <MSBuild.ExtensionPack.Science.Maths
+      TaskAction="Multiply"
+      Numbers="$(MaxBuildTimeInMinutes);60;1000">
+      <Output
+        TaskParameter="Result"
+        PropertyName="MaxBuildTimeInMilliSeconds" />
+    </MSBuild.ExtensionPack.Science.Maths>
+    <MSBuild.ExtensionPack.Science.Maths
+      TaskAction="Compare"
+      P1="$(BuildTimeInMilliSeconds)"
+      P2="$(MaxBuildTimeInMilliSeconds)"
+      Comparison="GreaterThan">
+      <Output
+        TaskParameter="LogicalResult"
+        PropertyName="BuildOverran" />
+    </MSBuild.ExtensionPack.Science.Maths>
+    <MSBuild.ExtensionPack.Science.Maths
+      TaskAction="Evaluate"
+      Expression="$(BuildTimeInMilliSeconds) / 60 / 1000">
+      <Output
+        TaskParameter="Result"
+        PropertyName="BuildTimeInMinutes" />
+    </MSBuild.ExtensionPack.Science.Maths>
+    <Message
+      Condition=" '$(BuildOverran)'!='True' "
+      Importance="high" 
+      Text="The build took $(BuildTimeInMinutes) minutes." />
+    <Error 
+      Condition=" '$(BuildOverran)'=='True' " 
+      Text="The build took $(BuildTimeInMinutes) minutes which is longer than the configured allowed length of $(MaxBuildTimeInMinutes) minute(s). If you wish for the build to be able to run longer without failing, please set a 'MaxBuildTimeInMinutes' property." />
+  </Target>
+
+  <Target Name="EnvironmentDeploy" DependsOnTargets="$(EnvironmentDeployDependsOn)" />
+
+  <!-- Build -->
+  
+  <Target Name="Build" DependsOnTargets="$(BuildDependsOn)" />
+
+</Project>

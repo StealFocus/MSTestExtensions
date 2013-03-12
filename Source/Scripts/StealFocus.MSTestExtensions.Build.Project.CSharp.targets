@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- 
+    IMPORTANT - you must import these targets for the build scripts to function.
+  -->
+  <Import Project="..\packages\StealFocus.Build.1.2.30311.0\Scripts\StealFocus.Build.Project.CSharp.targets" />
+  <Import Project="StealFocus.MSTestExtensions.Build.Project.Assembly.targets" />
+
+  <PropertyGroup>
+    <AssemblyInfoCommonFileName>AssemblyInfoCommon.g.cs</AssemblyInfoCommonFileName>
+    <AssemblyInfoCommonFilePath>$(MSBuildProjectDirectory)\Properties\$(AssemblyInfoCommonFileName)</AssemblyInfoCommonFilePath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyInfoCommonFileLine Include="using System%3B" />
+    <AssemblyInfoCommonFileLine Include="using System.Reflection%3B" />
+    <AssemblyInfoCommonFileLine Include="using System.Runtime.CompilerServices%3B" />
+    <AssemblyInfoCommonFileLine Include="using System.Runtime.InteropServices%3B" />
+    <AssemblyInfoCommonFileLine Include="[assembly: AssemblyCompany(%22$(CompanyName)%22)]" />
+    <AssemblyInfoCommonFileLine Include="[assembly: AssemblyConfiguration(%22$(BuildLabel) $(Configuration)%22)]" />
+    <AssemblyInfoCommonFileLine Include="[assembly: AssemblyCopyright(%22Copyright © $(CompanyName) $(Year)%22)]" />
+    <AssemblyInfoCommonFileLine Include="[assembly: AssemblyFileVersion(%22$(BuildLabelNumber)%22)]" />
+    <AssemblyInfoCommonFileLine Include="[assembly: AssemblyInformationalVersion(%22$(BuildLabelNumber)%22)]" />
+    <AssemblyInfoCommonFileLine Include="[assembly: AssemblyProduct(%22$(ProductName)%22)]" />
+    <AssemblyInfoCommonFileLine Include="[assembly: AssemblyTrademark(%22$(CompanyName)%22)]" />
+    <AssemblyInfoCommonFileLine Include="[assembly: AssemblyVersion(%22$(VersionNumber)%22)]" />
+  </ItemGroup>
+
+  <Target Name="CodeGeneration">
+    <!-- 
+      Peform any code generation steps here. This will be called when the "Rebuild" target is called. This will occur 
+      from building the Solution/Project at the command line with MSBuild specifying the "Rebuild" target or by 
+      choosing "Rebuild Solution" or "Rebuild" in Visual Studio.
+    -->
+    <!--
+    <Exec
+      Condition=" '$(ProjectName)'=='StealFocus.MSTestExtensions.ServiceAgents' "
+      Command='"$(SYSTEMDRIVE)\Program Files\Microsoft SDKs\Windows\v6.0A\Bin\svcutil.exe" .\ThirdPartyService\ThirdPartyService.wsdl /namespace:*,StealFocus.MSTestExtensions.ServiceAgents.ThirdPartyService /out:.\ThirdPartyService\ThirdPartyService.g.cs' />
+    -->
+  </Target>
+
+</Project>

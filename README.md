@@ -64,6 +64,18 @@ Examples:
         }
     }
 
+Building
+--------
+To build the application there are two options.
+
+##### Run the .cmd file
+[To Do]
+
+##### Run MSBuild
+Use the .proj file (found under "Source\Scripts")
+
+    msbuild.exe StealFocus.MSBuildExtensions.Build.proj
+
 Downloading
 -----------
 You can download the application from NuGet: [http://nuget.org/packages/StealFocus.MSTestExtensions](http://nuget.org/packages/StealFocus.MSTestExtensions)

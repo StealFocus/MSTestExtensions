@@ -38,6 +38,7 @@ namespace StealFocus.MSTestExtensions
             msg.ContextProperties.Add(new MSTestExtensionsTestProperty<TestTimerAspect>());
             msg.ContextProperties.Add(new MSTestExtensionsTestProperty<TestTransactionAspect>());
             msg.ContextProperties.Add(new MSTestExtensionsTestProperty<ExpectedExceptionMessageAspect>());
+            msg.ContextProperties.Add(new MSTestExtensionsTestProperty<DeploymentItemExAspect>());
         }
     }
 }

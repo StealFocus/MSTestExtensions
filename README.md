@@ -66,13 +66,13 @@ Examples:
 
 Building
 --------
-To build the application there are two options.
+The solution is strong named. Local builds are delay signed. To have the delay signing set-up, the solution needs to be built from the command line. Visual Studio should be restarted after the command line build is run. There are two options for building at the command line.
 
 ##### Run the .cmd file
 [To Do]
 
 ##### Run MSBuild
-Use the .proj file (found under "Source\Scripts")
+Use the "StealFocus.MSBuildExtensions.Build.proj" file (found under "Source\Scripts")
 
     msbuild.exe StealFocus.MSBuildExtensions.Build.proj
 

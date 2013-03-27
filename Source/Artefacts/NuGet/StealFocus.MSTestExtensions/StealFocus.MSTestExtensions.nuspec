@@ -12,6 +12,8 @@
     <description>StealFocus MSTestExtensions package.</description>
     <copyright>Copyright StealFocus. All rights reserved.</copyright>
     <tags>StealFocus MSTestExtensions</tags>
-    <dependencies />
+    <dependencies>
+      <dependency id="ZetaLongPaths" version="1.0.0" />
+    </dependencies>
   </metadata>
 </package>

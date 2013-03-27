@@ -55,8 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeploymentItemExAspect.cs" />
-    <Compile Include="DeploymentItemExAttribute.cs" />
+    <Compile Include="DeploymentItemWithLongPathAspect.cs" />
+    <Compile Include="DeploymentItemWithLongPathAttribute.cs" />
     <Compile Include="MSTestExtensionsException.cs" />
     <Compile Include="MSTestExtensionsTestAspect.cs" />
     <Compile Include="MSTestExtensionsTestAttribute.cs" />

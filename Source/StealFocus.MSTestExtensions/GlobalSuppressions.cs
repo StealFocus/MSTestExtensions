@@ -14,4 +14,4 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Scope = "type", Target = "StealFocus.MSTestExtensions.TestTimerAspect")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Scope = "type", Target = "StealFocus.MSTestExtensions.TestTransactionAspect")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "TestTimer", Scope = "member", Target = "StealFocus.MSTestExtensions.TestTimerAspect.#SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage)")]
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Scope = "type", Target = "StealFocus.MSTestExtensions.DeploymentItemExAspect")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Scope = "type", Target = "StealFocus.MSTestExtensions.DeploymentItemWithLongPathAspect")]

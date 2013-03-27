@@ -7,7 +7,7 @@ namespace StealFocus.MSTestExtensions
     using System.Security;
     using ZetaLongPaths;
 
-    internal class DeploymentItemExAspect : MSTestExtensionsTestAspect<DeploymentItemExAttribute>, IMessageSink, IMSTestExtensionsTestAspect
+    internal class DeploymentItemWithLongPathAspect : MSTestExtensionsTestAspect<DeploymentItemWithLongPathAttribute>, IMessageSink, IMSTestExtensionsTestAspect
     {
         public IMessageSink NextSink
         {
@@ -27,15 +27,15 @@ namespace StealFocus.MSTestExtensions
                 throw new ArgumentNullException("msg");
             }
 
-            DeploymentItemExAttribute deploymentItemExAttribute = GetAttribute(msg);
-            if (deploymentItemExAttribute != null)
+            DeploymentItemWithLongPathAttribute deploymentItemWithLongPathAttribute = GetAttribute(msg);
+            if (deploymentItemWithLongPathAttribute != null)
             {
                 // by default, mstest sets the test results folder to format: %current directory%\TestResults\%username%_%computername% %datetime%\Out
                 // TODO: get the value of the RelativePathRoot property setting in the current .testsettings file
                 string solutionPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
 
-                string source = ZlpPathHelper.GetAbsolutePath(deploymentItemExAttribute.Path, solutionPath);
-                string destinationPath = ZlpPathHelper.GetAbsolutePath(deploymentItemExAttribute.OutputDirectory, Directory.GetCurrentDirectory());
+                string source = ZlpPathHelper.GetAbsolutePath(deploymentItemWithLongPathAttribute.Path, solutionPath);
+                string destinationPath = ZlpPathHelper.GetAbsolutePath(deploymentItemWithLongPathAttribute.OutputDirectory, Directory.GetCurrentDirectory());
 
                 bool fileExists = ZlpIOHelper.FileExists(source);
                 bool directoryExists = ZlpIOHelper.DirectoryExists(source);

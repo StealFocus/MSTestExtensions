@@ -81,10 +81,6 @@
     <None Include="..\StealFocus.MSTestExtensions.StrongNamePublicKey.snk">
       <Link>StealFocus.MSTestExtensions.StrongNamePublicKey.snk</Link>
     </None>
-    <Content Include="a very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long file name 1.txt" />
-    <Content Include="a very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long file name A.txt" />
-    <Content Include="TestData\TestFileA.txt" />
-    <Content Include="TestFile1.txt" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

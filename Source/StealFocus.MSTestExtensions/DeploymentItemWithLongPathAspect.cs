@@ -87,6 +87,13 @@ namespace StealFocus.MSTestExtensions
             }
             else
             {
+                string destinationPath = ZlpPathHelper.GetDirectoryPathNameFromFilePath(destination);
+
+                if (!ZlpIOHelper.DirectoryExists(destinationPath))
+                {
+                    ZlpIOHelper.CreateDirectory(destinationPath);
+                }
+
                 ZlpIOHelper.CopyFile(source, destination, false);
             }
         }

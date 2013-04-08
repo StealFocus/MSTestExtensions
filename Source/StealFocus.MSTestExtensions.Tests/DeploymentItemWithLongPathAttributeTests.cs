@@ -32,49 +32,56 @@ namespace StealFocus.MSTestExtensions.Tests
         private const string LongOutputDirectoryName = "a very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very long output directory name";
         private const string TestFileContents = "This file is used for testing";
 
-        private static List<string> filesToDelete = new List<string>();
-        private static List<string> directoriesToDelete = new List<string>();
+        private static readonly List<string> FilesToDelete = new List<string>();
+        private static readonly List<string> DirectoriesToDelete = new List<string>();
 
         [ClassInitialize]
         public static void ClassInitialize(TestContext testContext)
         {
             string solutionPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string testResultsOutDirectoryPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "Out");
+            DirectoriesToDelete.Add(Path.Combine(testResultsOutDirectoryPath, ShortOutputDirectoryName));
+            DirectoriesToDelete.Add(Path.Combine(testResultsOutDirectoryPath, LongOutputDirectoryName));
+            FilesToDelete.Add(Path.Combine(testResultsOutDirectoryPath, ShortTestFile1DotTxt));
+            FilesToDelete.Add(Path.Combine(testResultsOutDirectoryPath, ShortDirectoryPath));
+            FilesToDelete.Add(Path.Combine(testResultsOutDirectoryPath, LongTestFile1DotTxt));
+            FilesToDelete.Add(Path.Combine(testResultsOutDirectoryPath, TestFileADotTxt));
 
             // create TestFile1.txt
             string shortTestFile1DotTxtFullPath = Path.Combine(solutionPath, ShortTestFile1DotTxtPath);
             File.WriteAllText(shortTestFile1DotTxtFullPath, TestFileContents);
-            filesToDelete.Add(shortTestFile1DotTxtFullPath);
-
+            FilesToDelete.Add(shortTestFile1DotTxtFullPath);
+            
             // create TestData
             string shortDirectoryFullPath = Path.Combine(solutionPath, ShortDirectoryPath);
             Directory.CreateDirectory(shortDirectoryFullPath);
-            directoriesToDelete.Add(shortDirectoryFullPath);
-
+            DirectoriesToDelete.Add(shortDirectoryFullPath);
+            
             // create TestData\TestFileA.txt
             string shortTestFileADotTxtFilePath = Path.Combine(shortDirectoryFullPath, TestFileADotTxt);
             ZlpIOHelper.WriteAllText(shortTestFileADotTxtFilePath, TestFileContents);
-            filesToDelete.Add(shortTestFileADotTxtFilePath);
+            FilesToDelete.Add(shortTestFileADotTxtFilePath);
 
             // create "a very ... long directory name"
             string longDirectoryFullPath = Path.Combine(solutionPath, LongDirectoryPath);
             ZetaLongPaths.ZlpIOHelper.CreateDirectory(longDirectoryFullPath);
-            directoriesToDelete.Add(longDirectoryFullPath);
+            DirectoriesToDelete.Add(longDirectoryFullPath);
 
             // create "a very ... long directory name\TestFileA.txt"
             string longTestFileADotTxtFilePath = Path.Combine(longDirectoryFullPath, TestFileADotTxt);
             ZlpIOHelper.WriteAllText(longTestFileADotTxtFilePath, TestFileContents);
-            filesToDelete.Add(longTestFileADotTxtFilePath);
+            FilesToDelete.Add(longTestFileADotTxtFilePath);
 
             // create "a very ... long file name 1.txt"
             string longTestFile1DotTxtFilePath = Path.Combine(solutionPath, LongTestFile1DotTxtPath);
             ZlpIOHelper.WriteAllText(longTestFile1DotTxtFilePath, TestFileContents);
-            filesToDelete.Add(longTestFile1DotTxtFilePath);
+            FilesToDelete.Add(longTestFile1DotTxtFilePath);
         }
 
         [ClassCleanup]
         public static void ClassCleanup()
         {
-            foreach (string path in directoriesToDelete)
+            foreach (string path in DirectoriesToDelete)
             {
                 if (ZetaLongPaths.ZlpIOHelper.DirectoryExists(path))
                 {
@@ -82,7 +89,7 @@ namespace StealFocus.MSTestExtensions.Tests
                 }
             }
 
-            foreach (string filePath in filesToDelete)
+            foreach (string filePath in FilesToDelete)
             {
                 if (ZetaLongPaths.ZlpIOHelper.FileExists(filePath))
                 {

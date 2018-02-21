@@ -1,0 +1,5092 @@
+changeset:   968:2ec2b580d7b4
+tag:         tip
+user:        icnocop
+date:        Sun Feb 23 12:26:51 2014 -0800
+summary:     removed file header with TODO comments
+
+changeset:   967:b6eec28a2695
+user:        icnocop
+date:        Sat Feb 22 18:55:34 2014 -0800
+summary:     added an additional test case for a hyphenated word
+
+changeset:   966:852976cdd4a3
+user:        icnocop
+date:        Sat Feb 22 18:29:19 2014 -0800
+summary:     Fixed bug #7530: "SA1650 Words with minus sign are not recognized in custom dictionary"
+
+changeset:   965:d39b0c544c65
+user:        Andy Reeves
+date:        Sun Dec 15 15:39:57 2013 +0000
+summary:     Upgrade ReSharper 8.0 to 8.1
+
+changeset:   964:ee9d8539b663
+user:        Andy Reeves
+date:        Sun Nov 24 16:18:00 2013 +0000
+summary:     Add Wix3.7
+
+changeset:   963:02b713a1819c
+user:        Andy Reeves
+date:        Sun Nov 24 15:58:46 2013 +0000
+summary:     Add VS2013SDK
+
+changeset:   962:07ec93f8df46
+user:        Andy Reeves
+date:        Sun Nov 24 15:57:34 2013 +0000
+summary:     Set to use mstest 12.0
+
+changeset:   961:efc92a54c653
+user:        Andy Reeves
+date:        Sun Nov 24 15:56:38 2013 +0000
+summary:     Add tests back into build
+
+changeset:   960:3773a520595f
+user:        Andy Reeves
+date:        Sun Nov 24 15:56:05 2013 +0000
+summary:     Start of 4.7.48.0 dev
+
+changeset:   959:d58debc588bf
+user:        Andy Reeves
+date:        Sun Nov 24 15:14:21 2013 +0000
+summary:     Fix to allow parsertest rules to execute
+
+changeset:   958:2f51c8bf33c2
+user:        Andy Reeves
+date:        Sun Nov 24 15:10:27 2013 +0000
+summary:     Update release history
+
+changeset:   957:40bf9122e707
+user:        Andy Reeves
+date:        Sun Nov 24 10:35:06 2013 +0000
+summary:     Remove BVT run from officialBuild until I can get it working again
+
+changeset:   956:ae635ef078a0
+user:        Andy Reeves
+date:        Sun Nov 24 10:22:31 2013 +0000
+summary:     Integrate VS2013 support - thank you csdahlberg - great work
+
+changeset:   955:8052ecd5e2d3
+user:        Andy Reeves
+date:        Sun Nov 24 10:21:05 2013 +0000
+summary:     Require ReSharper 8.0.2000.2660 as the version for 8.0
+
+changeset:   954:df8e88002ef9
+user:        Andy Reeves
+date:        Sun Nov 24 09:40:17 2013 +0000
+summary:     Upgrade main solution to build with VS2013
+
+changeset:   953:d7641b7c8fd1
+user:        Andy Reeves
+date:        Sun Nov 24 09:37:23 2013 +0000
+summary:     Upgrade to latest ReSharper 8.0 build
+
+changeset:   952:3870b070a8d9
+user:        Andy Reeves
+date:        Mon Sep 23 18:53:42 2013 +0100
+summary:     Check for dictionary folders relative to the project location
+
+changeset:   951:8c20cb8701c7
+user:        Andy Reeves
+date:        Mon Sep 23 17:19:30 2013 +0100
+summary:     Fix for when settings file have been merged and the location is null
+
+changeset:   950:12c25bbbcc25
+user:        Andy Reeves
+date:        Mon Sep 23 17:18:36 2013 +0100
+summary:     Update to start 4.7.47.0 dev
+
+changeset:   949:7ba8f4ea5f77
+user:        Andy Reeves
+date:        Thu Sep 19 14:09:32 2013 +0100
+summary:     Update Release History
+
+changeset:   948:b36be9bdbffc
+user:        Andy Reeves
+date:        Sun Sep 15 11:40:36 2013 +0100
+summary:     Add 'Exclude from StyleCop' to the context menu on each menu item.
+
+changeset:   947:9e515895b6e2
+user:        Andy Reeves
+date:        Sun Sep 15 11:39:50 2013 +0100
+summary:     Add ViolationsAsErrors to the Settings file. Defaults to False. If True then StyleCop violations are added as Errors and not Warnings to the IDE task window.
+
+changeset:   946:4020743943af
+user:        Andy Reeves
+date:        Sun Sep 15 11:35:45 2013 +0100
+summary:     Update to latest ReSharper 8.0
+
+changeset:   945:7ada5229b56f
+user:        Andy Reeves
+date:        Fri Aug 02 16:42:25 2013 +0100
+summary:     Add TODO on allowing to throw Warning or Error in the IDE
+
+changeset:   944:cd8d7847809c
+user:        Andy Reeves
+date:        Fri Aug 02 16:41:53 2013 +0100
+summary:     Fix to not insert a new line before a comment if it already has one
+
+changeset:   943:11c0431436e3
+user:        Andy Reeves
+date:        Fri Aug 02 16:41:22 2013 +0100
+summary:     Update docs
+
+changeset:   942:8fdf46edb4ec
+user:        Andy Reeves
+date:        Wed Jul 31 12:47:39 2013 +0100
+summary:     Styling fixes
+
+changeset:   941:b162869b3614
+user:        Andy Reeves
+date:        Wed Jul 31 10:43:28 2013 +0100
+summary:     Make CodeLocation a struct to reduce allocated memory on analysis.
+
+changeset:   940:b0b3f0df3519
+user:        Andy Reeves
+date:        Wed Jul 31 10:32:38 2013 +0100
+summary:     Move the suppression quickfix lower down the list of quick fixes
+
+changeset:   939:b2bdcb3ef4a3
+user:        Andy Reeves
+date:        Tue Jul 30 18:10:12 2013 +0100
+summary:     Change CodePoint to be a struct. Reducing memory for large analysis.
+
+changeset:   938:af09030ee75e
+user:        Andy Reeves
+date:        Tue Jul 30 17:42:29 2013 +0100
+summary:     Changing the SkipAnaysis method to use a SourceCode instance and not a CodeDocument
+
+changeset:   937:c376b18fcfc5
+user:        Andy Reeves
+date:        Tue Jul 30 17:41:51 2013 +0100
+summary:     If we're not analyzing designer files (or any other files) then don't parse them at all. This should dramatically reduce the memory required on solutions with lots of designer files.
+
+changeset:   936:2a70330090ce
+user:        Andy Reeves
+date:        Tue Jul 30 17:08:43 2013 +0100
+summary:     Correct spelling mistake
+
+changeset:   935:9946a35a8556
+user:        Andy Reeves
+date:        Fri Jul 26 15:55:28 2013 +0100
+summary:     Fix for 7435 - if relative dictionary path the check relative to current settings file
+
+changeset:   934:dad284ef6133
+user:        Andy Reeves
+date:        Fri Jul 26 15:54:09 2013 +0100
+summary:     Update version to 4.7.46.0
+
+changeset:   933:cc1433591210
+user:        Andy Reeves
+date:        Fri Jul 26 10:22:02 2013 +0100
+summary:     Update release history
+
+changeset:   932:b8852db981ee
+user:        Andy Reeves
+date:        Fri Jul 26 10:21:04 2013 +0100
+summary:     Styling fixes
+
+changeset:   931:aa4db157f276
+user:        Andy Reeves
+date:        Fri Jul 26 10:20:43 2013 +0100
+summary:     Remove snk file from wrong folder
+
+changeset:   930:c6a9c572f803
+user:        Andy Reeves
+date:        Fri Jul 26 10:20:29 2013 +0100
+summary:     Update installer to Support ReSharper 8
+
+changeset:   929:5595c8ffb80e
+user:        Andy Reeves
+date:        Thu Jul 25 19:59:46 2013 +0100
+summary:     Fixes for ReSharper 8 support
+
+changeset:   928:d0c8d15ea03e
+user:        Andy Reeves
+date:        Thu Jul 25 18:16:46 2013 +0100
+summary:     Add first draft of R#8 support
+
+changeset:   927:f882ac509456
+user:        Andy Reeves
+date:        Thu Jul 25 18:16:09 2013 +0100
+summary:     Fix assembly title
+
+changeset:   926:bd0037838232
+user:        Andy Reeves
+date:        Thu Jul 25 18:15:58 2013 +0100
+summary:     Update to latest 7.1 build
+
+changeset:   925:3150a6a9e314
+user:        Andy Reeves
+date:        Thu Jul 25 18:15:19 2013 +0100
+summary:     Start of 4.7.45
+
+changeset:   924:249eed5b15ed
+user:        Andy Reeves
+date:        Fri Jan 11 11:37:48 2013 +0000
+summary:     Update release history
+
+changeset:   923:9ae441069ae9
+user:        Andy Reeves
+date:        Fri Jan 11 11:36:38 2013 +0000
+summary:     Start of 4.7.44.0 dev
+
+changeset:   922:b0c6d3a4e26b
+user:        Andy Reeves
+date:        Fri Jan 11 11:34:49 2013 +0000
+summary:     Update the build of ReSharper 7.1 we are compatible with
+
+changeset:   921:71ea1832305f
+user:        Andy Reeves
+date:        Fri Jan 11 11:07:57 2013 +0000
+summary:     Update release history
+
+changeset:   920:d0ea7f1ae887
+user:        Andy Reeves
+date:        Fri Jan 11 10:46:24 2013 +0000
+summary:     Upgrade 7.1 to latest 7.1.1 build of 7.1.1000.900
+
+changeset:   919:20e92dda5c59
+user:        Andy Reeves
+date:        Fri Jan 04 16:34:16 2013 +0000
+summary:     Styling fixes.
+
+changeset:   918:5b77f1228bd0
+user:        Andy Reeves
+date:        Fri Nov 30 12:14:31 2012 +0000
+summary:     Styling and layout fixes for ReSharper 7.1
+
+changeset:   917:bacc60d234be
+user:        Andy Reeves
+date:        Thu Nov 29 19:42:28 2012 +0000
+summary:     Styling and layout fixes for ReSharper 7.1
+
+changeset:   916:f3a70c0fd34a
+user:        Andy Reeves
+date:        Thu Nov 29 17:40:26 2012 +0000
+summary:     Start of 4.7.43.0 dev
+
+changeset:   915:e11c06c80743
+user:        Andy Reeves
+date:        Wed Nov 14 12:05:07 2012 +0000
+summary:     Update release history
+
+changeset:   914:8b3831e38d66
+user:        Andy Reeves
+date:        Wed Nov 14 11:56:00 2012 +0000
+summary:     Update the version of ReSharper 7.1 we support to 7.1.25.234
+
+changeset:   913:af03338c9c62
+user:        Andy Reeves
+date:        Wed Nov 14 11:54:49 2012 +0000
+summary:     Styling fixes.
+
+changeset:   912:36c7309c2051
+user:        Andy Reeves
+date:        Wed Nov 14 11:44:30 2012 +0000
+summary:     Styling fixes.
+
+changeset:   911:51402f9a65a6
+user:        Andy Reeves
+date:        Wed Nov 14 11:42:29 2012 +0000
+summary:     Update environment check for ReSharper 7.1
+
+changeset:   910:e961c93841f9
+user:        Andy Reeves
+date:        Wed Nov 14 11:39:22 2012 +0000
+summary:     Update dependencies to latest ReSharper 7.1. Remove settings no longer available in this build.
+
+changeset:   909:f65312a7be06
+user:        Andy Reeves
+date:        Sat Oct 06 16:08:30 2012 +0100
+summary:     Start of 4.7.42 dev
+
+changeset:   908:372370fd2950
+user:        Andy Reeves
+date:        Sat Oct 06 16:05:44 2012 +0100
+summary:     Fix for 7425. Allow regex to match full path names and not just file names.
+
+changeset:   907:90996423ccff
+user:        Andy Reeves
+date:        Fri Oct 05 13:08:31 2012 +0100
+summary:     Update revision history
+
+changeset:   906:e5e1f6f8a482
+user:        Andy Reeves
+date:        Fri Oct 05 10:22:56 2012 +0100
+summary:     Ensure we skip all the stylecop assemblies that don't contain rules and parsers.
+
+changeset:   905:36d8ace8d8a3
+user:        Andy Reeves
+date:        Thu Oct 04 21:08:15 2012 +0100
+summary:     Styling fixes.
+
+changeset:   904:d82f5b7a0986
+user:        Andy Reeves
+date:        Thu Oct 04 21:07:02 2012 +0100
+summary:     Only demand access to HKLM for StyleCop on Windows platforms.
+
+changeset:   903:0fbaec0a2fdf
+user:        Andy Reeves
+date:        Thu Oct 04 12:20:44 2012 +0100
+summary:     Add support for editing dictionary folders in the settings editor
+
+changeset:   902:bf20865d20d9
+user:        Andy Reeves
+date:        Thu Oct 04 12:05:37 2012 +0100
+summary:     Only load a spelling service on Windows
+
+changeset:   901:fb5949ef3f44
+user:        Andy Reeves
+date:        Tue Oct 02 18:15:16 2012 +0100
+summary:     Fix for 7422 - If the dictionary paths contain relative paths then make them relative to the current cs file. Add the cs files project location folder as a dictionary folder too.
+
+changeset:   900:4004eead8712
+user:        Andy Reeves
+date:        Tue Oct 02 18:14:05 2012 +0100
+summary:     Don't call Path.GetFullPath with a relative path as it'll use the current working directory as the root.
+
+changeset:   899:bd1f2297bc3e
+user:        Andy Reeves
+date:        Tue Oct 02 18:13:10 2012 +0100
+summary:     Move MakeAbsolutePath into Utils
+
+changeset:   898:f93818d892de
+user:        Andy Reeves
+date:        Tue Oct 02 15:49:39 2012 +0100
+summary:     Styling fixes.
+
+changeset:   897:1264683ad8d8
+user:        Andy Reeves
+date:        Tue Oct 02 15:49:32 2012 +0100
+summary:     Resize the sepping tab columns correctly.
+
+changeset:   896:a5aba0f0fd16
+user:        Andy Reeves
+date:        Mon Oct 01 23:28:29 2012 +0100
+summary:     Don't allow spaces in the recognized or deprecated words lists add boxes
+
+changeset:   895:3c600260b9d3
+user:        Andy Reeves
+date:        Mon Oct 01 17:51:11 2012 +0100
+summary:     Fix for 7421 - Resize the controls in the spellnig tab correctly.
+
+changeset:   894:b69e05884bde
+user:        Andy Reeves
+date:        Sun Sep 30 12:21:45 2012 +0100
+summary:     Rename VS2011 variables to VS2012
+
+changeset:   893:e93d025016a4
+user:        Andy Reeves
+date:        Sun Sep 30 12:21:17 2012 +0100
+summary:     Dont run InstallVSTemplates on DevEnv for VS2008 as we don't change them.
+
+changeset:   892:7b2769040287
+user:        Andy Reeves
+date:        Sun Sep 30 12:20:33 2012 +0100
+summary:     Update docs.
+
+changeset:   891:ecdb48702cb9
+user:        Andy Reeves
+date:        Sun Sep 30 00:01:06 2012 +0100
+summary:     Add support for ReSharper 7.1 EAP
+
+changeset:   890:058f05196b88
+user:        Andy Reeves
+date:        Sat Sep 29 23:57:35 2012 +0100
+summary:     If HKLM for StyleCop doesn't exist then return null.
+
+changeset:   889:ec1d345294e0
+user:        Andy Reeves
+date:        Sat Sep 29 14:42:27 2012 +0100
+summary:     Start of 4.7.41.0 dev
+
+changeset:   888:5223247b764b
+user:        Andy Reeves
+date:        Sat Sep 29 14:42:08 2012 +0100
+summary:     Update release history
+
+changeset:   887:87c6582db99e
+user:        Andy Reeves
+date:        Sat Sep 29 14:25:49 2012 +0100
+summary:     Styling fixes
+
+changeset:   886:8a9c8b1569e1
+user:        Andy Reeves
+date:        Sat Sep 29 14:22:06 2012 +0100
+summary:     Ensure HKLM reg keys are only opened readonly for non-admin users
+
+changeset:   885:ad96b3440598
+user:        Andy Reeves
+date:        Sat Sep 29 14:21:10 2012 +0100
+summary:     Start of 4.7.40.0 dev
+
+changeset:   884:14224e82bc64
+user:        Andy Reeves
+date:        Sat Sep 29 14:19:30 2012 +0100
+summary:     Update release history
+
+changeset:   883:c2d0c89fa711
+user:        Andy Reeves
+date:        Fri Sep 28 19:11:41 2012 +0100
+summary:     Allow case sensitivity in the deprecated words and recognised words list
+
+changeset:   882:5402b8ff8bae
+user:        Andy Reeves
+date:        Fri Sep 28 12:48:58 2012 +0100
+summary:     Styleing fixes.
+
+changeset:   881:9abb47c8f742
+user:        Andy Reeves
+date:        Fri Sep 28 12:30:16 2012 +0100
+summary:     Fix for documentation spelling checks inside nested xml nodes.
+
+changeset:   880:32b54c0401c1
+user:        Andy Reeves
+date:        Fri Sep 28 11:41:48 2012 +0100
+summary:     Look for CustomDictionary.xml files in the folder of the cs file.
+
+changeset:   879:05aa858866ea
+user:        Andy Reeves
+date:        Thu Sep 27 21:06:26 2012 +0100
+summary:     Update the TabIndex in the spelling tab.
+
+changeset:   878:f2af17ef49d6
+user:        Andy Reeves
+date:        Thu Sep 27 21:03:56 2012 +0100
+summary:     Updating default deprecated words and their alternatives.
+
+changeset:   877:3fb606542b65
+user:        Andy Reeves
+date:        Thu Sep 27 21:03:17 2012 +0100
+summary:     Add support for specifying dictionary folders in the settings.StyleCop file. Like :
+
+changeset:   876:f61fccd92a4e
+user:        Andy Reeves
+date:        Thu Sep 27 20:19:03 2012 +0100
+summary:     Rename StyleCopViolationError to StyleCopHighlightingError and all associated types.
+
+changeset:   875:24c231baa979
+user:        Andy Reeves
+date:        Thu Sep 27 20:09:53 2012 +0100
+summary:     Fix the BulbItem for spelling mistakes to replace matching words correctly.
+
+changeset:   874:8cbb52650567
+user:        Andy Reeves
+date:        Thu Sep 27 20:09:19 2012 +0100
+summary:     Fix the spelling parser for strings beginning with $$
+
+changeset:   873:59eca54e4a7d
+user:        Andy Reeves
+date:        Thu Sep 27 20:08:53 2012 +0100
+summary:     THREADING FIX: Make StyleCop execute analysis in proces and not create 2 threads. Use CountdownEvent when we move to .NET 4.
+
+changeset:   872:24c0043a0fe3
+user:        Andy Reeves
+date:        Thu Sep 27 20:07:40 2012 +0100
+summary:     Use the naming service for the Culture specified for the project. Pass the actual violation through to ReSharper.
+
+changeset:   871:2e074dc6b072
+user:        Andy Reeves
+date:        Wed Sep 26 20:59:52 2012 +0100
+summary:     Enusre REgistry access code works for VS2008 addins.
+
+changeset:   870:c584662cc999
+user:        Andy Reeves
+date:        Wed Sep 26 17:39:52 2012 +0100
+summary:     Rollback Registry changes to ensure VS2008 plugin loads correctly.
+
+changeset:   869:2fbe9d3c3169
+user:        Andy Reeves
+date:        Sun Sep 23 22:00:29 2012 +0100
+summary:     Adding support for preferred alternative words for spelling. Adding deprecated word support into Settings.StyleCop file. Spelling is only checked if Office 2010 is installed. Allow editing of deprecated words and their alternatives in the Settings editor.
+
+changeset:   868:1752828c48fb
+user:        Andy Reeves
+date:        Sun Sep 23 21:53:47 2012 +0100
+summary:     Adding new resource strings
+
+changeset:   867:1399cf5a97c7
+user:        Andy Reeves
+date:        Sun Sep 23 21:53:27 2012 +0100
+summary:     Adding new resource strings.
+
+changeset:   866:b59462b303a3
+user:        Andy Reeves
+date:        Sun Sep 23 21:53:09 2012 +0100
+summary:     Adding BulbItem and Quick fixes for spelling errors.
+
+changeset:   865:ed6dec2234dd
+user:        Andy Reeves
+date:        Sun Sep 23 21:52:13 2012 +0100
+summary:     Moving StringExtensions to common area.
+
+changeset:   864:92dcf5c459cd
+user:        Andy Reeves
+date:        Sat Sep 22 23:20:01 2012 +0100
+summary:     Styling fixes.
+
+changeset:   863:7fda0c2d6125
+user:        Andy Reeves
+date:        Sat Sep 22 19:14:38 2012 +0100
+summary:     Styling fixes.
+
+changeset:   862:66da95bedf31
+user:        Andy Reeves
+date:        Sat Sep 22 13:36:12 2012 +0100
+summary:     Report all spelling errors found on a line.
+
+changeset:   861:eaabde01d36e
+user:        Andy Reeves
+date:        Sat Sep 22 13:29:22 2012 +0100
+summary:     Start of 4.7.39.0 dev.
+
+changeset:   860:4beeff18a8d5
+user:        Andy Reeves
+date:        Fri Sep 21 15:12:18 2012 +0100
+summary:     Update release notes
+
+changeset:   859:95fce4403c3c
+user:        Andy Reeves
+date:        Thu Sep 20 16:16:48 2012 +0100
+summary:     Move Registry functions into common Utils class. Styling fixes.
+
+changeset:   858:8718e50a864d
+user:        Andy Reeves
+date:        Thu Sep 20 16:14:52 2012 +0100
+summary:     Dictionary updates
+
+changeset:   857:c82e7008d90e
+user:        Andy Reeves
+date:        Wed Sep 19 18:08:20 2012 +0100
+summary:     Styling fixes.
+
+changeset:   856:0d3204899cb9
+user:        Andy Reeves
+date:        Wed Sep 19 15:47:25 2012 +0100
+summary:     Styling fixes.
+
+changeset:   855:df6a6dcce01b
+user:        Andy Reeves
+date:        Wed Sep 19 15:32:21 2012 +0100
+summary:     Update Styleing.
+
+changeset:   854:c62e455c587f
+user:        Andy Reeves
+date:        Wed Sep 19 15:21:47 2012 +0100
+summary:     Styling fixes.
+
+changeset:   853:4b655bbc3f84
+user:        Andy Reeves
+date:        Wed Sep 19 14:34:32 2012 +0100
+summary:     Styling fixes.
+
+changeset:   852:640c399cbe1e
+user:        Andy Reeves
+date:        Wed Sep 19 13:19:39 2012 +0100
+summary:     Styling fixes.
+
+changeset:   851:42c6987b4d4c
+user:        Andy Reeves
+date:        Wed Sep 19 13:09:01 2012 +0100
+summary:     Styling fixes.
+
+changeset:   850:ed04b43baea6
+user:        Andy Reeves
+date:        Wed Sep 19 12:56:13 2012 +0100
+summary:     Updating docs.
+
+changeset:   849:20c28845d5b6
+user:        Andy Reeves
+date:        Wed Sep 19 12:53:43 2012 +0100
+summary:     Update docs.
+
+changeset:   848:3888099a4c1e
+user:        Andy Reeves
+date:        Wed Sep 19 12:47:23 2012 +0100
+summary:     Spelling fixes in our own source.
+
+changeset:   847:d812fae02fcb
+user:        Andy Reeves
+date:        Wed Sep 19 12:46:13 2012 +0100
+summary:     Add solution specific spellnigs to our own Settings.StyleCop
+
+changeset:   846:71bc09feb169
+user:        Andy Reeves
+date:        Wed Sep 19 12:45:51 2012 +0100
+summary:     Deploy more up to date spelling checkers and dictionaries.
+
+changeset:   845:9c346ebbfefd
+user:        Andy Reeves
+date:        Wed Sep 19 12:45:24 2012 +0100
+summary:     Update our own StyleCop and dictionaries for analyzing our own build.
+
+changeset:   844:bd452816c0bb
+user:        Andy Reeves
+date:        Wed Sep 19 12:44:45 2012 +0100
+summary:     Update the custom dictionaries.
+
+changeset:   843:fafa68ed6e15
+user:        Andy Reeves
+date:        Wed Sep 19 12:43:44 2012 +0100
+summary:     Update the spellchecker to work for 32 or 64 bit processes.
+
+changeset:   842:88eb90a55305
+user:        Andy Reeves
+date:        Wed Sep 19 10:49:55 2012 +0100
+summary:     Update latex parser.
+
+changeset:   841:f91f3a51e546
+user:        Andy Reeves
+date:        Tue Sep 18 21:13:13 2012 +0100
+summary:     Update the latex parser for $$...$$
+
+changeset:   840:de368d1a53b9
+user:        Andy Reeves
+date:        Tue Sep 18 20:55:56 2012 +0100
+summary:     Fix the latex parser to allow any char between $ and $
+
+changeset:   839:0fc2551abcf2
+user:        Andy Reeves
+date:        Tue Sep 18 20:11:22 2012 +0100
+summary:     Add a new tab to the settings editor to add/remove spelling words. Ignore words starting and ending with a '$'. Add support for our own recognized words in the settings file. If the spelling library can't load then dont analyse the spellings and fail gracefully.
+
+changeset:   838:43fe6163fa26
+user:        Andy Reeves
+date:        Sat Sep 15 12:55:56 2012 +0100
+summary:     Fix for 7398. Insert the correct typename in the example for summary.
+
+changeset:   837:3f7e95d537a0
+user:        Andy Reeves
+date:        Fri Sep 14 17:15:25 2012 +0100
+summary:     Fix for 7396. Added new tests. All doc elements to end with <c> elements and not be reported for lack of whitespace or too short.
+
+changeset:   836:7a15665bb45f
+user:        Andy Reeves
+date:        Fri Sep 14 13:22:54 2012 +0100
+summary:     Start of 4.7.38.0 dev
+
+changeset:   835:279618ade7da
+user:        Andy Reeves
+date:        Fri Sep 14 13:09:32 2012 +0100
+summary:     Update release history.
+
+changeset:   834:32fceb667f4b
+user:        Andy Reeves
+date:        Fri Sep 14 13:05:30 2012 +0100
+summary:     Add docs for new SA1650 spelling rule.
+
+changeset:   833:6ebcb8ec8e49
+user:        Andy Reeves
+date:        Fri Sep 14 10:29:17 2012 +0100
+summary:     Fix for 7395. Dont remove parenthesis around await expressions.
+
+changeset:   832:005693c376a7
+user:        Andy Reeves
+date:        Fri Sep 14 10:28:38 2012 +0100
+summary:     Insert a returns element into docs within a see element.
+
+changeset:   831:d88a32d6735f
+user:        Andy Reeves
+date:        Thu Sep 13 20:52:47 2012 +0100
+summary:     Update our tools folder StyleCop dll's
+
+changeset:   830:dcadcdb310c3
+user:        Andy Reeves
+date:        Thu Sep 13 19:14:32 2012 +0100
+summary:     fix for 7392. Insert generic type docs for return types correctly.
+
+changeset:   829:0f9dbd1343e5
+user:        Andy Reeves
+date:        Wed Sep 12 20:15:35 2012 +0100
+summary:     Fix for 7393. Allow documentation elements with attributes to end the string and still be valid.
+
+changeset:   828:fc7c4d7bd292
+user:        Andy Reeves
+date:        Wed Sep 12 16:49:04 2012 +0100
+summary:     Make sure the MSBuild Task logs the warning id and type of exception. Unless the description field holds all this info VS cannot show the text in the Error List.
+
+changeset:   827:5915015d93d2
+user:        Andy Reeves
+date:        Wed Sep 12 16:47:53 2012 +0100
+summary:     Load custom dictionaries for multiple cultures. For a culture like en-GB; we load CustomDictionary.xml, then look for CustomDictionary.en-GB.xml and then CustomDictionary.en.xml
+
+changeset:   826:12d3ba9faf43
+user:        Andy Reeves
+date:        Tue Sep 11 18:35:38 2012 +0100
+summary:     Update standard shipping dictionaries.
+
+changeset:   825:3bfa73c1cbef
+user:        Andy Reeves
+date:        Tue Sep 11 14:52:42 2012 +0100
+summary:     Element documentation spelling fixes.
+
+changeset:   824:654dcd214270
+user:        Andy Reeves
+date:        Tue Sep 11 14:52:23 2012 +0100
+summary:     Reduce the standard dictionary
+
+changeset:   823:7f7fc2c5835c
+user:        Andy Reeves
+date:        Tue Sep 11 14:52:09 2012 +0100
+summary:     Update our own devbuild StyleCop checks.
+
+changeset:   822:32ac79a8dda1
+user:        Andy Reeves
+date:        Tue Sep 11 14:49:25 2012 +0100
+summary:     Don't check spelling of xml documentation attributes are anything inside  <c> or <code> elements.
+
+changeset:   821:50793549b26e
+user:        Andy Reeves
+date:        Sat Sep 08 11:13:52 2012 +0100
+summary:     Update Styling
+
+changeset:   820:53bf3317a5b3
+user:        Andy Reeves
+date:        Sat Sep 08 11:12:49 2012 +0100
+summary:     Styling update.
+
+changeset:   819:4b939ee294ac
+user:        Andy Reeves
+date:        Sat Sep 08 10:49:26 2012 +0100
+summary:     Add timestamps for all the dependant files into the StyleCopResults.cache. Add a FileSystemWatcher to all custom dictionary files.
+
+changeset:   818:fdea360da797
+user:        Andy Reeves
+date:        Thu Sep 06 21:01:39 2012 +0100
+summary:     Write out the full violation into the StyleCopResults.cache.
+
+changeset:   817:e34a3ea0e783
+user:        Andy Reeves
+date:        Thu Sep 06 21:00:31 2012 +0100
+summary:     Change a rules description text.
+
+changeset:   816:e73f83a54c0b
+user:        Andy Reeves
+date:        Wed Sep 05 18:53:57 2012 +0100
+summary:     Styling fixes.
+
+changeset:   815:c0da64a5508d
+user:        Andy Reeves
+date:        Wed Sep 05 18:05:41 2012 +0100
+summary:     Styling fixes.
+
+changeset:   814:fca113e8f8f5
+user:        Andy Reeves
+date:        Wed Sep 05 17:54:03 2012 +0100
+summary:     NEW RULE: Check Spelling Of Element Documetation. Fix over 2000 spelling errors in our source code. Update the VS addin to show the rule violation in more detail. Add spelling checker to the deployment.
+
+changeset:   813:d822300496a2
+user:        Andy Reeves
+date:        Tue Sep 04 19:48:09 2012 +0100
+summary:     Set our own Culture to en-US
+
+changeset:   812:f00e87d0e147
+user:        Andy Reeves
+date:        Tue Sep 04 19:46:56 2012 +0100
+summary:     Documentation spelling fixes.
+
+changeset:   811:db5172df71c4
+user:        Andy Reeves
+date:        Mon Sep 03 17:49:16 2012 +0100
+summary:     First draft of the documentation spelling checker.
+
+changeset:   810:e26a9aded874
+user:        Andy Reeves
+date:        Mon Sep 03 13:04:56 2012 +0100
+summary:     Fix for 7325. Don't throw 1126 in goto statements.
+
+changeset:   809:0a9acbec9396
+user:        Andy Reeves
+date:        Sun Sep 02 15:15:44 2012 +0100
+summary:     Fix for 7090. Add TargetsDir to registry during install.
+
+changeset:   808:29db102f15a6
+user:        Andy Reeves
+date:        Sun Sep 02 13:22:54 2012 +0100
+summary:     Fix for 7060. Sort usings after moving them inside namespace.
+
+changeset:   807:6a7d59aaf244
+user:        Andy Reeves
+date:        Sun Sep 02 12:35:15 2012 +0100
+summary:     Fix FxCop issues.
+
+changeset:   806:949358800d83
+user:        Andy Reeves
+date:        Sun Sep 02 12:34:55 2012 +0100
+summary:     Fix for 7389. Detect CpuCount on Unix/MAC
+
+changeset:   805:11dafeabbc4f
+user:        Andy Reeves
+date:        Sat Sep 01 21:39:22 2012 +0100
+summary:     Fix for 6788. Allow opening curly brackets for scope. Added new tests.
+
+changeset:   804:7de05baf0f42
+user:        Andy Reeves
+date:        Sat Sep 01 19:53:41 2012 +0100
+summary:     Updating constants.Fix for 7167. Show version number of StyleCop in VS Help window.
+
+changeset:   803:e134f196c130
+user:        Andy Reeves
+date:        Thu Aug 30 13:34:41 2012 +0100
+summary:     Only output StyleCop excluded files if there are any.
+
+changeset:   802:522416c668f9
+user:        Andy Reeves
+date:        Thu Aug 30 13:28:34 2012 +0100
+summary:     Update our own build to use 4.7.36 and fix issues.
+
+changeset:   801:59e007fc377e
+user:        Andy Reeves
+date:        Thu Aug 30 13:21:01 2012 +0100
+summary:     Start of 4.7.37.0 dev
+
+changeset:   800:5617c5db8e95
+user:        Andy Reeves
+date:        Thu Aug 30 13:14:56 2012 +0100
+summary:     Update revision history
+
+changeset:   799:508dbac00ffc
+user:        Andy Reeves
+date:        Thu Aug 30 11:03:05 2012 +0100
+summary:     Fix for 7344. Don't throw 1126 inside default expressions.
+
+changeset:   798:aa9de822e025
+user:        Andy Reeves
+date:        Thu Aug 30 10:41:19 2012 +0100
+summary:     Fix for 7371. Compare Namespace parts using the CurrentCulture and not InvariantCulture.
+
+changeset:   797:33af077e573e
+user:        Andy Reeves
+date:        Thu Aug 30 10:34:23 2012 +0100
+summary:     Fix for 7386. Don't throw casing violations for filed names in languages that do not support case (like Chinese). Added new tests.
+
+changeset:   796:ccd41c5136a2
+user:        Andy Reeves
+date:        Wed Aug 29 16:49:15 2012 +0100
+summary:     fix for 7380. Catch Exception caused by CRM Toolkit.
+
+changeset:   795:270434273145
+user:        Andy Reeves
+date:        Wed Aug 29 13:45:31 2012 +0100
+summary:     Update ReSharper 7.0 dependency to 7.0.1 (7.0.1098.2760)
+
+changeset:   794:211ec2d5a5b9
+user:        Andy Reeves
+date:        Tue Aug 28 18:58:15 2012 +0100
+summary:     Fix for 7358. Use the RuleId in the call to MSBuild Logging.
+
+changeset:   793:44edc5fcbd9c
+user:        Andy Reeves
+date:        Tue Aug 28 15:24:43 2012 +0100
+summary:     Fix for 7348. Update suggestion text for constructors.
+
+changeset:   792:f3bcd2efa132
+user:        Andy Reeves
+date:        Tue Aug 28 13:44:39 2012 +0100
+summary:     Fix for 7364. Don't throw 1126 for New Array Expressions.
+
+changeset:   791:6de8910f02bd
+user:        Andy Reeves
+date:        Mon Aug 27 19:11:44 2012 +0100
+summary:     Fix for 7372. Throw 1126 inside catch blocks wasn't working. Add new tests.
+
+changeset:   790:86697cb0649b
+user:        Andy Reeves
+date:        Sun Aug 26 12:42:15 2012 +0100
+summary:     Fix for 7369. Await is allowed to be inside parenthesis. Add new tests.
+
+changeset:   789:8cfd46cacf54
+user:        Andy Reeves
+date:        Sun Aug 26 12:24:45 2012 +0100
+summary:     Fix tests
+
+changeset:   788:02587e4f1362
+user:        Andy Reeves
+date:        Sun Aug 26 12:15:32 2012 +0100
+summary:     Correct styling issues.
+
+changeset:   787:d0f1f7b34fea
+user:        Andy Reeves
+date:        Sun Aug 26 12:15:17 2012 +0100
+summary:     Fix for 7373. Typeparam violations were not being thrown in all cases. Added new tests.
+
+changeset:   786:bec43d6c0e3a
+user:        Andy Reeves
+date:        Sat Aug 25 18:51:09 2012 +0100
+summary:     Fix for 7361. Rule 1120 was logging against the root element and so Suppressions wouldn't work. Fixed and added tests.
+
+changeset:   785:16825b7adc30
+user:        Andy Reeves
+date:        Fri Aug 24 20:42:47 2012 +0100
+summary:     Updating de-DE resources - from Michael Diermeier - thank you.
+
+changeset:   784:2a049eb79277
+user:        Andy Reeves
+date:        Fri Aug 24 20:37:11 2012 +0100
+summary:     Change for 7368. Add the violation count into the Task outputs.
+
+changeset:   783:79fb840f16f7
+user:        Andy Reeves
+date:        Fri Aug 24 17:12:46 2012 +0100
+summary:     Fix for 7383. Fix for memory leak in plugins.
+
+changeset:   782:f372bbc991fc
+user:        Andy Reeves
+date:        Fri Aug 24 17:09:28 2012 +0100
+summary:     Update environment to detect ReSharper 7
+
+changeset:   781:82760cb9a4c0
+user:        Andy Reeves
+date:        Fri Aug 24 16:35:08 2012 +0100
+summary:     Fix for 7378. Null reference exception from command line run in message output.
+
+changeset:   780:08fe25b3f337
+user:        Andy Reeves
+date:        Fri Aug 24 15:50:05 2012 +0100
+summary:     Update release history.
+
+changeset:   779:74e7de93767b
+user:        Andy Reeves
+date:        Thu Jul 26 12:30:53 2012 +0100
+summary:     Styling fixes.
+
+changeset:   778:a89a4037c5ef
+user:        Andy Reeves
+date:        Thu Jul 26 12:22:46 2012 +0100
+summary:     Fix for ReSharper 7 not inserting documentation headers correctly.
+
+changeset:   777:e359db2eb607
+user:        Andy Reeves
+date:        Thu Jul 26 12:22:23 2012 +0100
+summary:     Update to latest R#7.0 binaries
+
+changeset:   776:27d3edd71356
+user:        Andy Reeves
+date:        Mon Jul 09 20:34:27 2012 +0100
+summary:     Delay the Documetation analysis run until the 2nd pass in order to have collected all partial types.
+
+changeset:   775:d777ca026660
+user:        Andy Reeves
+date:        Mon Jul 09 20:33:35 2012 +0100
+summary:     Start of 4.7.35 dev
+
+changeset:   774:277d046b0cd0
+user:        Andy Reeves
+date:        Mon Jul 09 17:00:55 2012 +0100
+summary:     Update Release history
+
+changeset:   773:a6b0f1365ef2
+user:        Andy Reeves
+date:        Fri Jul 06 17:54:21 2012 +0100
+summary:     Update ReSharper 7.0 references to 7.0.83.281
+
+changeset:   772:317d0f828fe2
+user:        Andy Reeves
+date:        Fri Jul 06 17:11:09 2012 +0100
+summary:     Fix for 7343. Inheritdoc was raising false positives for some partial classes. Added regression test data.
+
+changeset:   771:b3071a5f594c
+user:        Andy Reeves
+date:        Fri Jul 06 11:58:31 2012 +0100
+summary:     Fix for 7351. Remove the correct blank lines for SA1512 on code cleanup.
+
+changeset:   770:39d974ccebc8
+user:        Andy Reeves
+date:        Fri Jul 06 11:03:23 2012 +0100
+summary:     Fix for 7346. Insert documentation fully on cleanup and on bulb items.
+
+changeset:   769:05692853f9e5
+user:        Andy Reeves
+date:        Thu Jul 05 20:49:11 2012 +0100
+summary:     Ensure that the SuppressMessage bulbItem can calculate the correct element to insert at.
+
+changeset:   768:2fae6e708f48
+user:        Andy Reeves
+date:        Wed Jul 04 20:31:19 2012 +0100
+summary:     Fix for 7352. Module level suppressmessages were not working.
+
+changeset:   767:fad09173769f
+user:        Andy Reeves
+date:        Wed Jul 04 20:22:46 2012 +0100
+summary:     Spelling mistake.
+
+changeset:   766:48457defc49b
+user:        Andy Reeves
+date:        Wed Jul 04 20:22:32 2012 +0100
+summary:     Add missing typenames to resource file.
+
+changeset:   765:8ebea8b905b9
+user:        Andy Reeves
+date:        Wed Jul 04 17:18:17 2012 +0100
+summary:     Spelling fixes.
+
+changeset:   764:4b1bb8a888a6
+user:        Andy Reeves
+date:        Wed Jul 04 17:18:08 2012 +0100
+summary:     Remove obsolete files.
+
+changeset:   763:f0a4158d4502
+user:        Andy Reeves
+date:        Fri Jun 29 11:09:52 2012 +0100
+summary:     Start of 4.7.34 dev
+
+changeset:   762:7fda8d212609
+user:        Andy Reeves
+date:        Fri Jun 29 11:08:38 2012 +0100
+summary:     Updating Release history.
+
+changeset:   761:f7cab7e6d990
+user:        Andy Reeves
+date:        Fri Jun 29 10:53:38 2012 +0100
+summary:     Updated docs for SA1103.
+
+changeset:   760:130122543c66
+user:        Andy Reeves
+date:        Fri Jun 29 10:43:27 2012 +0100
+summary:     Fix to not throw 1101 when is a nested interface. Added new tests.
+
+changeset:   759:393698eb0dad
+user:        Andy Reeves
+date:        Thu Jun 28 11:19:59 2012 +0100
+summary:     Fixes to install the ReSharper plugins back in the main directories for all users.
+
+changeset:   758:30a9c2fa9bab
+user:        Andy Reeves
+date:        Thu Jun 28 11:18:56 2012 +0100
+summary:     Styling fixes.
+
+changeset:   757:bc9b83efd89d
+user:        Andy Reeves
+date:        Thu Jun 28 11:18:44 2012 +0100
+summary:     Styling fixes.
+
+changeset:   756:ae9cf9a41c8e
+user:        Andy Reeves
+date:        Wed Jun 27 18:11:02 2012 +0100
+summary:     7291. Create indexer documentation better. Port fixes for 7289 and 7223 to 7.0.0 plugin.
+
+changeset:   755:ef61091b3fa6
+user:        Andy Reeves
+date:        Tue Jun 26 16:21:34 2012 +0100
+summary:     Fix for 7289. Create interface documentation better.
+
+changeset:   754:d601fda4a413
+user:        Andy Reeves
+date:        Tue Jun 26 15:54:40 2012 +0100
+summary:     Fix for 7223. Better text for inserted property text.
+
+changeset:   753:bcbf245e904b
+user:        Andy Reeves
+date:        Mon Jun 25 14:57:36 2012 +0100
+summary:     Ensure WebSites and other folders containing aspx.cs files get analysed.
+
+changeset:   752:30279fb63f9a
+user:        Andy Reeves
+date:        Mon Jun 25 11:49:57 2012 +0100
+summary:     Add re-analyse Project option to context menus
+
+changeset:   751:32119207ca2f
+user:        Andy Reeves
+date:        Fri Jun 22 15:22:30 2012 +0100
+summary:     Start of 4.7.33.0 dev
+
+changeset:   750:e961e31d6111
+user:        Andy Reeves
+date:        Thu Jun 21 19:05:44 2012 +0100
+summary:     Update the release history doc.
+
+changeset:   749:303308ba69c3
+user:        Andy Reeves
+date:        Thu Jun 21 19:03:35 2012 +0100
+summary:     Ngen the StyleCop dll's during install.
+
+changeset:   748:375b0d798262
+user:        Andy Reeves
+date:        Thu Jun 21 17:08:30 2012 +0100
+summary:     Update min version of R# 7.0 we support.
+
+changeset:   747:81afb09d0ef2
+user:        Andy Reeves
+date:        Thu Jun 21 17:03:27 2012 +0100
+summary:     Update to be compatible wit R#7.0.70
+
+changeset:   746:46ef7ffe8320
+user:        Andy Reeves
+date:        Wed Jun 20 21:35:53 2012 +0100
+summary:     Change the formatting of the Output Pane output to be more descriptive.
+
+changeset:   745:b67ab6e94a31
+user:        Andy Reeves
+date:        Wed Jun 20 21:35:01 2012 +0100
+summary:     Fix for 7326. Remove some false positives for unneccessary parenthesis. Add more tests.
+
+changeset:   744:be3a5f33dad3
+user:        Andy Reeves
+date:        Wed Jun 20 19:23:49 2012 +0100
+summary:     Correcting comment.
+
+changeset:   743:b138f2fb8890
+user:        Andy Reeves
+date:        Wed Jun 20 18:58:41 2012 +0100
+summary:     Ensure SolutionItem folders are scanned for files to analyze.
+
+changeset:   742:1c6e3bea6715
+user:        Andy Reeves
+date:        Mon Jun 18 11:00:44 2012 +0100
+summary:     Fix for 7334 - missing method comments were not being automatically inserted.
+
+changeset:   741:8494bbb1be39
+user:        Andy Reeves
+date:        Sun Jun 17 21:18:26 2012 +0100
+summary:     Added more checks for null to try and fix 7336. NullRef exception whne violation thrown.
+
+changeset:   740:d52e70fcc0dc
+user:        Andy Reeves
+date:        Sun Jun 17 21:02:02 2012 +0100
+summary:     Fix for 7329. Check Justification text in assembly and module level attributes.
+
+changeset:   739:eec2a8edc9a6
+user:        Andy Reeves
+date:        Fri Jun 15 13:03:21 2012 +0100
+summary:     Start of 4.7.32.0 dev
+
+changeset:   738:b015d131c4cb
+user:        Andy Reeves
+date:        Sun Jun 10 21:56:01 2012 +0100
+summary:     Updating Release History
+
+changeset:   737:3270f0acaf3f
+user:        Andy Reeves
+date:        Sun Jun 10 21:36:54 2012 +0100
+summary:     Skip analysis of projects when we know we dont support analysis of them.
+
+changeset:   736:363e313aa72f
+user:        Andy Reeves
+date:        Sun Jun 10 00:16:18 2012 +0100
+summary:     Speed up the Task window refresh by 400% for solution analysis with lots of StyleCop issues by caching the calls to get the projectItem for each violation.
+
+changeset:   735:cbd22322e0ca
+user:        Andy Reeves
+date:        Sat Jun 09 13:18:37 2012 +0100
+summary:     Update docs presentation
+
+changeset:   734:f14eb3db2ba3
+user:        Andy Reeves
+date:        Sat Jun 09 13:09:34 2012 +0100
+summary:     Update compiled docs
+
+changeset:   733:63c4302125f2
+user:        Andy Reeves
+date:        Sat Jun 09 13:08:15 2012 +0100
+summary:     Update ReSharper 7.0 plugin to detect whether summary text should have Setter text.
+
+changeset:   732:78cd24e33e6f
+user:        Andy Reeves
+date:        Sat Jun 09 13:07:40 2012 +0100
+summary:     Update all docs to have an example of a Rule Suppression in it.
+
+changeset:   731:d2481a55779f
+user:        Andy Reeves
+date:        Fri Jun 08 19:55:23 2012 +0100
+summary:     Fix for 7292 in ReSharper 6.1.1 and 7.0 plugin
+
+changeset:   730:c00ac8e3bd3b
+user:        Andy Reeves
+date:        Fri Jun 08 18:06:51 2012 +0100
+summary:     Update docs for Suppressions
+
+changeset:   729:6599bf42c13e
+user:        Andy Reeves
+date:        Fri Jun 08 14:12:21 2012 +0100
+summary:     Fix for 7313. Only reformat element documentation if its been changed.
+
+changeset:   728:95f88e40cc88
+user:        Andy Reeves
+date:        Thu Jun 07 22:35:46 2012 +0100
+summary:     Fix for 7310. Adding support for '@' inside constructor, clss name, and destructors. Adding new tests.
+
+changeset:   727:bd81b7fad9c4
+user:        Andy Reeves
+date:        Thu Jun 07 21:25:59 2012 +0100
+summary:     Fix to treat any non tab character as a space.
+
+changeset:   726:b34109575a8f
+user:        Andy Reeves
+date:        Thu Jun 07 21:25:08 2012 +0100
+summary:     Adding new tests.
+
+changeset:   725:a311956d6821
+user:        Andy Reeves
+date:        Thu Jun 07 20:23:40 2012 +0100
+summary:     Fix for 7311. Support any type of space characters in the sourcecode.
+
+changeset:   724:cca9143a36fd
+user:        Andy Reeves
+date:        Thu Jun 07 18:54:41 2012 +0100
+summary:     Add more tracing code.
+
+changeset:   723:818573440681
+user:        Andy Reeves
+date:        Thu Jun 07 18:53:58 2012 +0100
+summary:     Fix for 7315. Reset ReSharper Options was not resetting all the options correctly in all 5 ReSharper plugins.
+
+changeset:   722:f0bf60e014f0
+user:        Andy Reeves
+date:        Wed Jun 06 21:07:35 2012 +0100
+summary:     Start of 4.7.31.0 dev
+
+changeset:   721:713e59d73bea
+user:        Andy Reeves
+date:        Wed Jun 06 20:45:47 2012 +0100
+summary:     Add an automatic release notes generator tool
+
+changeset:   720:13529db81e22
+user:        Andy Reeves
+date:        Wed Jun 06 00:47:25 2012 +0100
+summary:     Setup the VSIX prject to detect whether you're debugging in VS2010 or VS2012 and use the correct SDK
+
+changeset:   719:5083ea36f210
+user:        Andy Reeves
+date:        Wed Jun 06 00:46:14 2012 +0100
+summary:     Add the VS2012.RC SDK targets and setup environment
+
+changeset:   718:28c0b2ce9ddf
+user:        Andy Reeves
+date:        Wed Jun 06 00:45:14 2012 +0100
+summary:     Upgrade to build 7.0.61.135 of ReSharper
+
+changeset:   717:031c9ebfdad3
+user:        Andy Reeves
+date:        Tue Jun 05 15:34:44 2012 +0100
+summary:     Start of 4.7.30 dev
+
+changeset:   716:691ee63e152a
+user:        Andy Reeves
+date:        Tue Jun 05 15:33:28 2012 +0100
+summary:     Rename file
+
+changeset:   715:0c6da4360bd1
+user:        Andy Reeves
+date:        Tue Jun 05 15:15:43 2012 +0100
+summary:     Update to add support for VS2012 RC and ReSharper 7.0.60.43
+
+changeset:   714:83b825160eaa
+user:        Andy Reeves
+date:        Mon Jun 04 02:54:23 2012 +0100
+summary:     Fix long term bug where if a non-enabled project was found for solution analysis then it always returned false.
+
+changeset:   713:a38279ef93e2
+user:        Andy Reeves
+date:        Mon Jun 04 02:45:03 2012 +0100
+summary:     Spelling fix
+
+changeset:   712:5ce54641f3f1
+user:        Andy Reeves
+date:        Mon Jun 04 01:09:32 2012 +0100
+summary:     StyleCop fies for new rule SA1311
+
+changeset:   711:b544e1adb2f5
+user:        Andy Reeves
+date:        Mon Jun 04 00:20:44 2012 +0100
+summary:     NEW RULE - 1311 StaticReadonlyFieldsMustBeginWithUpperCaseLetter
+
+changeset:   710:4e9f23787d65
+user:        Andy Reeves
+date:        Sun Jun 03 23:00:53 2012 +0100
+summary:     $.7.29 dev started with the check in before this one.
+
+changeset:   709:eca152f1e1c9
+user:        Andy Reeves
+date:        Sun Jun 03 22:59:09 2012 +0100
+summary:     Fix for 7306.
+
+changeset:   708:dab6370a143b
+user:        Andy Reeves
+date:        Fri Jun 01 15:27:19 2012 +0100
+summary:     Spelling mistake
+
+changeset:   707:e14ecc7a2bd5
+user:        Andy Reeves
+date:        Fri Jun 01 11:31:43 2012 +0100
+summary:     Fix for 7298. Added new tests.
+
+changeset:   706:4b80b767b737
+user:        Andy Reeves
+date:        Fri Jun 01 10:07:08 2012 +0100
+summary:     Fix for 7274
+
+changeset:   705:e84be4a6e9ac
+user:        Andy Reeves
+date:        Thu May 31 11:09:37 2012 +0100
+summary:     FxCop fixes.
+
+changeset:   704:006db7f99a15
+user:        Andy Reeves
+date:        Thu May 31 08:56:25 2012 +0100
+summary:     Allow debugging in VS10 or VS11
+
+changeset:   703:fc7591f0b660
+user:        Andy Reeves
+date:        Thu May 31 08:56:08 2012 +0100
+summary:     Updated docs.
+
+changeset:   702:a8794c2603ab
+user:        Andy Reeves
+date:        Wed May 30 16:49:14 2012 +0100
+summary:     Any exceptions whilst attempting to figure out if the file is excluded we assume its not excluded.
+
+changeset:   701:30cdf54adeea
+user:        Andy Reeves
+date:        Wed May 30 16:23:12 2012 +0100
+summary:     Refacturing this. and base. checks. All tests passing.
+
+changeset:   700:9c3ec1226d6f
+user:        Andy Reeves
+date:        Wed May 30 13:13:22 2012 +0100
+summary:     Added new tests .Fixed for typeof() when checking for this.
+
+changeset:   699:71d5140938eb
+user:        Andy Reeves
+date:        Wed May 30 12:42:18 2012 +0100
+summary:     Add dll refs that ReSharper removed.
+
+changeset:   698:e324701f7200
+user:        Andy Reeves
+date:        Tue May 29 19:52:23 2012 +0100
+summary:     Remove ununsed project references
+
+changeset:   697:73a65257db55
+user:        Andy Reeves
+date:        Tue May 29 18:28:57 2012 +0100
+summary:     Fix for 7296
+
+changeset:   696:c950d3abfd7e
+user:        Andy Reeves
+date:        Tue May 29 18:28:47 2012 +0100
+summary:     Start of 4.7.28 dev
+
+changeset:   695:3b65c2497153
+user:        Andy Reeves
+date:        Tue May 29 17:41:47 2012 +0100
+summary:     Removing ununsed code
+
+changeset:   694:9522ca603f73
+user:        Andy Reeves
+date:        Tue May 29 17:35:00 2012 +0100
+summary:     Fix for 7295/ Added new tests.
+
+changeset:   693:cf3c057f8e87
+user:        Andy Reeves
+date:        Tue May 29 14:31:05 2012 +0100
+summary:     Fix for 7294. Added new tests.
+
+changeset:   692:1a2d2033763c
+user:        Andy Reeves
+date:        Tue May 29 13:06:41 2012 +0100
+summary:     Add support for ReSharper 7.0 and VS11 beta
+
+changeset:   691:f382384954de
+user:        Andy Reeves
+date:        Mon May 28 17:44:50 2012 +0100
+summary:     Update rule text.
+
+changeset:   690:f226fd8b8410
+user:        Andy Reeves
+date:        Mon May 28 15:01:06 2012 +0100
+summary:     Fix for 7287
+
+changeset:   689:775ee1dd1c92
+user:        Andy Reeves
+date:        Mon May 28 10:21:34 2012 +0100
+summary:     Fix for 7285.Adding new tests.
+
+changeset:   688:7a209482b0b2
+user:        Andy Reeves
+date:        Fri May 25 15:53:21 2012 +0100
+summary:     Fix for 7207. Don't show invisible form. Update tests
+
+changeset:   687:6f8e1c426466
+user:        Andy Reeves
+date:        Fri May 25 11:51:59 2012 +0100
+summary:     Fix for 7268. Don't throw this. issues is we're in a cast or new call. Added more tests.
+
+changeset:   686:245d16afa000
+user:        Andy Reeves
+date:        Fri May 25 11:40:53 2012 +0100
+summary:     Start of 4.7.27.0
+
+changeset:   685:4c8f12ad2fd0
+user:        Andy Reeves
+date:        Fri May 25 09:32:15 2012 +0100
+summary:     Styling fixes
+
+changeset:   684:7eceb0f3432a
+user:        Andy Reeves
+date:        Fri May 25 09:29:02 2012 +0100
+summary:     Catch errors if the project items don't support excluded files like wixproj.
+
+changeset:   683:e2621259aa90
+user:        Andy Reeves
+date:        Thu May 24 20:15:56 2012 +0100
+summary:     Fix for linked files not getting checked for StyleCop exclusion
+
+changeset:   682:3e9ac9d1cfc1
+user:        Andy Reeves
+date:        Thu May 24 20:15:21 2012 +0100
+summary:     Updating docs
+
+changeset:   681:86862720f55e
+user:        Andy Reeves
+date:        Thu May 24 16:12:11 2012 +0100
+summary:     Update docs.
+
+changeset:   680:fa16004c1061
+user:        Andy Reeves
+date:        Thu May 24 15:04:47 2012 +0100
+summary:     New test data. Fix to allow nullable symbol after closing generic. Updated docs.
+
+changeset:   679:83317da734f6
+user:        Andy Reeves
+date:        Thu May 24 10:10:04 2012 +0100
+summary:     Start of 4.7.26.0 dev
+
+changeset:   678:1100713af7cc
+user:        Andy Reeves
+date:        Thu May 24 09:28:18 2012 +0100
+summary:     Clear the task pane when a solution closes or opens.
+
+changeset:   677:02474d05838f
+user:        Andy Reeves
+date:        Wed May 23 23:25:04 2012 +0100
+summary:     Make major improvements to the calculation of partial files for UI analysis.
+
+changeset:   676:247605b37e5b
+user:        Andy Reeves
+date:        Wed May 23 23:24:14 2012 +0100
+summary:     Correct the insertation text for private instance constructors.
+
+changeset:   675:896fd166c4c9
+user:        Andy Reeves
+date:        Wed May 23 23:23:50 2012 +0100
+summary:     Check all partial types to see if any have a base class.
+
+changeset:   674:0d31a5b1774c
+user:        Andy Reeves
+date:        Mon May 21 22:10:17 2012 +0100
+summary:     FxCop fixes.
+
+changeset:   673:e60d62b40b99
+user:        Andy Reeves
+date:        Mon May 21 21:33:30 2012 +0100
+summary:     Fix for 7267
+
+changeset:   672:5c9cc77c05a1
+user:        Andy Reeves
+date:        Mon May 21 21:13:22 2012 +0100
+summary:     Fix for 7266
+
+changeset:   671:03c578a8c418
+user:        Andy Reeves
+date:        Mon May 21 21:11:08 2012 +0100
+summary:     Fix for 7253. Read the ExcludedFromStyleCop settings in a proj file when doing project/solution analysis.
+
+changeset:   670:aa5004c1d70b
+user:        Andy Reeves
+date:        Mon May 21 20:18:57 2012 +0100
+summary:     Remove unused code.
+
+changeset:   669:e2a5b7c7f652
+user:        Andy Reeves
+date:        Mon May 21 17:34:28 2012 +0100
+summary:     Fix for 7265. ReferenceEquals does not require object prefix.
+
+changeset:   668:ef603d617d7a
+user:        Andy Reeves
+date:        Sun May 20 22:08:50 2012 +0100
+summary:     Styling fixes.
+
+changeset:   667:411a40703ee4
+user:        Andy Reeves
+date:        Sun May 20 22:03:54 2012 +0100
+summary:     Fix for 7254
+
+changeset:   666:8157c5e745f0
+user:        Andy Reeves
+date:        Sun May 20 21:16:04 2012 +0100
+summary:     Start of 4.7.25.0
+
+changeset:   665:08fa7f612a5a
+user:        Andy Reeves
+date:        Sun May 20 21:14:11 2012 +0100
+summary:     Fix for 7259
+
+changeset:   664:129a01995f6f
+user:        Andy Reeves
+date:        Sun May 20 18:31:50 2012 +0100
+summary:     Removing ununsed code.
+
+changeset:   663:6fb99f9f5533
+user:        Andy Reeves
+date:        Sun May 20 17:31:15 2012 +0100
+summary:     Updated docs.
+
+changeset:   662:78630663e925
+user:        Andy Reeves
+date:        Sun May 20 17:31:06 2012 +0100
+summary:     Lots of new test for updated this and base detection rules.
+
+changeset:   661:937d0e8950d7
+user:        Andy Reeves
+date:        Sat May 19 18:40:41 2012 +0100
+summary:     NEW RULE 1126 - PrefixCallsCorrectly
+
+changeset:   660:3566c8e4be0f
+user:        Andy Reeves
+date:        Thu May 17 16:27:10 2012 +0100
+summary:     fix for 7129. Added new tests.
+
+changeset:   659:c45cfa282edb
+user:        Andy Reeves
+date:        Thu May 17 16:10:31 2012 +0100
+summary:     Start of 4.7.24.0 dev
+
+changeset:   658:c1035d5fd01c
+user:        Andy Reeves
+date:        Thu May 17 16:09:05 2012 +0100
+summary:     fix for 7123. Add new tests.
+
+changeset:   657:07f64ec59887
+user:        Andy Reeves
+date:        Thu May 17 14:46:52 2012 +0100
+summary:     Reverting TargetFramework to 3.5. This is needed to work with VS2008. Adding my own Countdown class that works similar to
+
+changeset:   656:ba74aea7b82d
+user:        Andy Reeves
+date:        Wed May 16 20:53:24 2012 +0100
+summary:     Updating docs
+
+changeset:   655:7bb366514db4
+user:        Andy Reeves
+date:        Wed May 16 20:45:41 2012 +0100
+summary:     fix for 7256. Allow & in file headers.
+
+changeset:   654:f3b094502698
+user:        Andy Reeves
+date:        Wed May 16 19:22:46 2012 +0100
+summary:     Styling fixes.
+
+changeset:   653:ecf97e4ec6b4
+user:        Andy Reeves
+date:        Wed May 16 19:20:43 2012 +0100
+summary:     fix for 7219
+
+changeset:   652:3213a9cba78e
+user:        Andy Reeves
+date:        Wed May 16 17:59:47 2012 +0100
+summary:     Styling fixes.
+
+changeset:   651:68fd7206b8d4
+user:        Andy Reeves
+date:        Wed May 16 17:58:39 2012 +0100
+summary:     Allow Suppression on Enum Items
+
+changeset:   650:897f3de543bf
+user:        Andy Reeves
+date:        Wed May 16 17:09:26 2012 +0100
+summary:     Fix for 7114 and new tests
+
+changeset:   649:8b1f58d0741d
+user:        Andy Reeves
+date:        Wed May 16 14:43:17 2012 +0100
+summary:     Porting r#6.1.1 fix back to 5.1.3, 6.0.0 and 6.1.0
+
+changeset:   648:8b38bc5b109b
+user:        Andy Reeves
+date:        Wed May 16 14:42:40 2012 +0100
+summary:     Updating test data.
+
+changeset:   647:2161565e2de1
+user:        Andy Reeves
+date:        Wed May 16 14:41:40 2012 +0100
+summary:     Allow closing } to be followed by 'from'
+
+changeset:   646:db3c29d14bf8
+user:        Andy Reeves
+date:        Wed May 16 10:33:12 2012 +0100
+summary:     Multiple spaces in a single line comment are fine if the preceeding line is a single line comment.
+
+changeset:   645:04fe217210e2
+user:        Andy Reeves
+date:        Wed May 16 01:37:44 2012 +0100
+summary:     Start of 4.7.23.0 dev
+
+changeset:   644:c03c70899450
+user:        Andy Reeves
+date:        Wed May 16 01:36:02 2012 +0100
+summary:     Styling fixes
+
+changeset:   643:a5062a9dca01
+user:        Andy Reeves
+date:        Wed May 16 01:18:05 2012 +0100
+summary:     Remove old binaries
+
+changeset:   642:a2e086566d1a
+user:        Andy Reeves
+date:        Wed May 16 01:15:16 2012 +0100
+summary:     Styling fixes.
+
+changeset:   641:81e65fd00ef6
+user:        Andy Reeves
+date:        Wed May 16 01:03:49 2012 +0100
+summary:     Styling fixes
+
+changeset:   640:8213641d82d5
+user:        Andy Reeves
+date:        Wed May 16 01:03:25 2012 +0100
+summary:     SA1015 - And an open square bracket is ok too
+
+changeset:   639:dee7833b2804
+user:        Andy Reeves
+date:        Wed May 16 00:50:57 2012 +0100
+summary:     Start of 4.7.22 dev.
+
+changeset:   638:5525506e4086
+user:        Andy Reeves
+date:        Wed May 16 00:09:37 2012 +0100
+summary:     Styling fixes
+
+changeset:   637:4bf36966b39b
+user:        Andy Reeves
+date:        Tue May 15 23:06:58 2012 +0100
+summary:     Styling fixes
+
+changeset:   636:1374b5c9abcb
+user:        Andy Reeves
+date:        Tue May 15 22:58:29 2012 +0100
+summary:     2 NEW RULES
+
+changeset:   635:4c83f4d3268b
+user:        Andy Reeves
+date:        Tue May 15 19:51:18 2012 +0100
+summary:     Fix to not use a delegate or enum for the typename of a file unless they are the only elements in the file.
+
+changeset:   634:83cd5c11d8aa
+user:        Andy Reeves
+date:        Tue May 15 18:38:24 2012 +0100
+summary:     Cache the CPU reading value.
+
+changeset:   633:7cb02211208a
+user:        Andy Reeves
+date:        Tue May 15 16:48:27 2012 +0100
+summary:     Fix for major recursion error 7104
+
+changeset:   632:e36c9a2f0140
+user:        Andy Reeves
+date:        Tue May 15 16:27:55 2012 +0100
+summary:     Set threading back to cpucount.
+
+changeset:   631:142dfa3df7cb
+user:        Andy Reeves
+date:        Tue May 15 15:12:10 2012 +0100
+summary:     Updating styling
+
+changeset:   630:7c34e64ec88d
+user:        Andy Reeves
+date:        Mon May 14 17:29:33 2012 +0100
+summary:     Fix for 7227
+
+changeset:   629:7182473f9e46
+user:        Andy Reeves
+date:        Mon May 14 12:52:08 2012 +0100
+summary:     Big fix for 7065. Lots of new code to detect UTF-8 files even if they don't have the BOM markers.
+
+changeset:   628:72b77cdfa925
+user:        Andy Reeves
+date:        Sun May 13 16:35:50 2012 +0100
+summary:     Remove the catch() and just return 1 for CPU count.
+
+changeset:   627:0b0dd092c95c
+parent:      625:cb57b2bae7f8
+parent:      626:a82b8811d31f
+user:        Andy Reeves
+date:        Sun May 13 16:08:54 2012 +0100
+summary:     Merge
+
+changeset:   626:a82b8811d31f
+parent:      621:c58ba6ef575c
+user:        teast@teast-vmwin7.lan
+date:        Sat May 12 19:03:56 2012 +0200
+summary:     Using Path, Directory etc for file manipulation.
+
+changeset:   625:cb57b2bae7f8
+user:        Andy Reeves
+date:        Sun May 13 15:49:48 2012 +0100
+summary:     Change the threading code to use CountdownEvent
+
+changeset:   624:bfdbb2fb897b
+user:        Andy Reeves
+date:        Sun May 13 11:48:33 2012 +0100
+summary:     Updating documentation
+
+changeset:   623:d50340649961
+user:        Andy Reeves
+date:        Sun May 13 11:48:12 2012 +0100
+summary:     Removing old commented out code.
+
+changeset:   622:9e25dbeb29a1
+user:        Andy Reeves
+date:        Sat May 12 11:04:14 2012 +0100
+summary:     Fix for 7247. Added new tests.
+
+changeset:   621:c58ba6ef575c
+user:        Andy Reeves
+date:        Fri May 11 18:47:34 2012 +0100
+summary:     Upgrade all dll to Framework 4.0
+
+changeset:   620:92f898fb52e1
+user:        Andy Reeves
+date:        Fri May 11 18:22:40 2012 +0100
+summary:     Start of 4.7.21.0 dev
+
+changeset:   619:bf715d3a55be
+user:        Andy Reeves
+date:        Fri May 11 11:09:39 2012 +0100
+summary:     Fix for 7103
+
+changeset:   618:acd65d85749b
+user:        Andy Reeves
+date:        Thu May 10 18:16:33 2012 +0100
+summary:     Fix for 6989. Show exact location of violation. Update tests.
+
+changeset:   617:99366fa8b242
+user:        Andy Reeves
+date:        Thu May 10 16:55:54 2012 +0100
+summary:     Add support to tests for start,end line and column.
+
+changeset:   616:fd897dae9edf
+user:        Andy Reeves
+date:        Thu May 10 14:35:01 2012 +0100
+summary:     Fix for 6991. Added new tests.
+
+changeset:   615:de4028e6ae75
+user:        Andy Reeves
+date:        Wed May 09 20:16:53 2012 +0100
+summary:     Fix for 6994. New tests.
+
+changeset:   614:56518e08d48d
+user:        Andy Reeves
+date:        Wed May 09 19:25:02 2012 +0100
+summary:     Updating docs.
+
+changeset:   613:699c0edd1462
+user:        Andy Reeves
+date:        Wed May 09 19:15:22 2012 +0100
+summary:     Fix for 6995. New tests.
+
+changeset:   612:9ad0baf2dec4
+user:        Andy Reeves
+date:        Tue May 08 19:12:15 2012 +0100
+summary:     Fix for 7011
+
+changeset:   611:f91bf82de7b8
+user:        Andy Reeves
+date:        Tue May 08 16:50:30 2012 +0100
+summary:     Fix for 7013
+
+changeset:   610:63fc4ec84a73
+user:        Andy Reeves
+date:        Tue May 08 15:53:30 2012 +0100
+summary:     Update and clarify some of the naming rules
+
+changeset:   609:78754f38635b
+user:        Andy Reeves
+date:        Tue May 08 15:53:05 2012 +0100
+summary:     Update tests
+
+changeset:   608:7a552e1f4650
+user:        Andy Reeves
+date:        Tue May 08 15:52:53 2012 +0100
+summary:     fix for 7014
+
+changeset:   607:e750c0230026
+user:        Andy Reeves
+date:        Tue May 08 15:52:22 2012 +0100
+summary:     Allow only xml inside a summary element
+
+changeset:   606:28e69bfe596c
+user:        Andy Reeves
+date:        Tue May 08 15:52:01 2012 +0100
+summary:     Styling fixes
+
+changeset:   605:87c929e9279d
+user:        Andy Reeves
+date:        Tue May 08 15:46:33 2012 +0100
+summary:     Adding isStatic to a field.
+
+changeset:   604:fd4803f0d345
+user:        Andy Reeves
+date:        Tue May 08 15:46:06 2012 +0100
+summary:     Correcting versions to 4.7.20.0
+
+changeset:   603:a8e4952df674
+user:        Andy Reeves
+date:        Tue May 08 15:37:21 2012 +0100
+summary:     Updating docs.
+
+changeset:   602:550bc98df51a
+user:        Andy Reeves
+date:        Mon May 07 21:32:27 2012 +0100
+summary:     Styling fix
+
+changeset:   601:a0860a9e7f3f
+user:        Andy Reeves
+date:        Mon May 07 21:31:54 2012 +0100
+summary:     Fix for 7057
+
+changeset:   600:1708698adf7a
+user:        Andy Reeves
+date:        Mon May 07 21:11:51 2012 +0100
+summary:     Fix for 7072
+
+changeset:   599:485c2a83c416
+user:        Andy Reeves
+date:        Mon May 07 17:02:31 2012 +0100
+summary:     Fix for 7073
+
+changeset:   598:f25cfe656d31
+user:        Andy Reeves
+date:        Mon May 07 16:49:39 2012 +0100
+summary:     Fix for broken tests
+
+changeset:   597:887235d2b6f3
+user:        Andy Reeves
+date:        Mon May 07 16:35:18 2012 +0100
+summary:     Fix for 7063
+
+changeset:   596:faba4e394843
+user:        Andy Reeves
+date:        Mon May 07 16:20:54 2012 +0100
+summary:     Methods on iterfaces where not getting the right access modifier.
+
+changeset:   595:87d0b03fb6b6
+user:        Andy Reeves
+date:        Mon May 07 15:00:10 2012 +0100
+summary:     Fix for 7008
+
+changeset:   594:460c348c3b20
+user:        Andy Reeves
+date:        Mon May 07 13:37:53 2012 +0100
+summary:     Fix for 7023
+
+changeset:   593:eda05fa14002
+user:        Andy Reeves
+date:        Mon May 07 13:06:21 2012 +0100
+summary:     Styling fixes.
+
+changeset:   592:d071293d49de
+user:        Andy Reeves
+date:        Mon May 07 13:00:30 2012 +0100
+summary:     Fix for 7036
+
+changeset:   591:a201bc780b90
+user:        Andy Reeves
+date:        Mon May 07 12:15:54 2012 +0100
+summary:     Fix for 7050
+
+changeset:   590:fd29e19528de
+user:        Andy Reeves
+date:        Mon May 07 12:11:35 2012 +0100
+summary:     Updated docs binary
+
+changeset:   589:3062c876473e
+user:        Andy Reeves
+date:        Mon May 07 12:09:26 2012 +0100
+summary:     Updating docs
+
+changeset:   588:69d0e87a65fd
+user:        Andy Reeves
+date:        Mon May 07 11:57:12 2012 +0100
+summary:     Fix auto re-ordering patterns
+
+changeset:   587:aafcd42825e7
+user:        Andy Reeves
+date:        Sun May 06 15:07:34 2012 +0100
+summary:     Fix for 7236. Added new tests.
+
+changeset:   586:b5e9d069eaf3
+user:        Andy Reeves
+date:        Sat May 05 10:23:39 2012 +0100
+summary:     Fix for pt-BR localised strings
+
+changeset:   585:daf06d7817f5
+user:        Andy Reeves
+date:        Fri May 04 21:46:20 2012 +0100
+summary:     Start of 4.7.20.0 dev
+
+changeset:   584:50e86696e123
+user:        Andy Reeves
+date:        Fri May 04 21:19:56 2012 +0100
+summary:     Updating Docs
+
+changeset:   583:802ef2ca473a
+user:        Andy Reeves
+date:        Fri May 04 20:56:32 2012 +0100
+summary:     Fix for 7165
+
+changeset:   582:33f54faa4bd4
+user:        Andy Reeves
+date:        Fri May 04 20:53:22 2012 +0100
+summary:     Fix for 7154.
+
+changeset:   581:6920e0d6f5c4
+user:        Andy Reeves
+date:        Fri May 04 15:17:37 2012 +0100
+summary:     Fix for 7173.
+
+changeset:   580:d41071301a90
+user:        Andy Reeves
+date:        Fri May 04 15:17:17 2012 +0100
+summary:     Update docs
+
+changeset:   579:f66595c0c1b2
+user:        Andy Reeves
+date:        Fri May 04 13:13:12 2012 +0100
+summary:     Fixes and new tests for 7187
+
+changeset:   578:2243e9c4c1ad
+user:        Andy Reeves
+date:        Fri May 04 12:38:50 2012 +0100
+summary:     Update parser tests for 7196
+
+changeset:   577:0307bb985f48
+user:        Andy Reeves
+date:        Thu May 03 21:05:31 2012 +0100
+summary:     Fix for 7196.
+
+changeset:   576:bc6e30dc9adf
+user:        Andy Reeves
+date:        Thu May 03 16:43:47 2012 +0100
+summary:     Fix for 7198 - Add option to insert TODO text into documentation comments
+
+changeset:   575:73fc01709100
+user:        Andy Reeves
+date:        Wed May 02 21:46:30 2012 +0100
+summary:     Fix for 7199.
+
+changeset:   574:484b2a6cd65d
+user:        Andy Reeves
+date:        Wed May 02 14:51:55 2012 +0100
+summary:     Fix for 7195
+
+changeset:   573:9cc239d2b0a2
+user:        Andy Reeves
+date:        Tue May 01 19:55:02 2012 +0100
+summary:     Fix for 7234.
+
+changeset:   572:61d51b5a2aa0
+user:        Andy Reeves
+date:        Tue May 01 18:31:04 2012 +0100
+summary:     Add de-DE resources
+
+changeset:   571:e7a5b6a122e1
+user:        Andy Reeves
+date:        Tue May 01 18:19:29 2012 +0100
+summary:     Adding de-DE resources
+
+changeset:   570:57b457d3853c
+user:        Andy Reeves
+date:        Tue May 01 18:17:39 2012 +0100
+summary:     Add de-DE resources
+
+changeset:   569:7fa247c2472c
+user:        Andy Reeves
+date:        Tue May 01 18:17:20 2012 +0100
+summary:     Start of 4.7.19.0
+
+changeset:   568:fee0baa87dd0
+user:        Andy Reeves
+date:        Sun Apr 29 17:02:40 2012 +0100
+summary:     fix for 7166.
+
+changeset:   567:be83322870d8
+user:        Andy Reeves
+date:        Sun Apr 29 16:43:45 2012 +0100
+summary:     Styling fix.
+
+changeset:   566:5b817b71ca56
+user:        Andy Reeves
+date:        Sun Apr 29 16:39:48 2012 +0100
+summary:     Add new tests to allow Hungarian style prefixes containing numbers and letters.
+
+changeset:   565:b34a1e6be6d8
+user:        Andy Reeves
+date:        Thu Mar 29 16:45:24 2012 +0100
+summary:     Fix for 7211 - Remove the trailing spaces from all the languages for Get/Set accessors.
+
+changeset:   564:1a3bf919fc82
+user:        Andy Reeves
+date:        Thu Mar 29 16:25:30 2012 +0100
+summary:     Fix for 7042 - Allow multiline copyright text.
+
+changeset:   563:c04ae5405f04
+user:        Andy Reeves
+date:        Wed Mar 28 16:29:42 2012 +0100
+summary:     Allow any doc comment to end with an xml closing tag or a period mark '.'
+
+changeset:   562:8d38c9225bfc
+parent:      560:f3eaf5d1e0ac
+parent:      561:f2e8082be383
+user:        Andy Reeves
+date:        Tue Mar 27 17:45:19 2012 +0100
+summary:     Merge
+
+changeset:   561:f2e8082be383
+parent:      559:b832312e1fc6
+user:        Martin Peck <mpeck@pecksplace.com>
+date:        Tue Mar 27 00:31:55 2012 +0100
+summary:     Adding personal developer files for mpeck.
+
+changeset:   560:f3eaf5d1e0ac
+user:        Andy Reeves
+date:        Tue Mar 27 16:21:28 2012 +0100
+summary:     Update some formatting.
+
+changeset:   559:b832312e1fc6
+user:        Andy Reeves
+date:        Fri Mar 23 23:02:02 2012 +0000
+summary:     Fix from mpeck for 7210
+
+changeset:   558:35bb78572e05
+user:        Andy Reeves
+date:        Fri Mar 23 21:02:39 2012 +0000
+summary:     Consolidating Constants.
+
+changeset:   557:918a00bf40a8
+user:        Andy Reeves
+date:        Fri Mar 23 16:49:34 2012 +0000
+summary:     Remove the regex codes from the language strings.
+
+changeset:   556:28d146bc2202
+user:        Andy Reeves
+date:        Thu Mar 22 10:23:10 2012 +0000
+summary:     Start of 4.7.18.0
+
+changeset:   555:73a36c9dfde2
+user:        Andy Reeves
+date:        Thu Mar 22 09:52:43 2012 +0000
+summary:     Fix a spelling mistake in the fr-FR text.
+
+changeset:   554:b0a7dc0c769c
+user:        Andy Reeves
+date:        Wed Mar 21 17:21:03 2012 +0000
+summary:     Update the CodeStrings to be used to be R# addin for multiple languages.
+
+changeset:   553:cc5d2eadc43d
+user:        Andy Reeves
+date:        Wed Mar 21 17:20:01 2012 +0000
+summary:     Start of 4.7.17.0
+
+changeset:   552:1de878b37a8f
+user:        Andy Reeves
+date:        Wed Mar 21 12:23:54 2012 +0000
+summary:     Adding ru-RU
+
+changeset:   551:f369926581d6
+user:        Andy Reeves
+date:        Tue Mar 20 21:07:47 2012 +0000
+summary:     Read all the satellite assemblies to determine which languages we support. Deploy the 4 new languages we support.
+
+changeset:   550:6937a859e53e
+user:        Andy Reeves
+date:        Tue Mar 20 12:36:13 2012 +0000
+summary:     Add pl-PL and pt-BR
+
+changeset:   549:880f5131e00a
+user:        Andy Reeves
+date:        Mon Mar 19 15:18:19 2012 +0000
+summary:     Add pl-PL and pt-BR for documentation rules.
+
+changeset:   548:17feb7f2ee2c
+user:        Andy Reeves
+date:        Mon Mar 19 15:17:55 2012 +0000
+summary:     Start of 4.7.16.0
+
+changeset:   547:1cbcf3329d3b
+user:        Andy Reeves
+date:        Sun Mar 18 16:27:06 2012 +0000
+summary:     Added fr-FR to the allowed cultures.
+
+changeset:   546:1375b7add249
+user:        Andy Reeves
+date:        Sun Mar 18 15:01:17 2012 +0000
+summary:     Add a Culture as a global property in the Settings.StyleCop files. Defaults to en-US as it was before. Added en-GB resources.
+
+changeset:   545:eeaf2a4c583e
+user:        Andy Reeves
+date:        Sat Mar 17 22:08:59 2012 +0000
+summary:     Use AssemblyFileVersion instead of AssemblyVersion for checking updates.
+
+changeset:   544:ef137247700a
+user:        Andy Reeves
+date:        Sat Mar 17 16:58:49 2012 +0000
+summary:     Fix for 7142 - StyleCop.Targets Does Not Account For 64-Bit MSBuild
+
+changeset:   543:523d555dfaf7
+user:        Andy Reeves
+date:        Sat Mar 17 16:54:14 2012 +0000
+summary:     Fix for 6753 and 7191. Settings Editor now supports SourceFileLists.
+
+changeset:   542:ea41f2722cd7
+user:        Andy Reeves
+date:        Sat Mar 17 15:08:43 2012 +0000
+summary:     Add R# option to switch off the checking of code style at startup. Fix for 7164 - save the code style options into the correct context.
+
+changeset:   541:4cfad58ac384
+user:        Andy Reeves
+date:        Sat Mar 17 15:08:32 2012 +0000
+summary:     Start of 4.7.15.0
+
+changeset:   540:1ffe9ea16a7e
+user:        Andy Reeves
+date:        Fri Mar 16 12:17:57 2012 +0000
+summary:     Fixes for VS2008 not showing Inspection severity.
+
+changeset:   539:9fecf708b3a3
+user:        Andy Reeves
+date:        Wed Mar 14 20:08:43 2012 +0000
+summary:     Update version to 4.7.13.0
+
+changeset:   538:2b4d6545462c
+user:        Andy Reeves
+date:        Wed Mar 14 11:48:30 2012 +0000
+summary:     Attempting to fix highlight registering bug with VS2008
+
+changeset:   537:65c5a78ce626
+user:        Andy Reeves
+date:        Wed Mar 14 11:47:53 2012 +0000
+summary:     Update version number to 4.7.12.0
+
+changeset:   536:e13c906bba9a
+user:        Andy Reeves
+date:        Tue Feb 21 22:05:14 2012 +0000
+summary:     Fix up lots of violations to indicate the row and column of the failure.
+
+changeset:   535:f9c46b330f0d
+user:        Andy Reeves
+date:        Tue Feb 21 17:43:10 2012 +0000
+summary:     Update the R#6.1.1 dependancies and required version numbers.
+
+changeset:   534:800862b205bf
+user:        Andy Reeves
+date:        Tue Feb 21 17:42:14 2012 +0000
+summary:     Upgrade version to 4.7.11.0
+
+changeset:   533:0f9ec61dcabb
+user:        Andy Reeves
+date:        Sat Feb 11 14:37:20 2012 +0000
+summary:     Fixing bug where R# version detector was failing to hide overlaid controls
+
+changeset:   532:1b8113af1799
+user:        Andy Reeves
+date:        Sat Feb 11 14:36:50 2012 +0000
+summary:     Bug fix for unable to load stream data in R#5.1 and R# 6.0 plugins
+
+changeset:   531:776c1ecdb303
+user:        Andy Reeves
+date:        Sat Feb 11 14:10:51 2012 +0000
+summary:     Update version number to 4.7.10.0
+
+changeset:   530:b32213b0a194
+user:        Andy Reeves
+date:        Fri Feb 10 13:06:59 2012 +0000
+summary:     Fix the installer to detect R#6.1 installed into VS11 correctly.
+
+changeset:   529:27f5b74d369d
+user:        Andy Reeves
+date:        Mon Feb 06 18:54:10 2012 +0000
+summary:     Change for 7158.
+
+changeset:   528:28011c986b4c
+user:        Andy Reeves
+date:        Mon Feb 06 13:32:47 2012 +0000
+summary:     Fix for 7184.
+
+changeset:   527:a6013db31ffe
+user:        Andy Reeves
+date:        Sun Feb 05 12:20:53 2012 +0000
+summary:     Fix for 7183. Added new tests.
+
+changeset:   526:aced75afb52f
+user:        Andy Reeves
+date:        Sun Feb 05 12:14:34 2012 +0000
+summary:     Update version number
+
+changeset:   525:a29119992c1f
+user:        Andy Reeves
+date:        Sat Feb 04 17:43:04 2012 +0000
+summary:     Removed some tracing code that was forcing debug builds to break under R#5.1 and VS2008.
+
+changeset:   524:01a50bbcb1c0
+user:        Andy Reeves
+date:        Fri Feb 03 14:31:31 2012 +0000
+summary:     Fix for 7181
+
+changeset:   523:f9974847ed60
+user:        Andy Reeves
+date:        Wed Feb 01 13:49:11 2012 +0000
+summary:     Fix for 7169.
+
+changeset:   522:d043bbced251
+user:        Andy Reeves
+date:        Wed Feb 01 13:47:25 2012 +0000
+summary:     Update version to 4.7.8.0
+
+changeset:   521:e06cd6443892
+user:        Andy Reeves
+date:        Wed Feb 01 02:48:22 2012 +0000
+summary:     Fix namespace and dll renaming changes.
+
+changeset:   520:2b2c8f147fd8
+user:        Andy Reeves
+date:        Wed Feb 01 02:41:13 2012 +0000
+summary:     Correct the versions of R# we support. Dont' install R# plugin if R# hasnt been installed by the msi.
+
+changeset:   519:2634b02371e4
+user:        Andy Reeves
+date:        Wed Feb 01 01:58:04 2012 +0000
+summary:     Removed commented out code.
+
+changeset:   518:d035f1f23c06
+user:        Andy Reeves
+date:        Wed Feb 01 01:53:54 2012 +0000
+summary:     Re-add support for R#6.1 RTM.
+
+changeset:   517:ca5a39a10fb1
+user:        Andy Reeves
+date:        Tue Jan 24 12:52:37 2012 +0000
+summary:     Update version to 4.7.7.0
+
+changeset:   516:15cace27d8af
+user:        Andy Reeves
+date:        Sat Jan 21 10:06:09 2012 +0000
+summary:     Handle the lifetime of R# better for restting and checking options.
+
+changeset:   515:2dfc7821905e
+user:        Andy Reeves
+date:        Sat Jan 21 10:05:40 2012 +0000
+summary:     Fix R# exception where duplicate keys were trying to be added to the highlight registering.
+
+changeset:   514:01c828eed9e0
+user:        Andy Reeves
+date:        Thu Jan 19 17:35:58 2012 +0000
+summary:     Move MaxViolationCount into the settings file.
+
+changeset:   513:216c4d3cfb7a
+user:        Andy Reeves
+date:        Wed Jan 18 19:46:09 2012 +0000
+summary:     Fix to ensure the naming policies are checked correctly and then reset.
+
+changeset:   512:4f32d947638b
+user:        Andy Reeves
+date:        Wed Jan 18 00:10:28 2012 +0000
+summary:     Update version number.
+
+changeset:   511:c9385bbc21dc
+user:        Andy Reeves
+date:        Tue Jan 17 23:22:37 2012 +0000
+summary:     Resources for R#6.0 plugin were not loading.
+
+changeset:   510:ee5ec375c0f7
+user:        Andy Reeves
+date:        Mon Jan 16 17:26:59 2012 +0000
+summary:     dll naming had changed for R#5.1 dll support.
+
+changeset:   509:d3755c89f1b5
+user:        Andy Reeves
+date:        Sat Jan 14 13:55:03 2012 +0000
+summary:     Styleing fixes.
+
+changeset:   508:dee275e1c59b
+user:        Andy Reeves
+date:        Sat Jan 14 13:53:37 2012 +0000
+summary:     Adding a new option to disable analysis as you type completely.
+
+changeset:   507:606a2314dfe6
+user:        Andy Reeves
+date:        Fri Jan 13 14:13:17 2012 +0000
+summary:     Update to version 4.7.5.0
+
+changeset:   506:a2c3df6a8e0e
+user:        Andy Reeves
+date:        Sun Jan 08 23:48:54 2012 +0000
+summary:     Fix for 7105.
+
+changeset:   505:9afef83d90da
+user:        Andy Reeves
+date:        Sun Jan 08 17:46:14 2012 +0000
+summary:     Fix for 7124.
+
+changeset:   504:bc50c9168e9b
+user:        Andy Reeves
+date:        Sun Jan 08 17:42:49 2012 +0000
+summary:     Fix for 7086 for R#5.1 , R#6.0 and R#6.1 addins.
+
+changeset:   503:7a1800f5c5ab
+user:        Andy Reeves
+date:        Sun Jan 08 17:28:02 2012 +0000
+summary:     Fix for 7068.
+
+changeset:   502:e65b3a2e2aee
+user:        Andy Reeves
+date:        Sun Jan 08 15:35:24 2012 +0000
+summary:     Update version to 4.7.4.0
+
+changeset:   501:16d9809f574f
+user:        Andy Reeves
+date:        Sat Jan 07 00:52:40 2012 +0000
+summary:     Fixes to support multiple R# versions from the same dll.
+
+changeset:   500:5110836dad81
+user:        Andy Reeves
+date:        Fri Jan 06 21:26:06 2012 +0000
+summary:     Updates to support multiple r# plugins
+
+changeset:   499:932f76b73523
+user:        Andy Reeves
+date:        Fri Jan 06 21:16:50 2012 +0000
+summary:     Adding old plugins
+
+changeset:   498:8b9997f2ab7e
+user:        Andy Reeves
+date:        Fri Jan 06 20:56:07 2012 +0000
+summary:     Plugin update
+
+changeset:   497:6a63564be115
+user:        Andy Reeves
+date:        Fri Jan 06 20:55:51 2012 +0000
+summary:     Adding plugin for r# 5.1
+
+changeset:   496:c78b69b6d60d
+user:        Andy Reeves
+date:        Fri Jan 06 20:48:32 2012 +0000
+summary:     plugin updates
+
+changeset:   495:3c52a7f64859
+parent:      494:14433da7a7c0
+parent:      492:2bf282747011
+user:        Andy Reeves
+date:        Fri Jan 06 20:45:47 2012 +0000
+summary:     Merge
+
+changeset:   494:14433da7a7c0
+parent:      493:ecfbf8c1e81e
+parent:      491:c503e57d0fd2
+user:        Andy Reeves
+date:        Fri Jan 06 20:45:34 2012 +0000
+summary:     Merge
+
+changeset:   493:ecfbf8c1e81e
+parent:      490:19204db3a678
+user:        Andy Reeves
+date:        Fri Jan 06 20:44:45 2012 +0000
+summary:     Plugin updates
+
+changeset:   492:2bf282747011
+parent:      489:ec84902d68b5
+user:        Andy Reeves
+date:        Fri Jan 06 20:35:36 2012 +0000
+summary:     Adding old plugins
+
+changeset:   491:c503e57d0fd2
+user:        Andy Reeves
+date:        Fri Jan 06 20:20:09 2012 +0000
+summary:     Ading the r# 6.0 plugin to the current assembly
+
+changeset:   490:19204db3a678
+user:        Andy Reeves
+date:        Fri Jan 06 20:00:24 2012 +0000
+summary:     Adding the older R# 6.0 plugin to the current solution.
+
+changeset:   489:ec84902d68b5
+user:        Andy Reeves
+date:        Fri Jan 06 19:30:18 2012 +0000
+summary:     Rename the ReSharper dll to ReSharper61.dll. This is the first part of getting R#5, 6.0 and 6.1 support into the latest build.
+
+changeset:   488:09351930b738
+user:        Andy Reeves
+date:        Thu Jan 05 17:28:28 2012 +0000
+summary:     Fixes to actually store the stylecop options and retreive them in the new R# 6.1 model.
+
+changeset:   487:b292fdd8c5b8
+user:        Andy Reeves
+date:        Sun Jan 01 19:17:32 2012 +0000
+summary:     Fix for 7080. Spacing around async ()
+
+changeset:   486:ab83c169b758
+user:        Andy Reeves
+date:        Fri Dec 30 22:44:48 2011 +0000
+summary:     Fix for discussion 272625.
+
+changeset:   485:6f4804e3518e
+user:        Andy Reeves
+date:        Fri Dec 30 22:30:28 2011 +0000
+summary:     Fix for 7130. Ordering of BulbItems.
+
+changeset:   484:4b1e901b82ba
+user:        Andy Reeves
+date:        Wed Dec 28 19:22:24 2011 +0000
+summary:     Updating version number to 4.7 from 4.6
+
+changeset:   483:97c601072490
+user:        Andy Reeves
+date:        Wed Dec 28 12:26:43 2011 +0000
+summary:     Styling fixes.
+
+changeset:   482:aac2dfcedc50
+user:        Andy Reeves
+date:        Wed Dec 28 12:24:01 2011 +0000
+summary:     Version numbers fixes.
+
+changeset:   481:33b57643950f
+user:        Andy Reeves
+date:        Wed Dec 28 12:14:28 2011 +0000
+summary:     Update to 4.7 for R#6.1 compatibility.
+
+changeset:   480:8ef35078cd96
+user:        Andy Reeves
+date:        Sun Sep 18 19:54:46 2011 +0100
+summary:     As StyleCopCore doesn't need implement IDisposable now remove anything using it.
+
+changeset:   479:281685764498
+user:        Andy Reeves
+date:        Sun Sep 18 19:24:05 2011 +0100
+summary:     Update version to 4.6.3.0
+
+changeset:   478:fbf4aabef209
+user:        Andy Reeves
+date:        Sun Sep 18 19:23:12 2011 +0100
+summary:     Update tracing. Remove IDisposable for StyleCopCore. Remove old logger.
+
+changeset:   477:d95dc3efdcc5
+user:        Andy Reeves
+date:        Fri Sep 02 17:26:35 2011 +0100
+summary:     Version to 4.6.2.0. Fixing memory and performance issues. Fixed inheritdoc issue. Added more tracing.
+
+changeset:   476:cf06b6e8fef9
+user:        Andy Reeves
+date:        Thu Aug 18 18:54:47 2011 +0100
+summary:     Update version to 4.6.1.0
+
+changeset:   475:ce136eac5587
+user:        Andy Reeves
+date:        Thu Aug 18 18:52:30 2011 +0100
+summary:     Styling fixes.
+
+changeset:   474:da2a14a6f412
+user:        Andy Reeves
+date:        Thu Aug 18 18:47:20 2011 +0100
+summary:     Update some 4.5 to 4.6
+
+changeset:   473:677caff1e932
+user:        Andy Reeves
+date:        Thu Aug 18 18:44:16 2011 +0100
+summary:     Fix the Options page and the CTRL E,F code cleanup.
+
+changeset:   472:562320acc9d3
+user:        Andy Reeves
+date:        Wed Aug 17 10:54:53 2011 +0100
+summary:     Fix version number on autoupdater to 4.6
+
+changeset:   471:8c6f44c98cf1
+user:        Andy Reeves
+date:        Fri Jul 29 19:34:56 2011 +0100
+summary:     Fixes for R#6 from Remo Gloor. Thanks.
+
+changeset:   470:e397005958b8
+user:        Andy Reeves
+date:        Thu Jul 28 17:44:29 2011 +0100
+summary:     Styling fixes.
+
+changeset:   469:572ca2e407c4
+user:        Andy Reeves
+date:        Thu Jul 28 17:27:04 2011 +0100
+summary:     More R#6 fixes. Thanks Remo.
+
+changeset:   468:625e76514fa9
+user:        Andy Reeves
+date:        Thu Jul 28 17:16:26 2011 +0100
+summary:     More R#6 fixes.
+
+changeset:   467:b20e22377bef
+user:        Andy Reeves
+date:        Thu Jul 28 14:39:08 2011 +0100
+summary:     More R#6 fixes.
+
+changeset:   466:854f86c4be08
+user:        Andy Reeves
+date:        Wed Jul 27 18:42:41 2011 +0100
+summary:     Fixes for R#6. Down to 10 compile issues now.
+
+changeset:   465:9418509f2ac7
+user:        Andy Reeves
+date:        Wed Jul 27 10:03:21 2011 +0100
+summary:     Update hgignore file
+
+changeset:   464:16c89bbb429a
+user:        Andy Reeves
+date:        Wed Jul 27 10:02:01 2011 +0100
+summary:     First pass at migrating to R#6. 14 compile issues remaining.
+
+changeset:   463:14c227da70fb
+user:        Andy Reeves
+date:        Wed Jul 27 09:46:36 2011 +0100
+summary:     Update version number to 4.6
+
+changeset:   462:cf6b07840c6d
+parent:      458:64d44becb157
+user:        Andy Reeves
+date:        Wed Jul 27 09:46:01 2011 +0100
+summary:     Update version number to 4.6 in docs
+
+changeset:   461:7647bf3f1fdb
+branch:      v5.0.0
+parent:      152:556d0661c25f
+user:        Andy Reeves
+date:        Wed Jul 06 12:29:23 2011 +0100
+summary:     Closing old branch
+
+changeset:   460:16a4b1336f26
+branch:      v4.4.0
+parent:      72:a1a8de5fcdec
+user:        Andy Reeves
+date:        Wed Jul 06 12:28:49 2011 +0100
+summary:     Closing old branch
+
+changeset:   459:9f2e1e493181
+branch:      v4.5
+user:        Andy Reeves
+date:        Wed Jul 06 12:21:27 2011 +0100
+summary:     Branch v4.5
+
+changeset:   458:64d44becb157
+user:        Andy Reeves
+date:        Wed Jun 29 17:51:51 2011 +0100
+summary:     Added new await tests. Fixed await parsing errors.
+
+changeset:   457:012adced5dd6
+user:        Andy Reeves
+date:        Wed Jun 29 16:16:03 2011 +0100
+summary:     Fixes fur nuget to work with Debug or Release builds.
+
+changeset:   456:2f011808e005
+parent:      453:5c5fff506d7a
+parent:      455:44a41bd3a380
+user:        Andy Reeves
+date:        Wed Jun 29 15:08:51 2011 +0100
+summary:     Merge Nuget Package creation
+
+changeset:   455:44a41bd3a380
+user:        Damian Hickey
+date:        Sun Apr 17 14:31:20 2011 +0100
+summary:     Set target to net35
+
+changeset:   454:0ff8c81beefd
+parent:      359:225d038def05
+user:        Damian Hickey
+date:        Sun Apr 17 14:10:53 2011 +0100
+summary:     Create NuGet package
+
+changeset:   453:5c5fff506d7a
+user:        Andy Reeves
+date:        Wed Jun 29 11:37:13 2011 +0100
+summary:     Fix for 'await' contextual keyword. Added new tests.
+
+changeset:   452:bdfd624e7731
+user:        Andy Reeves
+date:        Wed Jun 29 11:32:30 2011 +0100
+summary:     Update version to 4.5.25
+
+changeset:   451:d3f81788f9b8
+user:        Andy Reeves
+date:        Tue Jun 28 20:55:06 2011 +0100
+summary:     Fixes for async bugs 7038,7039,7040. Updated version. Added new tests. Thanks to Ron.
+
+changeset:   450:4885e2c64dd9
+user:        Andy Reeves
+date:        Sat Jun 25 21:10:31 2011 +0100
+summary:     Fixes for 7024 and 7031. Re-written the preprocessor parser completely. Added lots of new tests. Updated version to .23
+
+changeset:   449:b0c2baa73f31
+user:        Andy Reeves
+date:        Fri Jun 24 18:03:53 2011 +0100
+summary:     Fix for 7018. Leave using statement brackets unchanged.
+
+changeset:   448:51f9f4b42ab2
+user:        Andy Reeves
+date:        Fri Jun 24 18:03:14 2011 +0100
+summary:     Fix for 7025. Default install of MSBuild component to on
+
+changeset:   447:ee6c1dba0d5f
+user:        Andy Reeves
+date:        Fri Jun 24 18:02:40 2011 +0100
+summary:     Update version to 4.5.22
+
+changeset:   446:e2b0021d6fe9
+user:        Andy Reeves
+date:        Thu Jun 23 18:06:18 2011 +0100
+summary:     Updating version number.
+
+changeset:   445:800b4dfcd927
+user:        Andy Reeves
+date:        Thu Jun 23 18:04:41 2011 +0100
+summary:     Fix for 7026. Timeout on the webrequest is now 5 seconds.
+
+changeset:   444:7092aca3596c
+user:        Andy Reeves
+date:        Thu Jun 23 17:05:03 2011 +0100
+summary:     Fix for 7024. This will need a better fix in 5.0
+
+changeset:   443:8f0ea8dc0bf1
+user:        Andy Reeves
+date:        Thu Jun 23 16:33:49 2011 +0100
+summary:     Fix for 7019. Added tests.
+
+changeset:   442:f771d1aabc6e
+user:        Andy Reeves
+date:        Thu Jun 23 15:54:25 2011 +0100
+summary:     Fix for 7020.
+
+changeset:   441:849eafa4e630
+user:        Andy Reeves
+date:        Thu Jun 23 15:40:10 2011 +0100
+summary:     Fix for 7018.
+
+changeset:   440:2cd40f0562cf
+user:        Andy Reeves
+date:        Thu Jun 23 15:29:57 2011 +0100
+summary:     Updating docs.
+
+changeset:   439:089cdd56eaf4
+user:        Andy Reeves
+date:        Thu Jun 23 15:29:11 2011 +0100
+summary:     Updating docs fix for 7010
+
+changeset:   438:3e6a4870be85
+user:        Andy Reeves
+date:        Fri Jun 17 14:44:45 2011 +0100
+summary:     Update docs.
+
+changeset:   437:12ca59d1e304
+user:        Andy Reeves
+date:        Fri Jun 17 12:16:13 2011 +0100
+summary:     Some fixes for the Type Layout reordering in R# plugin. Fixes 7005. This works around the problem that R# thinks that explicit interface implementations are private and orders them incorrectly.
+
+changeset:   436:a7a45cefb335
+user:        Andy Reeves
+date:        Fri Jun 17 10:32:39 2011 +0100
+summary:     Fix for 7004.
+
+changeset:   435:96c7d12ed069
+user:        Andy Reeves
+date:        Thu Jun 16 15:58:24 2011 +0100
+summary:     Fixed 7003.
+
+changeset:   434:a5464a2a1b50
+user:        Andy Reeves
+date:        Thu Jun 16 15:23:37 2011 +0100
+summary:     Fix for 7001.
+
+changeset:   433:655d9c76560a
+user:        Andy Reeves
+date:        Thu Jun 16 10:30:35 2011 +0100
+summary:     Updated docs.
+
+changeset:   432:3dbb78d7a0a6
+user:        Andy Reeves
+date:        Thu Jun 16 10:23:18 2011 +0100
+summary:     Fixed spellnig mistakes in docs.
+
+changeset:   431:588f46f4723c
+user:        Andy Reeves
+date:        Tue Jun 14 17:20:17 2011 +0100
+summary:     Fix for 6986. Added new tests.
+
+changeset:   430:eb0b8af0ca70
+user:        Andy Reeves
+date:        Tue Jun 14 16:12:31 2011 +0100
+summary:     Fix for 6985.
+
+changeset:   429:c3238ca52b4e
+user:        Andy Reeves
+date:        Sat Jun 11 12:02:15 2011 +0100
+summary:     Make some changes for 6975. This allows for the fact that the insaller msi might store a date which when read back later converts to a date in the future.
+
+changeset:   428:6880fa067693
+user:        Andy Reeves
+date:        Sat Jun 11 11:27:48 2011 +0100
+summary:     Fixes for 6982 and 6983. Added new tests. Updated version.
+
+changeset:   427:e5c99a911587
+user:        Andy Reeves
+date:        Fri Jun 10 14:17:21 2011 +0100
+summary:     Styling fixes.
+
+changeset:   426:da4534f6bf0c
+user:        Andy Reeves
+date:        Fri Jun 10 14:07:26 2011 +0100
+summary:     Fix for private instance fields to be required to start with lowercase letter.
+
+changeset:   425:01f76ea7b540
+parent:      423:dfc4405fa9c8
+parent:      424:c34c205b0cbe
+user:        Andy Reeves
+date:        Fri Jun 10 12:03:05 2011 +0100
+summary:     Merge 6934 fixes
+
+changeset:   424:c34c205b0cbe
+parent:      404:d9a6152d444a
+user:        Oleg Shuruev
+date:        Thu May 26 14:22:22 2011 +0400
+summary:     Avoided mess for line breaks in signalling output methods.
+
+changeset:   423:dfc4405fa9c8
+user:        Andy Reeves
+date:        Thu Jun 09 16:49:24 2011 +0100
+summary:     Update tests.
+
+changeset:   422:5dd7b255a591
+user:        Andy Reeves
+date:        Thu Jun 09 16:45:23 2011 +0100
+summary:     Update docs.
+
+changeset:   421:c3cdb783ea2b
+user:        Andy Reeves
+date:        Thu Jun 09 16:42:58 2011 +0100
+summary:     Re-add SA1632 but disable by default.
+
+changeset:   420:79a4c330f472
+user:        Andy Reeves
+date:        Thu Jun 09 15:53:41 2011 +0100
+summary:     Update version. Demand Admin priv before install.
+
+changeset:   419:1ccfedae551b
+user:        Andy Reeves
+date:        Thu Jun 09 15:37:08 2011 +0100
+summary:     Version number update.
+
+changeset:   418:0286a5651035
+user:        Andy Reeves
+date:        Wed Jun 08 19:28:06 2011 +0100
+summary:     Update the installer to work with UAC enabled.
+
+changeset:   417:145436ddf884
+user:        Andy Reeves
+date:        Mon Jun 06 20:28:32 2011 +0100
+summary:     Some code style options can only be checked when a solution is open. Wait for a solution to be open before showing the options page.
+
+changeset:   416:49e72f03d63f
+user:        Andy Reeves
+date:        Fri Jun 03 13:08:23 2011 +0100
+summary:     Fix for unit tests.
+
+changeset:   415:59c793f492ef
+user:        Andy Reeves
+date:        Fri Jun 03 13:06:13 2011 +0100
+summary:     Fix for 6952. ObjectBasedEnvironment wasn't loading parent settings files at all.
+
+changeset:   414:787762cba5dc
+user:        Andy Reeves
+date:        Fri Jun 03 10:55:14 2011 +0100
+summary:     Fix for 6922. Added new tests.
+
+changeset:   413:fb31e4c18ba0
+user:        Andy Reeves
+date:        Thu Jun 02 12:56:49 2011 +0100
+summary:     Update docs. SA1632 is no longer thrown.
+
+changeset:   412:d0137d0f58c3
+user:        Andy Reeves
+date:        Wed Jun 01 19:30:44 2011 +0100
+summary:     Remove global:: before comparing using namespaces. Added new tests.
+
+changeset:   411:8542e1aade59
+user:        Andy Reeves
+date:        Wed Jun 01 19:05:07 2011 +0100
+summary:     Styling fixes.
+
+changeset:   410:59baddc7498f
+user:        Andy Reeves
+date:        Wed Jun 01 19:01:28 2011 +0100
+summary:     Fix for 6966.
+
+changeset:   409:fd4e01353800
+user:        Andy Reeves
+date:        Mon May 30 13:00:00 2011 +0100
+summary:     Styling fix for 6967.
+
+changeset:   408:f609242cd24d
+user:        Andy Reeves
+date:        Mon May 30 12:57:22 2011 +0100
+summary:     Fix for 6972.
+
+changeset:   407:e0f98eb12b63
+user:        Andy Reeves
+date:        Mon May 30 12:51:58 2011 +0100
+summary:     Styling fixes.
+
+changeset:   406:62b023e0a1a8
+user:        Andy Reeves
+date:        Mon May 30 12:47:53 2011 +0100
+summary:     Update version. Prompt to reset VS settings. Parsedate correctly for international versions.
+
+changeset:   405:e079bed0036f
+user:        Andy Reeves
+date:        Thu May 26 15:02:10 2011 +0100
+summary:     Only remove dll's from the ReferencedAssemblies folder.
+
+changeset:   404:d9a6152d444a
+user:        Andy Reeves
+date:        Wed May 25 19:24:46 2011 +0100
+summary:     Adding text file back to ensure folder is created.
+
+changeset:   403:12cbb1886d3a
+user:        Andy Reeves
+date:        Sat May 21 23:25:42 2011 +0100
+summary:     Fix verifybuild.
+
+changeset:   402:3150882cdb63
+parent:      400:420d1c2a3879
+parent:      401:0c439d9b7e0e
+user:        Andy Reeves
+date:        Sat May 21 23:16:43 2011 +0100
+summary:     Merge of Console Fixes
+
+changeset:   401:0c439d9b7e0e
+parent:      394:af66a35c1832
+user:        Oleg Shuruev
+date:        Sun May 22 00:45:30 2011 +0400
+summary:     Core object was not properly set up with DisplayUI property when started loading add-ins.
+
+changeset:   400:420d1c2a3879
+user:        Andy Reeves
+date:        Sat May 21 23:08:27 2011 +0100
+summary:     Allow text inside comments to not start with a capital letter or end with a period if completely inside a code element. Fix for 6960 and 6961.
+
+changeset:   399:b7ab9abd8e38
+user:        Andy Reeves
+date:        Sat May 21 22:42:55 2011 +0100
+summary:     Allow comment tokens to start with ReSharper suppression text. Fix for 6959.
+
+changeset:   398:d3e5fb1c622e
+user:        Andy Reeves
+date:        Wed May 18 23:49:04 2011 +0100
+summary:     Fix for 6958. Added new tests. Updated version.
+
+changeset:   397:fb9e6061d489
+user:        Andy Reeves
+date:        Wed May 18 21:01:28 2011 +0100
+summary:     Fix to not allow 'A .' as a doc comment.
+
+changeset:   396:2658fd6a2891
+user:        Andy Reeves
+date:        Wed May 18 20:43:56 2011 +0100
+summary:     fix for 6954. Updated tests. SA1632 now not thrown.
+
+changeset:   395:ab05c86feccf
+user:        Andy Reeves
+date:        Wed May 18 18:09:36 2011 +0100
+summary:     Report more information for SA1649 if the typename in the header needs updating.
+
+changeset:   394:af66a35c1832
+user:        Andy Reeves
+date:        Wed May 18 00:28:04 2011 +0100
+summary:     Fix Installer build.
+
+changeset:   393:87c5c8952c13
+user:        Andy Reeves
+date:        Wed May 18 00:09:51 2011 +0100
+summary:     Correcting spelling mistake.
+
+changeset:   392:294b29f2f142
+user:        Andy Reeves
+date:        Tue May 17 23:59:14 2011 +0100
+summary:     Ensure the StyleCop location box is visible on the ReSharper->StyleCop options dialog. Fix for 6951.
+
+changeset:   391:dd776b12641c
+user:        Andy Reeves
+date:        Tue May 17 23:47:27 2011 +0100
+summary:     Fix for 6948.
+
+changeset:   390:511057457428
+user:        Andy Reeves
+date:        Tue May 17 23:45:22 2011 +0100
+summary:     Fixed 6946 and 6944.
+
+changeset:   389:9513d248191e
+user:        Andy Reeves
+date:        Tue May 17 23:38:41 2011 +0100
+summary:     Ensure VS tempates are restored when we uninstall. Fix for 6942.
+
+changeset:   388:089ddcfa7759
+user:        Andy Reeves
+date:        Sun May 15 17:53:52 2011 +0100
+summary:     Fix for 6938. Reordering modifiers static should be after access modifiers. Then all others.
+
+changeset:   387:bd2d156f9aaf
+user:        Andy Reeves
+date:        Sun May 15 17:17:47 2011 +0100
+summary:     Fix for 6935. Allow Constants from other types in field declarations.
+
+changeset:   386:467df220f4eb
+user:        Andy Reeves
+date:        Sat May 14 18:09:54 2011 +0100
+summary:     Fix for 6936. Check documentation header elements for empty values (remarks, example, permission, and exception). Added new tests.
+
+changeset:   385:d3fcf10a7b0b
+user:        Andy Reeves
+date:        Sat May 14 16:50:15 2011 +0100
+summary:     Fix for 6930,6931,6932,6933. Added new tests.
+
+changeset:   384:3a44e7c0db7d
+user:        Andy Reeves
+date:        Sat May 14 16:31:09 2011 +0100
+summary:     Fix for 6929. Only throw SA1624 if required and don't throw SA1623 for the same thing.
+
+changeset:   383:7600b8c00948
+user:        Andy Reeves
+date:        Sat May 14 16:15:05 2011 +0100
+summary:     Fix for 6924. Added tests.
+
+changeset:   382:6a3742785893
+user:        Andy Reeves
+date:        Sat May 14 16:03:26 2011 +0100
+summary:     Adding async and await tests.
+
+changeset:   381:06de8076986e
+user:        Andy Reeves
+date:        Sat May 14 14:06:44 2011 +0100
+summary:     Adding support for the async and await keywords. Bug 6917.
+
+changeset:   380:fd9c28e62c84
+user:        Andy Reeves
+date:        Fri May 13 12:33:39 2011 +0100
+summary:     Remove the trace logging.
+
+changeset:   379:c1ec140131b0
+user:        Andy Reeves
+date:        Fri May 13 11:48:34 2011 +0100
+summary:     Adding the first 3 StyleCop compliant VS2010 templates.
+
+changeset:   378:a2da72041e84
+user:        Andy Reeves
+date:        Thu May 12 11:28:22 2011 +0100
+summary:     Adding first draft of VisualStudio StyleCop compliant templates.
+
+changeset:   377:1027472396f1
+user:        Andy Reeves
+date:        Tue May 10 22:52:37 2011 +0100
+summary:     Fix for 6913.
+
+changeset:   376:663e6db47e6d
+user:        Andy Reeves
+date:        Fri May 06 16:22:54 2011 +0100
+summary:     Fix for 6921. Typo meant that some colon checks had never run. Added new tests. Note. Colons must always be followed by whitespace but never preceded by whitespace.
+
+changeset:   375:6818c2307346
+user:        Andy Reeves
+date:        Fri May 06 16:09:18 2011 +0100
+summary:     Fixing issues with SA1507 not firing with multiple blank lines at start or end of file.
+
+changeset:   374:d36743942ae0
+user:        Andy Reeves
+date:        Fri May 06 10:36:09 2011 +0100
+summary:     Add StyleCop version number to title of settings window. Private instance fields should be lowerCamelCase.
+
+changeset:   373:b5d80b75f05b
+user:        Andy Reeves
+date:        Mon May 02 09:56:32 2011 +0100
+summary:     Add additional ReSharper dlls to the environment.
+
+changeset:   372:d341ae8c607c
+user:        Andy Reeves
+date:        Mon May 02 09:49:38 2011 +0100
+summary:     Update version. Some options were not being saved/loaded. Updated regkeys used during install.Add InstallDate to the msi.
+
+changeset:   371:e743043ff33f
+user:        Andy Reeves
+date:        Thu Apr 28 22:17:12 2011 +0100
+summary:     Add an option to the StyleCop R# options page that resets all the code layout options to be StyleCop compliant.
+
+changeset:   370:5c156519d50a
+user:        Andy Reeves
+date:        Thu Apr 28 22:12:32 2011 +0100
+summary:     Styling fix.
+
+changeset:   369:2ceccc006d04
+user:        Andy Reeves
+date:        Thu Apr 21 09:38:13 2011 +0100
+summary:     Update docs for SA1516. Bug 6906
+
+changeset:   368:3cf780726683
+user:        Andy Reeves
+date:        Wed Apr 20 15:13:20 2011 +0100
+summary:     Fix for 6909. Partial methods throwing wrong error. Updated tests.
+
+changeset:   367:980fc28c2d7c
+user:        Andy Reeves
+date:        Wed Apr 20 12:32:45 2011 +0100
+summary:     Styling fixes.
+
+changeset:   366:f968d535a8b2
+user:        Andy Reeves
+date:        Wed Apr 20 12:30:58 2011 +0100
+summary:     Fix for 6897. If closing paren ) is on a new line but preceeeded by a single line comment then its ok.
+
+changeset:   365:afe52b691a16
+user:        Andy Reeves
+date:        Wed Apr 20 12:20:02 2011 +0100
+summary:     Switch the ObjectBasedEnvironment to support linked files. Fixes 6907.
+
+changeset:   364:921a25bf03e1
+user:        Andy Reeves
+date:        Wed Apr 20 11:34:18 2011 +0100
+summary:     Styling updates.
+
+changeset:   363:8e3b0517220f
+user:        Andy Reeves
+date:        Wed Apr 20 11:34:07 2011 +0100
+summary:     Fix for 6910. Added new tests.
+
+changeset:   362:ad272a1624f7
+user:        Andy Reeves
+date:        Wed Apr 20 10:37:34 2011 +0100
+summary:     Ensure lock() statements always have {}. Fix for 6904. Added new tests.
+
+changeset:   361:967319d4f82f
+user:        Andy Reeves
+date:        Tue Apr 19 13:05:45 2011 +0100
+summary:     Fix the codeLexer to include the #endif in a preprocessor thats evaluated to false. fixes 6905. Added tests.
+
+changeset:   360:35a01cf12573
+user:        Andy Reeves
+date:        Mon Apr 18 12:53:44 2011 +0100
+summary:     Fix for 6901.
+
+changeset:   359:225d038def05
+user:        Andy Reeves
+date:        Fri Apr 15 17:00:16 2011 +0100
+summary:     Another fix for 6797. Added more tests. Updated version.
+
+changeset:   358:be0fbf2ae3ad
+user:        Andy Reeves
+date:        Fri Apr 15 15:11:05 2011 +0100
+summary:     Fix for 6886. Added new tests.
+
+changeset:   357:a5d235227f0e
+user:        Andy Reeves
+date:        Fri Apr 15 14:53:51 2011 +0100
+summary:     Fix for new test examples in 6668. Added new tests.
+
+changeset:   356:2b8a376d1c56
+user:        Andy Reeves
+date:        Fri Apr 15 12:40:24 2011 +0100
+summary:     Fix for 6885.
+
+changeset:   355:905da1bc4881
+user:        Andy Reeves
+date:        Fri Apr 15 12:03:05 2011 +0100
+summary:     Update version to 4.5.12
+
+changeset:   354:18d56a6214e3
+user:        Oleg Shuruev
+date:        Fri Apr 15 00:56:32 2011 +0400
+summary:     Updated icons for auto-update message boxes.
+
+changeset:   353:b1383db0cbcb
+user:        Andy Reeves
+date:        Thu Apr 14 16:22:37 2011 +0100
+summary:     Add support for <unstyled/> element in a file header forcing stylecop to stop analysis.
+
+changeset:   352:b23c0a33119d
+parent:      349:16b5728ccb0d
+parent:      351:04451375f7a6
+user:        Andy Reeves
+date:        Thu Apr 14 11:07:56 2011 +0100
+summary:     Merge icon changes
+
+changeset:   351:04451375f7a6
+user:        Oleg Shuruev
+date:        Thu Apr 14 01:34:06 2011 +0400
+summary:     Tabs were reverted back to spaces in designer class.
+
+changeset:   350:49bc47d8b525
+parent:      344:52738dcea534
+user:        Oleg Shuruev
+date:        Thu Apr 14 01:27:13 2011 +0400
+summary:     Updated icons, images and banners. Deleted some obsolete resources.
+
+changeset:   349:16b5728ccb0d
+user:        Andy Reeves
+date:        Wed Apr 13 18:20:27 2011 +0100
+summary:     Fix for 6887. Added tests.
+
+changeset:   348:2b790afc2c2c
+user:        Andy Reeves
+date:        Wed Apr 13 17:32:30 2011 +0100
+summary:     Fix for 6776. Added new tests.
+
+changeset:   347:9ad5b96f6458
+user:        Andy Reeves
+date:        Wed Apr 13 17:08:27 2011 +0100
+summary:     Fix for 6881.
+
+changeset:   346:a23dc580b618
+user:        Andy Reeves
+date:        Wed Apr 13 16:10:59 2011 +0100
+summary:     Set ARPINSTALLLOCATION during installation.
+
+changeset:   345:9d3390387171
+user:        Andy Reeves
+date:        Tue Apr 12 16:29:07 2011 +0100
+summary:     Updating docs for 6872.
+
+changeset:   344:52738dcea534
+parent:      342:f834a160b72f
+parent:      343:002749b18a42
+user:        Andy Reeves
+date:        Mon Apr 11 20:05:09 2011 +0100
+summary:     Merge SettingsEditor changes
+
+changeset:   343:002749b18a42
+parent:      339:206c49ed3398
+user:        Oleg Shuruev
+date:        Fri Apr 08 22:31:00 2011 +0400
+summary:     Fixed several bugs related to the settings editor.
+
+changeset:   342:f834a160b72f
+user:        Andy Reeves
+date:        Mon Apr 11 19:51:42 2011 +0100
+summary:     Fix for 6878. allow Lambdas to by multiple line as any param.
+
+changeset:   341:923f13da38f3
+user:        Andy Reeves
+date:        Mon Apr 11 19:17:00 2011 +0100
+summary:     Fix for 6875. Fix for 6874.
+
+changeset:   340:5b3f421087d0
+user:        Andy Reeves
+date:        Mon Apr 11 17:18:21 2011 +0100
+summary:     Fix for 6869. Support #elif and #else and nested #if too. Updated versions. Added new tests.
+
+changeset:   339:206c49ed3398
+user:        Andy Reeves
+date:        Fri Apr 08 11:50:25 2011 +0100
+summary:     Fix for 6871. Attempt to remove all old StyleCop.For.ReSharper dlls during install.
+
+changeset:   338:7f01d9513b88
+parent:      336:4f57de39ade3
+parent:      337:bea516d86d96
+user:        Andy Reeves
+date:        Wed Apr 06 22:24:59 2011 +0100
+summary:     Merge
+
+changeset:   337:bea516d86d96
+parent:      331:87ccd9c1a550
+user:        Administrator@WIN-21U5MFB6RL4.blinkbox.local
+date:        Wed Apr 06 16:03:02 2011 +0100
+summary:     Fix for bug 6687. Rule SA1125 is not raised for nested generic type declarations.
+
+changeset:   336:4f57de39ade3
+user:        Andy Reeves
+date:        Wed Apr 06 21:55:19 2011 +0100
+summary:     AutoUpdater needs a reference to a StyleCopCore object on the constructor.
+
+changeset:   335:356e69e0f9f7
+parent:      333:7961cc5b0958
+parent:      334:8e0757fbf8ba
+user:        Andy Reeves
+date:        Wed Apr 06 21:32:43 2011 +0100
+summary:     Merge
+
+changeset:   334:8e0757fbf8ba
+parent:      326:4260317b1d64
+user:        Oleg Shuruev
+date:        Sun Apr 03 02:03:38 2011 +0400
+summary:     More accurate fix for #6843.
+
+changeset:   333:7961cc5b0958
+user:        Andy Reeves
+date:        Wed Apr 06 19:30:44 2011 +0100
+summary:     Fix the F5 debugging again. Adjust the msi name.
+
+changeset:   332:c4faa0f7fb55
+user:        Andy Reeves
+date:        Wed Apr 06 11:36:24 2011 +0100
+summary:     Fix for 6867. Installer updates to only install 1 copy of settingseditor and stylecop dll's.
+
+changeset:   331:87ccd9c1a550
+user:        Andy Reeves
+date:        Sun Apr 03 22:04:28 2011 +0100
+summary:     Fix for 1121 docs.
+
+changeset:   330:910f74cfa8c8
+user:        Andy Reeves
+date:        Sun Apr 03 21:51:19 2011 +0100
+summary:     Fix for 6865. Migrate the selected install features during an upgrade.
+
+changeset:   329:a0c066b42be6
+user:        Andy Reeves
+date:        Sat Apr 02 16:03:54 2011 +0100
+summary:     Styling fixes.
+
+changeset:   328:60324c494621
+user:        Andy Reeves
+date:        Sat Apr 02 16:02:06 2011 +0100
+summary:     Fix for 6853.
+
+changeset:   327:197d527a08ba
+user:        Andy Reeves
+date:        Sat Apr 02 15:45:53 2011 +0100
+summary:     Set version number ready for next build.
+
+changeset:   326:4260317b1d64
+user:        Andy Reeves
+date:        Fri Apr 01 17:31:14 2011 +0100
+summary:     Ensure that regkey creation is in the CurrentUser hive. I'd inadvertantly set it to LocalMachine so it was only working is you ran VS as an admin.
+
+changeset:   325:5ff0a414e930
+user:        Andy Reeves
+date:        Fri Apr 01 13:27:56 2011 +0100
+summary:     Styling fixes.
+
+changeset:   324:72177926406f
+user:        Andy Reeves
+date:        Fri Apr 01 13:12:51 2011 +0100
+summary:     Styling fixes.
+
+changeset:   323:402ada9fec1f
+user:        Andy Reeves
+date:        Fri Apr 01 13:06:11 2011 +0100
+summary:     Styling fixes and upgrade to latest 4.5 for our own build. Write auto update checks into registry from R# plugin options page.
+
+changeset:   322:84524659b556
+user:        Andy Reeves
+date:        Fri Apr 01 12:23:08 2011 +0100
+summary:     Updating docs.
+
+changeset:   321:ebdcb0e6fc76
+user:        Andy Reeves
+date:        Fri Apr 01 12:10:19 2011 +0100
+summary:     Fix for 6862. Suppressing all rules of a namespace is now working correctly.
+
+changeset:   320:d95c79b6176d
+user:        Andy Reeves
+date:        Fri Apr 01 12:07:13 2011 +0100
+summary:     Styling fixes.
+
+changeset:   319:d3a28298d61a
+user:        Andy Reeves
+date:        Fri Apr 01 11:40:57 2011 +0100
+summary:     Fix the Package failing to load because sometimes VS hasn't finished initializing and left its zombie state. It was very obvious on VS2008 and intermittant on VS2010.
+
+changeset:   318:5422b2e9124f
+user:        Andy Reeves
+date:        Thu Mar 31 18:34:34 2011 +0100
+summary:     Update ico file. Fix for 6857
+
+changeset:   317:08d634bebfb4
+user:        Andy Reeves
+date:        Thu Mar 31 17:13:14 2011 +0100
+summary:     Fix for 6852. Added new tests. Version updated.
+
+changeset:   316:94e1b589c443
+user:        Andy Reeves
+date:        Thu Mar 31 14:24:56 2011 +0100
+summary:     Fix for 6861 which had broken the VS2008 installer.
+
+changeset:   315:d5c9e71e0d8a
+user:        Andy Reeves
+date:        Thu Mar 31 12:09:47 2011 +0100
+summary:     Fix for 6854. Added new tests.
+
+changeset:   314:280f1390adcc
+user:        Andy Reeves
+date:        Thu Mar 31 11:50:58 2011 +0100
+summary:     Fix for 6859. Added new tests.
+
+changeset:   313:44d7c45bb0ee
+user:        Andy Reeves
+date:        Thu Mar 31 10:38:22 2011 +0100
+summary:     Adding autoUpdater functionality to StyleCop. RegKeys added for config under HKLM\SOFTWARE\CodePlex\StyleCop.
+
+changeset:   312:36cbdf636e99
+user:        Andy Reeves
+date:        Mon Mar 28 22:32:51 2011 +0100
+summary:     Updating violation text to be more accurate.
+
+changeset:   311:2525a8d5b315
+user:        Andy Reeves
+date:        Mon Mar 28 22:07:22 2011 +0100
+summary:     Fix for 6849. Added new tests.
+
+changeset:   310:aeddf07a20c3
+user:        Andy Reeves
+date:        Mon Mar 28 20:39:53 2011 +0100
+summary:     Fix to ensure during debug we locate the StyleCop asembly from our executing location.
+
+changeset:   309:d8a3e307396e
+user:        Andy Reeves
+date:        Mon Mar 28 15:33:04 2011 +0100
+summary:     Remove warning from WixBuild. Switch on styling checks for ReSharper plugin.
+
+changeset:   308:79137d717f67
+user:        Andy Reeves
+date:        Mon Mar 28 13:15:33 2011 +0100
+summary:     Last of the Styling fixes in StyleCop.ReSharper
+
+changeset:   307:ce1fb86f366f
+user:        Andy Reeves
+date:        Mon Mar 28 13:09:33 2011 +0100
+summary:     Fix for incorrect local path.
+
+changeset:   306:99811dae4ca2
+user:        Andy Reeves
+date:        Sun Mar 27 22:25:56 2011 +0100
+summary:     Styling fixes.
+
+changeset:   305:ce35d86d376b
+user:        Andy Reeves
+date:        Sun Mar 27 22:10:15 2011 +0100
+summary:     Over 1000 styling fixes in the StyleCop.Resharper dll. Took 45 secs using the StyleCop.ReSharper plugin and Code Cleanup.
+
+changeset:   304:91d51262cd06
+user:        Andy Reeves
+date:        Sun Mar 27 21:56:50 2011 +0100
+summary:     Updating version for next release
+
+changeset:   303:084a5e757987
+user:        Andy Reeves
+date:        Sun Mar 27 14:43:43 2011 +0100
+summary:     Fix for Settings files not being read since StyleCop dll names had changed.
+
+changeset:   302:270f14c62552
+user:        Andy Reeves
+date:        Sun Mar 27 14:08:42 2011 +0100
+summary:     Remove references to MSBuild framework 2.0 versions.
+
+changeset:   301:71b9dbe3efb5
+user:        Andy Reeves
+date:        Sun Mar 27 13:15:48 2011 +0100
+summary:     Updting Installer to remove previous versions of StyleCop4.2 or greater.
+
+changeset:   300:be69da43398f
+user:        Andy Reeves
+date:        Sat Mar 26 10:30:26 2011 +0000
+summary:     Update hg ignore file.
+
+changeset:   299:0feb99450a92
+user:        Andy Reeves
+date:        Sat Mar 26 10:29:06 2011 +0000
+summary:     Continue build changes for StyleCop.ReSharper dll
+
+changeset:   298:25f6a48c2b12
+user:        Andy Reeves
+date:        Fri Mar 25 23:15:34 2011 +0000
+summary:     Adding StyleCop.ReSharper.dll.
+
+changeset:   297:5225590c9bf5
+user:        Andy Reeves
+date:        Fri Mar 25 15:14:33 2011 +0000
+summary:     Fix for 6847.
+
+changeset:   296:6d352dd4cd56
+user:        Andy Reeves
+date:        Fri Mar 25 10:01:41 2011 +0000
+summary:     Change the default install location to be StyleCop <major.minor> removing <build.revision> from the path.
+
+changeset:   295:714ddc7dc914
+user:        Andy Reeves
+date:        Fri Mar 25 07:22:27 2011 +0000
+summary:     Fix for 6845.
+
+changeset:   294:03cbbb879f2a
+user:        Andy Reeves
+date:        Thu Mar 24 23:40:51 2011 +0000
+summary:     Updating build number.
+
+changeset:   293:9ec8fb7725e2
+user:        Andy Reeves
+date:        Thu Mar 24 23:38:20 2011 +0000
+summary:     Styling fixes in our own source for 4.5.09 build. Update to latest StyleCop for our own internal build.
+
+changeset:   292:65e36dfe3ed3
+user:        Andy Reeves
+date:        Thu Mar 24 23:06:07 2011 +0000
+summary:     Fix for 6778. Any external parsers were failing. Updated version number.
+
+changeset:   291:8fbcf331e6f3
+user:        Andy Reeves
+date:        Thu Mar 24 19:53:21 2011 +0000
+summary:     Fix for 6844. Period can be the first item on its line. Update tests.
+
+changeset:   290:c7f34d0f4cb5
+user:        Andy Reeves
+date:        Thu Mar 24 10:21:55 2011 +0000
+summary:     Updates for 6842. Making any event handlers threadsafe.
+
+changeset:   289:b29c26d8d7fd
+user:        Andy Reeves
+date:        Thu Mar 24 09:44:00 2011 +0000
+summary:     Prepare the StyleCop msi as the correct filename
+
+changeset:   288:45391932682c
+user:        Andy Reeves
+date:        Thu Mar 24 09:16:37 2011 +0000
+summary:     Fix for 6841 for covariant and contravariant generics. Added new tests. Updated version.
+
+changeset:   287:e7a9b1448402
+user:        Andy Reeves
+date:        Wed Mar 23 23:33:04 2011 +0000
+summary:     Updating docs.
+
+changeset:   286:e1eda7dd522f
+user:        Andy Reeves
+date:        Wed Mar 23 23:28:38 2011 +0000
+summary:     Fix for 6841
+
+changeset:   285:456322e7a8a4
+user:        Andy Reeves
+date:        Wed Mar 23 22:49:13 2011 +0000
+summary:     Fix for 6760.
+
+changeset:   284:1a236036555d
+user:        Andy Reeves
+date:        Wed Mar 23 18:40:38 2011 +0000
+summary:     Updating build number for next release.
+
+changeset:   283:61d31d94e448
+user:        Andy Reeves
+date:        Wed Mar 23 18:36:24 2011 +0000
+summary:     Fix for 6843.
+
+changeset:   282:8f917b27f246
+user:        Andy Reeves
+date:        Wed Mar 23 18:27:31 2011 +0000
+summary:     Updating docs for rule 1649.
+
+changeset:   281:16813b331e07
+user:        Andy Reeves
+date:        Wed Mar 23 18:14:25 2011 +0000
+summary:     Fix for 6676. Added new tests. Fixed for aspx files and nested types in partial classes. Changed for generics too.
+
+changeset:   280:f582a40aef66
+user:        Andy Reeves
+date:        Wed Mar 23 13:45:33 2011 +0000
+summary:     Fix for 6683. Added new tests. Updated version number.
+
+changeset:   279:66f57db1fe43
+user:        Andy Reeves
+date:        Wed Mar 23 10:29:58 2011 +0000
+summary:     Updated docs.
+
+changeset:   278:5b1bf2a7b985
+user:        Andy Reeves
+date:        Wed Mar 23 10:12:20 2011 +0000
+summary:     Fix for 6776 and 6774. Added new tests.
+
+changeset:   277:c7d098f5d592
+user:        Andy Reeves
+date:        Wed Mar 23 09:55:53 2011 +0000
+summary:     Fix for 6687. Added new tests.
+
+changeset:   276:b8c1bb3f669f
+user:        Andy Reeves
+date:        Wed Mar 23 09:44:08 2011 +0000
+summary:     Fix for 6840. Added new tests.
+
+changeset:   275:7b3d2d931408
+user:        Andy Reeves
+date:        Tue Mar 22 23:35:34 2011 +0000
+summary:     Updating version number for next build.
+
+changeset:   274:baeaf8ba6fb6
+user:        Andy Reeves
+date:        Tue Mar 22 23:21:28 2011 +0000
+summary:     Fixes for 6822,6823,6824,6825,6826,6827,6828,6829. Added lots of new tests.
+
+changeset:   273:fc78c1f0093b
+user:        Andy Reeves
+date:        Tue Mar 22 21:32:03 2011 +0000
+summary:     Added new rule SA1649:FileHeaderFileNameDocumentationMustMatchTypeName.
+
+changeset:   272:a87a78929cba
+user:        Andy Reeves
+date:        Tue Mar 22 08:55:16 2011 +0000
+summary:     Updating version for next release.
+
+changeset:   271:becc761dc3e3
+user:        Andy Reeves
+date:        Mon Mar 21 21:33:17 2011 +0000
+summary:     Fix for 6836. Added new tests.
+
+changeset:   270:08981ceaf58a
+user:        Andy Reeves
+date:        Mon Mar 21 21:17:29 2011 +0000
+summary:     Completing merger of Tools folders.
+
+changeset:   269:369cb1717154
+user:        Andy Reeves
+date:        Mon Mar 21 20:32:23 2011 +0000
+summary:     Continuing the update of scripts and tools.
+
+changeset:   268:b13fef168eac
+user:        Andy Reeves
+date:        Mon Mar 21 20:20:05 2011 +0000
+summary:     Remove old tools and scripts
+
+changeset:   267:2bdb188c7c6d
+user:        Andy Reeves
+date:        Mon Mar 21 18:23:25 2011 +0000
+summary:     Fix for 6692. Added new tests.
+
+changeset:   266:5d4fadb59a93
+user:        Andy Reeves
+date:        Mon Mar 21 15:57:30 2011 +0000
+summary:     Fix for 6808. Allow single line indexers on interfaces.Added new tests.
+
+changeset:   265:70a9a981e469
+user:        Andy Reeves
+date:        Mon Mar 21 13:51:07 2011 +0000
+summary:     Fix for 6835. Added new tests.
+
+changeset:   264:cbfa87ff26f5
+user:        Andy Reeves
+date:        Mon Mar 21 09:57:10 2011 +0000
+summary:     Updating version for next release.
+
+changeset:   263:f9a2ddb9522b
+user:        Andy Reeves
+date:        Mon Mar 21 09:46:58 2011 +0000
+summary:     Fix for 6833. All SuppressMessage attributes from old source to continue to work.
+
+changeset:   262:2dfc991d15a3
+user:        Andy Reeves
+date:        Sun Mar 20 16:11:38 2011 +0000
+summary:     Update next build number to 4.5.0.2
+
+changeset:   261:9280ea24846b
+user:        Andy Reeves
+date:        Sun Mar 20 15:45:33 2011 +0000
+summary:     Fix for 6814. Update docs.
+
+changeset:   260:172e11ee4426
+user:        Andy Reeves
+date:        Sun Mar 20 15:40:03 2011 +0000
+summary:     Updating 4.5 docs.
+
+changeset:   259:f49ab0e4cfe1
+user:        Andy Reeves
+date:        Sun Mar 20 15:04:06 2011 +0000
+summary:     Fix for 6831. Updating docs.
+
+changeset:   258:3eec402410fd
+user:        Andy Reeves
+date:        Fri Mar 18 19:30:10 2011 +0000
+summary:     Fix for 6764. Sort System namespace even if they start with global::
+
+changeset:   257:8be77e43781f
+user:        Andy Reeves
+date:        Fri Mar 18 17:30:02 2011 +0000
+summary:     Fix for 6817. Documentation text must be 10 characters long or at least 2 words.Added tests.
+
+changeset:   256:cd83efd37d16
+user:        Andy Reeves
+date:        Fri Mar 18 16:27:15 2011 +0000
+summary:     Fix for 6781. Added tests.
+
+changeset:   255:0a0bea762cdd
+user:        Andy Reeves
+date:        Fri Mar 18 15:43:44 2011 +0000
+summary:     Further fix for 6773
+
+changeset:   254:0493aa6d75eb
+user:        Andy Reeves
+date:        Fri Mar 18 15:36:40 2011 +0000
+summary:     Fix for 6773. Better detection of SuppressMessage attributes. Added new tests.
+
+changeset:   253:3c2748f4478a
+user:        Andy Reeves
+date:        Fri Mar 18 11:31:43 2011 +0000
+summary:     Fix for 6788. Lots of new tests.
+
+changeset:   252:fa41d77f8a2b
+user:        Andy Reeves
+date:        Fri Mar 18 09:05:59 2011 +0000
+summary:     Fix for 6784. Added new tests too.
+
+changeset:   251:2ead06a5cc04
+user:        Andy Reeves
+date:        Thu Mar 17 22:07:41 2011 +0000
+summary:     Fix for 6745
+
+changeset:   250:2df95ec15f82
+user:        Andy Reeves
+date:        Thu Mar 17 21:51:24 2011 +0000
+summary:     Adding more test cases.
+
+changeset:   249:6ee97947bb1c
+user:        Andy Reeves
+date:        Thu Mar 17 17:37:05 2011 +0000
+summary:     Fixes for 6774,6776 and 6796. Debug.Asserts, Debug.Fails and Justification on SuppressMessage checking for constants and/or null and string.Empty. Added new tests.
+
+changeset:   248:46b728b49427
+user:        Andy Reeves
+date:        Thu Mar 17 16:27:04 2011 +0000
+summary:     Fix for 6821. Load old 4.3 settings files and convert the Parser and analyzer ids to the new ones automatically.
+
+changeset:   247:5b7c983b8c2c
+user:        Andy Reeves
+date:        Thu Mar 17 15:39:51 2011 +0000
+summary:     Fix for 6738. AssemblyAttributes are now a type of CsElement under the root doc. Added new tests.
+
+changeset:   246:8183445702c1
+user:        Andy Reeves
+date:        Wed Mar 16 21:23:47 2011 +0000
+summary:     Adding Project.AutoFix folder
+
+changeset:   245:d7f89892af41
+user:        Andy Reeves
+date:        Wed Mar 16 10:50:14 2011 +0000
+summary:     Fix for 6636. Updated tests to check for regression too.
+
+changeset:   244:7a39e1bcd042
+user:        Andy Reeves
+date:        Wed Mar 16 10:23:15 2011 +0000
+summary:     Now signs the msi if a cert is found.
+
+changeset:   243:f8f4c8155f6a
+user:        Andy Reeves
+date:        Tue Mar 15 22:57:56 2011 +0000
+summary:     Version updated to 4.5.0.1
+
+changeset:   242:98026a649a3e
+user:        Andy Reeves
+date:        Tue Mar 15 20:58:07 2011 +0000
+summary:     Fix for 6778.
+
+changeset:   241:ba7e9481b5ee
+user:        Andy Reeves
+date:        Tue Mar 15 20:49:00 2011 +0000
+summary:     Update Hg ignore file
+
+changeset:   240:7b7834251f8a
+user:        Andy Reeves
+date:        Tue Mar 15 20:48:37 2011 +0000
+summary:     Fix for 6806.
+
+changeset:   239:bbea16686001
+user:        Andy Reeves
+date:        Tue Mar 15 18:34:44 2011 +0000
+summary:     Fix for 6737. The parser was failing to process #elif directives correctly. Added new tests to avoid regression.
+
+changeset:   238:1c253e7f6b92
+user:        Andy Reeves
+date:        Tue Mar 15 14:14:35 2011 +0000
+summary:     Fix for 6725. Install now sets the reg keys for ALLUSERS.
+
+changeset:   237:bb80aaa1d63f
+user:        Andy Reeves
+date:        Tue Mar 15 13:29:58 2011 +0000
+summary:     Fixing docs for bug #6712
+
+changeset:   236:97676ca64ba7
+user:        Andy Reeves
+date:        Tue Mar 15 12:54:02 2011 +0000
+summary:     Fixing the ProjectEnumerator again. The previous attempt had broken the Solution level StyleCop menu entries for solutions where the first project didn't support StyleCop. It would always return the value instead of checking others projects.
+
+changeset:   235:dc99e22314f7
+user:        Andy Reeves
+date:        Tue Mar 15 12:22:24 2011 +0000
+summary:     Test and style fixes.
+
+changeset:   234:cbaec6de8c0f
+user:        Andy Reeves
+date:        Tue Mar 15 12:12:09 2011 +0000
+summary:     Fixed all tests.
+
+changeset:   233:8aa347403c3e
+user:        Andy Reeves
+date:        Tue Mar 15 10:33:05 2011 +0000
+summary:     Styling fixes.
+
+changeset:   232:2530020ec1c5
+user:        Andy Reeves
+date:        Tue Mar 15 10:29:43 2011 +0000
+summary:     Fix for 6705. Format the documentation xml to allow split xml tags.
+
+changeset:   231:d63a2146395a
+user:        Andy Reeves
+date:        Tue Mar 15 08:43:31 2011 +0000
+summary:     Fix for 6666. Included documentation should be loaded either as an absolute path or as a path relative to the project its in not the location of the codefile.
+
+changeset:   230:2c09d531ebfa
+user:        Andy Reeves
+date:        Mon Mar 14 18:23:37 2011 +0000
+summary:     Fix for 6668.
+
+changeset:   229:832d7c5ad108
+user:        Andy Reeves
+date:        Mon Mar 14 17:01:26 2011 +0000
+summary:     Fix for 6700. Include node in documentation should support /* at the end of it.
+
+changeset:   228:da9bc7a22503
+user:        Andy Reeves
+date:        Mon Mar 14 13:58:27 2011 +0000
+summary:     Fixing StyleCop issues in our source. Upgraded cmd line build to use altest 4.5.0.0 during build
+
+changeset:   227:0f8e441a2514
+user:        Andy Reeves
+date:        Mon Mar 14 13:41:58 2011 +0000
+summary:     Fixing StyleCop 4.5 issues in our our source.
+
+changeset:   226:87e5ee22341b
+user:        Andy Reeves
+date:        Mon Mar 14 12:35:56 2011 +0000
+summary:     Upgrade Wix project to VS2010.
+
+changeset:   225:5f2fe3b85f5d
+user:        Andy Reeves
+date:        Mon Mar 14 11:40:05 2011 +0000
+summary:     Fix for 6590.
+
+changeset:   224:7f566c03e42f
+user:        Andy Reeves
+date:        Fri Mar 11 23:18:19 2011 +0000
+summary:     Ensure the paths are relative for building the VSIX
+
+changeset:   223:875794476e0f
+user:        Andy Reeves
+date:        Fri Mar 11 23:00:05 2011 +0000
+summary:     Updating ignored filetypes and removing old files.
+
+changeset:   222:fdcc5f7a8cf7
+user:        Andy Reeves
+date:        Fri Mar 11 22:53:58 2011 +0000
+summary:     Removing unneeded files
+
+changeset:   221:acd01fcd324b
+user:        Andy Reeves
+date:        Fri Mar 11 22:52:40 2011 +0000
+summary:     Adding extra filetypes and direcrtory patterns to the hg.ignore file
+
+changeset:   220:b2f89d470bff
+user:        Andy Reeves
+date:        Fri Mar 11 22:39:21 2011 +0000
+summary:     Adding a VSIXProject to enable F5 debugging in VS2010
+
+changeset:   219:1d605c46d3cb
+user:        Andy Reeves
+date:        Thu Mar 10 18:12:27 2011 +0000
+summary:     Fix 6751. Allow let and select to follow closing curly brackets.
+
+changeset:   218:fc5a9a2b446e
+user:        Andy Reeves
+date:        Thu Mar 10 17:03:01 2011 +0000
+summary:     Fix bug in VS2008 installer.
+
+changeset:   217:a220ab327be9
+user:        Andy Reeves
+date:        Thu Mar 10 16:13:49 2011 +0000
+summary:     Fix for 6697.
+
+changeset:   216:b4af48799f8b
+user:        Andy Reeves
+date:        Thu Mar 10 14:59:56 2011 +0000
+summary:     Add missing Sa1205.html docs.
+
+changeset:   215:b4e78f44aa12
+user:        Andy Reeves
+date:        Thu Mar 10 14:57:34 2011 +0000
+summary:     Adding missing doc for rule 1205.
+
+changeset:   214:e445ac594c70
+user:        Andy Reeves
+date:        Thu Mar 10 14:48:43 2011 +0000
+summary:     Fix for 6704. Allow Select statements in Linq expressions to follow on the next line after a closing curly cracket.
+
+changeset:   213:50a47977c480
+user:        Andy Reeves
+date:        Thu Mar 10 13:56:26 2011 +0000
+summary:     Tidying up detection of base. or this. requirements.
+
+changeset:   212:b774a8f26188
+user:        Andy Reeves
+date:        Thu Mar 10 12:02:38 2011 +0000
+summary:     Fix for 6777. Updating the path filed after manipulating the local path variable.
+
+changeset:   211:e32dfa10fdbb
+user:        Andy Reeves
+date:        Thu Mar 10 10:23:38 2011 +0000
+summary:     Fix for 6689. Removing the click once from the settings editor to allow editing of the StyleCop.settings file in the ProgramFiles folder.
+
+changeset:   210:6e9f3528913e
+user:        Andy Reeves
+date:        Wed Mar 09 23:13:01 2011 +0000
+summary:     Fix for 6779.
+
+changeset:   209:11a2d3963d36
+user:        Andy Reeves
+date:        Wed Mar 09 21:46:06 2011 +0000
+summary:     Fix for 6783.
+
+changeset:   208:a786e77f0908
+user:        Andy Reeves
+date:        Wed Mar 09 21:09:41 2011 +0000
+summary:     Adding testdata for 6716
+
+changeset:   207:89ca9f2fe337
+user:        Andy Reeves
+date:        Wed Mar 09 20:58:24 2011 +0000
+summary:     Added testdata for regression of bug 6718.
+
+changeset:   206:e7e4b1f0946b
+user:        Andy Reeves
+date:        Wed Mar 09 20:45:23 2011 +0000
+summary:     Updated docs for new 4.5 rules. SA1125, SA1411, SA1517 and SA1518.
+
+changeset:   205:9d1888da2c7f
+user:        Andy Reeves
+date:        Wed Mar 09 19:04:07 2011 +0000
+summary:     Fixing up some of the company names on the merged test data.
+
+changeset:   204:ce2043ef61eb
+parent:      203:ef2c2ce24235
+parent:      199:b27bf677e62b
+user:        Andy Reeves
+date:        Wed Mar 09 18:52:20 2011 +0000
+summary:     Merge
+
+changeset:   203:ef2c2ce24235
+parent:      202:c9356d680c5e
+parent:      201:02c79f637420
+user:        Andy Reeves
+date:        Wed Mar 09 18:42:37 2011 +0000
+summary:     Merge
+
+changeset:   202:c9356d680c5e
+parent:      201:02c79f637420
+parent:      200:2dd105708a54
+user:        Andy Reeves
+date:        Wed Mar 09 18:41:45 2011 +0000
+summary:     Merge
+
+changeset:   201:02c79f637420
+user:        Andy Reeves
+date:        Wed Mar 09 18:37:33 2011 +0000
+summary:     Ensuring StyleCop passes on out own code
+
+changeset:   200:2dd105708a54
+parent:      187:6deba80099fc
+user:        Oleg Shuruev
+date:        Mon Feb 07 15:38:29 2011 +0300
+summary:     An attempt to fix issue #6795.
+
+changeset:   199:b27bf677e62b
+user:        Andy Reeves
+date:        Wed Mar 09 12:38:43 2011 +0000
+summary:     Fix for 6794 in CodeLexer
+
+changeset:   198:21be6384c0aa
+user:        Andy Reeves
+date:        Wed Mar 09 12:29:20 2011 +0000
+summary:     Fix for 6711 - Linq queries causing syntax error on parsing.
+
+changeset:   197:c3604bb311e1
+user:        Andy Reeves
+date:        Tue Mar 08 15:54:19 2011 +0000
+summary:     Have ObjectBasedEnviroment support a defaultsettings file location. It uses the location of the executing assembly.
+
+changeset:   196:e003e4d823c4
+user:        Andy Reeves
+date:        Tue Mar 08 15:00:39 2011 +0000
+summary:     Updating latest docs to 4.5
+
+changeset:   195:e2ec49701b4d
+user:        Andy Reeves
+date:        Tue Mar 08 14:19:08 2011 +0000
+summary:     Resources in the Settings Designer and VSPackage hadn't had the company name changed.
+
+changeset:   194:0c818bdc2056
+user:        Andy Reeves
+date:        Mon Mar 07 20:38:39 2011 +0000
+summary:     Fixing new company name.
+
+changeset:   193:0a541f6b0383
+user:        Andy Reeves
+date:        Mon Mar 07 18:18:22 2011 +0000
+summary:     Update the PLk for 4.5 and changed product name.
+
+changeset:   192:304cc92f8327
+user:        Andy Reeves
+date:        Mon Mar 07 17:52:09 2011 +0000
+summary:     Fixing spelling mistake in docs for rule name.
+
+changeset:   191:2048f1bf2898
+user:        Andy Reeves
+date:        Mon Mar 07 16:43:07 2011 +0000
+summary:     Fix for 6780 - typo in docs
+
+changeset:   190:17bd34838dbe
+user:        Andy Reeves
+date:        Mon Mar 07 13:57:45 2011 +0000
+summary:     Fixing a broken test
+
+changeset:   189:c0301c251e1a
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Feb 03 16:11:29 2011 -0800
+summary:     More branding updates
+
+changeset:   188:3c750eee4c25
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Feb 03 14:53:43 2011 -0800
+summary:     First part of update to remove Microsoft branding
+
+changeset:   187:6deba80099fc
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Nov 10 09:16:16 2010 -0800
+summary:     Checking in
+
+changeset:   186:e0a70bbcae47
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Oct 28 15:08:03 2010 -0700
+summary:     Updated the fix for solution listener performance issue
+
+changeset:   185:b0517eebae66
+parent:      182:c55ef8e06668
+parent:      184:65b0fb643cf2
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Oct 28 09:23:18 2010 -0700
+summary:     Merged
+
+changeset:   184:65b0fb643cf2
+user:        karak
+date:        Thu Sep 23 13:52:02 2010 -0700
+summary:     Project Enabled Cache is now cleared upon invalidation via the ProjectItemsEventsClass ItemAdded/ItemRemoved/ItemRenamed events, instead of periodically.
+
+changeset:   183:618e19c90b89
+parent:      157:cf603c1a041b
+user:        karak
+date:        Tue Aug 24 13:19:10 2010 -0700
+summary:     Added projectEnabledCache and it's usage in the SupportsStyleCop method: this fixes workitem/6662
+
+changeset:   182:c55ef8e06668
+parent:      179:2a9a461072cb
+parent:      181:c1566bb8e83e
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 15:43:35 2010 -0700
+summary:     Merged
+
+changeset:   181:c1566bb8e83e
+user:        Andy Reeves
+date:        Wed Aug 25 18:42:37 2010 +0100
+summary:     Putting some commented out test cases back in.
+
+changeset:   180:f9030aebfd93
+parent:      157:cf603c1a041b
+user:        Andy Reeves
+date:        Wed Aug 25 16:42:57 2010 +0100
+summary:     Manually detect the ending used by the file provided. Added tests to avoid regressions.
+
+changeset:   179:2a9a461072cb
+parent:      176:76690a5d0370
+parent:      178:e90159c33130
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 15:39:53 2010 -0700
+summary:     Merged
+
+changeset:   178:e90159c33130
+user:        Andy Reeves
+date:        Wed Sep 01 12:41:01 2010 +0100
+summary:     Added a complete set of constuctor summary documentation tests.
+
+changeset:   177:33140fb2de53
+parent:      157:cf603c1a041b
+user:        Andy Reeves
+date:        Tue Aug 24 18:00:19 2010 +0100
+summary:     Fix for nestedtypes constructor summary. Updated regEx and added new test cases. All tests passing and verifybuild confirms no errors.
+
+changeset:   176:76690a5d0370
+parent:      174:a54fd0d3183c
+parent:      175:a334c960ad4f
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 15:26:48 2010 -0700
+summary:     Merged
+
+changeset:   175:a334c960ad4f
+parent:      162:c284f4f3eb30
+user:        Andy Reeves
+date:        Thu Sep 02 10:13:12 2010 +0100
+summary:     Fix for disallowing String.Format in favour of string.Format
+
+changeset:   174:a54fd0d3183c
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 15:23:41 2010 -0700
+summary:     Made the rule more robust and added more tests
+
+changeset:   173:3cf6665f8a65
+parent:      171:241b76e90f21
+parent:      172:49df8a6b4885
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 15:15:59 2010 -0700
+summary:     Merged
+
+changeset:   172:49df8a6b4885
+parent:      157:cf603c1a041b
+user:        Andy Reeves
+date:        Wed Sep 01 14:34:15 2010 +0100
+summary:     Add new rule for UseShorthandForNullableTypes as SA1125. (DoNotUseVar was 1125 but it was commented out)
+
+changeset:   171:241b76e90f21
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 15:09:02 2010 -0700
+summary:     Fixed spelling errors
+
+changeset:   170:f38a84ae9af1
+parent:      168:8066db7da51d
+parent:      169:604925a1bc2e
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 15:04:54 2010 -0700
+summary:     Merged
+
+changeset:   169:604925a1bc2e
+parent:      162:c284f4f3eb30
+user:        Andy Reeves
+date:        Wed Sep 01 13:00:59 2010 +0100
+summary:     Add new Maintainability rule called AttributeConstructorMustNotUseUnnecessaryParenthesis SA1411.
+
+changeset:   168:8066db7da51d
+parent:      166:9379b4cf62a5
+parent:      167:686c888d29e3
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 14:56:56 2010 -0700
+summary:     Merged
+
+changeset:   167:686c888d29e3
+parent:      162:c284f4f3eb30
+user:        Andy Reeves
+date:        Thu Sep 02 13:09:49 2010 +0100
+summary:     Adding 2 new layout rules for no blank lines at start or end of file.
+
+changeset:   166:9379b4cf62a5
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 14:42:37 2010 -0700
+summary:     Ensure that the MemberAccess symbol is a dot, and not a pointer or qualified alias symbol.
+
+changeset:   165:440e6eaa7e36
+parent:      162:c284f4f3eb30
+parent:      164:6a3e0d4f4368
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Sep 27 14:33:37 2010 -0700
+summary:     Merged
+
+changeset:   164:6a3e0d4f4368
+user:        Andy Reeves
+date:        Tue Aug 31 22:03:36 2010 +0100
+summary:     Fixes for allowing an operatorsymbol for methodaccess (a dot) after a closing curly bracket.
+
+changeset:   163:9b574f323d32
+parent:      157:cf603c1a041b
+user:        Andy Reeves
+date:        Thu Aug 26 16:35:08 2010 +0100
+summary:     Allow the operatior symbol '.' to follow a closing curly bracket.
+
+changeset:   162:c284f4f3eb30
+parent:      161:5c8dba6d7c58
+parent:      160:19007754ada0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Aug 31 12:46:08 2010 -0700
+summary:     Clean up fix for 6637
+
+changeset:   161:5c8dba6d7c58
+parent:      157:cf603c1a041b
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Aug 31 11:02:15 2010 -0700
+summary:     Fixed bug 6734 by validating property node type.
+
+changeset:   160:19007754ada0
+parent:      158:17abadcca71c
+parent:      159:90f3b8b92728
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Aug 31 10:27:49 2010 -0700
+summary:     merged
+
+changeset:   159:90f3b8b92728
+parent:      157:cf603c1a041b
+user:        Andy Reeves
+date:        Thu Aug 26 13:08:45 2010 +0100
+summary:     Fix the inheritdoc check.
+
+changeset:   158:17abadcca71c
+user:        Andy Reeves
+date:        Wed Aug 25 12:44:32 2010 +0100
+summary:     Add new test cases for default parameter = "". Fix checks for empty string to allow default parameters to be "".
+
+changeset:   157:cf603c1a041b
+parent:      156:0c600de88a1e
+parent:      154:c25ceada0bba
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Aug 17 12:34:54 2010 -0700
+summary:     Merged
+
+changeset:   156:0c600de88a1e
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Aug 17 12:34:20 2010 -0700
+summary:     Add section to targets file to allow additional way of excluding files.
+
+changeset:   155:77126be4333f
+parent:      153:f28c35d3ed66
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Aug 17 12:33:59 2010 -0700
+summary:     Fix issue in documentation which causes StyleCop to incorrectly require documentation for members based on their access modifier level. It should rather consider the actual access, taking parent access into account.
+
+changeset:   154:c25ceada0bba
+user:        Oleg Shuruev
+date:        Thu Jul 29 22:30:10 2010 +0400
+summary:     Fixed issue #6719.
+
+changeset:   153:f28c35d3ed66
+parent:      151:ab5dba8b7806
+parent:      82:0464a8c81734
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 14:11:29 2010 -0700
+summary:     Merge
+
+changeset:   152:556d0661c25f
+branch:      v5.0.0
+parent:      106:92c03d3f3c51
+parent:      151:ab5dba8b7806
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 14:05:27 2010 -0700
+summary:     Merge
+
+changeset:   151:ab5dba8b7806
+parent:      149:8bb4cf2ceb7e
+parent:      150:ad7ce172014b
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 14:00:13 2010 -0700
+summary:     Merge
+
+changeset:   150:ad7ce172014b
+parent:      83:fc9d0c28f875
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:59:30 2010 -0700
+summary:     Backed out changeset: fc9d0c28f875
+
+changeset:   149:8bb4cf2ceb7e
+parent:      147:bed9879a23be
+parent:      148:349625b82815
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:59:14 2010 -0700
+summary:     Merge
+
+changeset:   148:349625b82815
+parent:      84:2d82e8e00e28
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:56:29 2010 -0700
+summary:     Backed out changeset: 2d82e8e00e28
+
+changeset:   147:bed9879a23be
+parent:      145:fb47b527fd89
+parent:      146:83c03642c618
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:56:17 2010 -0700
+summary:     Merge
+
+changeset:   146:83c03642c618
+parent:      85:b47a24fad49d
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:56:06 2010 -0700
+summary:     Backed out changeset: b47a24fad49d
+
+changeset:   145:fb47b527fd89
+parent:      143:281dd11c4219
+parent:      144:4ff6f7a8c627
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:55:55 2010 -0700
+summary:     Merge
+
+changeset:   144:4ff6f7a8c627
+parent:      86:9e5d04225b67
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:53:50 2010 -0700
+summary:     Backed out changeset: 9e5d04225b67
+
+changeset:   143:281dd11c4219
+parent:      141:34deb7a1eda3
+parent:      142:94293fe11687
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:53:34 2010 -0700
+summary:     Merge
+
+changeset:   142:94293fe11687
+parent:      87:ac670537f886
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:50:10 2010 -0700
+summary:     Backed out changeset: ac670537f886
+
+changeset:   141:34deb7a1eda3
+parent:      139:76da4751cdc1
+parent:      140:c9cf6e38be13
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:49:52 2010 -0700
+summary:     Merge
+
+changeset:   140:c9cf6e38be13
+parent:      88:2e908ce60e83
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:49:32 2010 -0700
+summary:     Backed out changeset: 2e908ce60e83
+
+changeset:   139:76da4751cdc1
+parent:      137:2598964ae127
+parent:      138:3eefe62277e6
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:49:20 2010 -0700
+summary:     Merge
+
+changeset:   138:3eefe62277e6
+parent:      89:02072645290f
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:49:09 2010 -0700
+summary:     Backed out changeset: 02072645290f
+
+changeset:   137:2598964ae127
+parent:      135:23f7b78c9ea0
+parent:      136:5689059c8c5c
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:48:58 2010 -0700
+summary:     Merge
+
+changeset:   136:5689059c8c5c
+parent:      90:a8811f057b20
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:48:37 2010 -0700
+summary:     Backed out changeset: a8811f057b20
+
+changeset:   135:23f7b78c9ea0
+parent:      133:a2579b9dbc0d
+parent:      134:c693607cf7f9
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:48:26 2010 -0700
+summary:     Merge
+
+changeset:   134:c693607cf7f9
+parent:      91:f156c6fedfd1
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:48:20 2010 -0700
+summary:     Backed out changeset: f156c6fedfd1
+
+changeset:   133:a2579b9dbc0d
+parent:      131:201a5a85c29b
+parent:      132:6ee7239494b2
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:48:09 2010 -0700
+summary:     Merge
+
+changeset:   132:6ee7239494b2
+parent:      92:de008c61af1e
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:45:58 2010 -0700
+summary:     Backed out changeset: de008c61af1e
+
+changeset:   131:201a5a85c29b
+parent:      129:c52f0e60e557
+parent:      130:84fa11830e9e
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:45:41 2010 -0700
+summary:     Merge
+
+changeset:   130:84fa11830e9e
+parent:      93:3368179f39e4
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:43:53 2010 -0700
+summary:     Backed out changeset: 3368179f39e4
+
+changeset:   129:c52f0e60e557
+parent:      127:293971b68f14
+parent:      128:7ca1d0afaa56
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:43:41 2010 -0700
+summary:     Merge
+
+changeset:   128:7ca1d0afaa56
+parent:      94:7aac4da40d41
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:43:09 2010 -0700
+summary:     Backed out changeset: 7aac4da40d41
+
+changeset:   127:293971b68f14
+parent:      125:8fe73d0511d1
+parent:      126:f519a0e2dc52
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:42:56 2010 -0700
+summary:     Merge
+
+changeset:   126:f519a0e2dc52
+parent:      95:69a1fdf1bd43
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:42:51 2010 -0700
+summary:     Backed out changeset: 69a1fdf1bd43
+
+changeset:   125:8fe73d0511d1
+parent:      123:ba9e1cbf04e3
+parent:      124:2e2f2864e241
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:42:40 2010 -0700
+summary:     Merge
+
+changeset:   124:2e2f2864e241
+parent:      96:98ef9f04d2b8
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:42:36 2010 -0700
+summary:     Backed out changeset: 98ef9f04d2b8
+
+changeset:   123:ba9e1cbf04e3
+parent:      121:18fa073f5f31
+parent:      122:0912e2542f1a
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:42:25 2010 -0700
+summary:     Merge
+
+changeset:   122:0912e2542f1a
+parent:      97:335bd6f14316
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:42:18 2010 -0700
+summary:     Backed out changeset: 335bd6f14316
+
+changeset:   121:18fa073f5f31
+parent:      119:9cbb0fda497e
+parent:      120:2f22276e31ce
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:42:07 2010 -0700
+summary:     Merge
+
+changeset:   120:2f22276e31ce
+parent:      98:8d653f4f8bd2
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:41:38 2010 -0700
+summary:     Backed out changeset: 8d653f4f8bd2
+
+changeset:   119:9cbb0fda497e
+parent:      117:d56244b0d1fd
+parent:      118:2415a098bcb9
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:41:27 2010 -0700
+summary:     Merge
+
+changeset:   118:2415a098bcb9
+parent:      99:d4d1ae2792b1
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:41:18 2010 -0700
+summary:     Backed out changeset: d4d1ae2792b1
+
+changeset:   117:d56244b0d1fd
+parent:      115:6760d7fca067
+parent:      116:36971fa6f7e1
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:41:07 2010 -0700
+summary:     Merge
+
+changeset:   116:36971fa6f7e1
+parent:      100:137cc33cf172
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:40:43 2010 -0700
+summary:     Backed out changeset: 137cc33cf172
+
+changeset:   115:6760d7fca067
+parent:      113:0ac3c0072882
+parent:      114:7bfc445ab1b2
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:40:33 2010 -0700
+summary:     Merge
+
+changeset:   114:7bfc445ab1b2
+parent:      101:f0881390b8fa
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:40:19 2010 -0700
+summary:     Backed out changeset: f0881390b8fa
+
+changeset:   113:0ac3c0072882
+parent:      111:1eaec9e07e15
+parent:      112:e02b54e99901
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:40:08 2010 -0700
+summary:     Merge
+
+changeset:   112:e02b54e99901
+parent:      102:f418d1d71dd8
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:39:48 2010 -0700
+summary:     Backed out changeset: f418d1d71dd8
+
+changeset:   111:1eaec9e07e15
+parent:      109:9139fbe55fff
+parent:      110:4e3f8754db82
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:39:37 2010 -0700
+summary:     Merge
+
+changeset:   110:4e3f8754db82
+parent:      103:55dc0a1325d4
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:39:31 2010 -0700
+summary:     Backed out changeset: 55dc0a1325d4
+
+changeset:   109:9139fbe55fff
+parent:      107:9939a3cb4a5d
+parent:      108:190d4c614465
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:38:11 2010 -0700
+summary:     Merge
+
+changeset:   108:190d4c614465
+parent:      104:c3cf07a94d91
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:37:13 2010 -0700
+summary:     Backed out changeset: c3cf07a94d91
+
+changeset:   107:9939a3cb4a5d
+parent:      105:8648aebdcd1a
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 13:36:56 2010 -0700
+summary:     Backed out changeset: 8648aebdcd1a
+
+changeset:   106:92c03d3f3c51
+branch:      v5.0.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 12:49:49 2010 -0700
+summary:     Created branch v5.0.0
+
+changeset:   105:8648aebdcd1a
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 12:15:09 2010 -0700
+summary:     Incremental commit
+
+changeset:   104:c3cf07a94d91
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Jul 20 16:03:32 2010 -0700
+summary:     Split out new codemodel assembly and added test framework for it.
+
+changeset:   103:55dc0a1325d4
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Fri Jul 16 09:19:48 2010 -0700
+summary:     Reorganized solution tree
+
+changeset:   102:f418d1d71dd8
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Jul 15 23:02:21 2010 -0700
+summary:     Implemented dynamic load and reset for all query clause types, plus some cleanup.
+
+changeset:   101:f0881390b8fa
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Jul 15 16:35:36 2010 -0700
+summary:     Implemented dynamic load and reset for Tokens, Operators, and Preprocessors
+
+changeset:   100:137cc33cf172
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Jul 15 15:48:22 2010 -0700
+summary:     Implemented dynamic load and reset for all Statement types
+
+changeset:   99:d4d1ae2792b1
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 14 23:17:22 2010 -0700
+summary:     Converted ToArray to AsReadOnly
+
+changeset:   98:8d653f4f8bd2
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 14 23:12:03 2010 -0700
+summary:     Implemented dynamic load and reset for all Expression types.
+
+changeset:   97:335bd6f14316
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 14 15:00:32 2010 -0700
+summary:     Implemented dynamic load and reset for all LexicalElement types.
+
+changeset:   96:98ef9f04d2b8
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 14 13:15:43 2010 -0700
+summary:     Removed unused files
+
+changeset:   95:69a1fdf1bd43
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 14 13:14:57 2010 -0700
+summary:     Created strongly typed classes for the four accessor types.
+
+changeset:   94:7aac4da40d41
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 14 13:05:50 2010 -0700
+summary:     Implemented dynamic load and reset for all element types
+
+changeset:   93:3368179f39e4
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Jul 12 17:15:56 2010 -0700
+summary:     Implemented dynamic load and reset for all basic codeunit types.
+
+changeset:   92:de008c61af1e
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Sun Jul 11 22:00:46 2010 -0700
+summary:     Changes to the way the parent document is targeted by each codeunit.
+
+changeset:   91:f156c6fedfd1
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Sun Jul 11 16:23:34 2010 -0700
+summary:     Moved FriendlyTypeText and FriendlyPluralTypeText to Element class.
+
+changeset:   90:a8811f057b20
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Fri Jul 09 17:13:27 2010 -0700
+summary:     Removed hard-coded location and generated flag from lexicalelements containing child codeunits.
+
+changeset:   89:02072645290f
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Fri Jul 09 14:30:27 2010 -0700
+summary:     File cleanup
+
+changeset:   88:2e908ce60e83
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Fri Jul 09 14:22:22 2010 -0700
+summary:     All Documentation tests passing (other than missing support for contravariance and coveriance)
+
+changeset:   87:ac670537f886
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Jul 08 12:10:47 2010 -0700
+summary:     Naming test passes successfully!
+
+changeset:   86:9e5d04225b67
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 07 13:42:59 2010 -0700
+summary:     Cleaned up erroneous comments
+
+changeset:   85:b47a24fad49d
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 07 12:24:02 2010 -0700
+summary:     Cleaned up file names and removed obsolete files.
+
+changeset:   84:2d82e8e00e28
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 07 12:16:15 2010 -0700
+summary:     New CsParser compiles without errors.
+
+changeset:   83:fc9d0c28f875
+parent:      71:73a5eb50ad49
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Jul 05 17:09:12 2010 -0700
+summary:     Renamed csparser and analyzers with _old
+
+changeset:   82:0464a8c81734
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 12:05:08 2010 -0700
+summary:     Commiting fix for bug 6643
+
+changeset:   81:17e6aae62a23
+parent:      79:c55d43e7235f
+parent:      80:8a6870a904c2
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 11:17:57 2010 -0700
+summary:     merged
+
+changeset:   80:8a6870a904c2
+parent:      18:fc3c966ba148
+user:        Andy Reeves
+date:        Wed Jun 30 11:25:17 2010 +0100
+summary:     Adding test data for static constructors element ordering.
+
+changeset:   79:c55d43e7235f
+parent:      77:64c73a723ea4
+parent:      78:e0df0f430264
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 11:09:55 2010 -0700
+summary:     Merged
+
+changeset:   78:e0df0f430264
+parent:      71:73a5eb50ad49
+user:        Andy Reeves
+date:        Fri Jul 02 16:45:16 2010 +0100
+summary:     Fixing a couple of verifybuild.cmd breaks that existed.
+
+changeset:   77:64c73a723ea4
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jul 21 10:03:21 2010 -0700
+summary:     Make Settings and WritableSettings constructors public for advanced hosting scenarios
+
+changeset:   76:b9eab6fe7d79
+parent:      75:78450f0ac618
+parent:      72:a1a8de5fcdec
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Jul 20 14:57:46 2010 -0700
+summary:     Merged from v4.4.0
+
+changeset:   75:78450f0ac618
+parent:      74:bcda3906a031
+parent:      71:73a5eb50ad49
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Jul 20 14:56:39 2010 -0700
+summary:     Merged
+
+changeset:   74:bcda3906a031
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Jul 20 09:23:15 2010 -0700
+summary:     Fixed bug with merging SourceFileList settings between local settings file and parent settings file.
+
+changeset:   73:8ce50a6e8867
+parent:      70:4a97452e1f72
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Jul 05 16:28:19 2010 -0700
+summary:     new script for enlisting to a fork.
+
+changeset:   72:a1a8de5fcdec
+branch:      v4.4.0
+parent:      69:c9bd2e575858
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Jul 20 14:55:18 2010 -0700
+summary:     Fixed issue with merging file lists
+
+changeset:   71:73a5eb50ad49
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jun 30 18:17:18 2010 -0700
+summary:     Added a StyleCopObjectConsole and ObjectBasedEnvironment classes.
+
+changeset:   70:4a97452e1f72
+parent:      57:66f541cdb0d3
+parent:      69:c9bd2e575858
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jun 30 12:23:59 2010 -0700
+summary:     Merging all the changes from version 4.4.0 RC into the default branch.
+
+changeset:   69:c9bd2e575858
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jun 30 11:40:48 2010 -0700
+summary:     Changed version to 4.4.0.12
+
+changeset:   68:482a16bbe4c0
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Fri Jun 25 17:26:28 2010 -0700
+summary:     Added support for inline file lists within settings files, having their own overriding settings.
+
+changeset:   67:1e44599d04e0
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Fri Jun 25 10:30:02 2010 -0700
+summary:     Added new tests for generated code
+
+changeset:   66:0e000f4e8c2a
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Jun 24 11:26:16 2010 -0700
+summary:     Adding generated file exclusions to settings file
+
+changeset:   65:451ad1b8a1f0
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jun 23 15:00:51 2010 -0700
+summary:     Add support for exclusions in settings files
+
+changeset:   64:300fd872ec0a
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jun 23 14:50:28 2010 -0700
+summary:     Fixed bug 6573: typeparams with out or in modifier not supported correctly
+
+changeset:   63:15a217107d73
+branch:      v4.4.0
+parent:      62:4f7b8baeeddd
+parent:      60:6a155573df18
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Jun 22 15:03:50 2010 -0700
+summary:     merged
+
+changeset:   62:4f7b8baeeddd
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Jun 22 15:03:43 2010 -0700
+summary:     Add option for building docs in verifybuild
+
+changeset:   61:1f91ed607a22
+branch:      v4.4.0
+parent:      58:c8dffaeb7264
+user:        Andy Reeves
+date:        Tue Jun 22 22:18:42 2010 +0100
+summary:     Fixing the <a> tags in the manual docs for the new way the auto docs are generated.
+
+changeset:   60:6a155573df18
+branch:      v4.4.0
+parent:      59:dc25084209dc
+parent:      44:d6b741aff7f6
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Jun 21 16:06:40 2010 -0700
+summary:     merged
+
+changeset:   59:dc25084209dc
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Jun 21 16:05:33 2010 -0700
+summary:     Removed privates and internals from SDK docs
+
+changeset:   58:c8dffaeb7264
+branch:      v4.4.0
+parent:      43:518efcff23ec
+user:        Andy Reeves
+date:        Tue Jun 15 19:04:29 2010 +0100
+summary:     Fix to ensure the code samples for CSharp get generated ensuring that parameters appear on method calls.
+
+changeset:   57:66f541cdb0d3
+parent:      54:1c50bbad7281
+parent:      56:9df794dc3a4e
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Jun 21 11:38:01 2010 -0700
+summary:     Accepting after merge
+
+changeset:   56:9df794dc3a4e
+user:        Andy Reeves
+date:        Mon Jun 14 19:07:56 2010 +0100
+summary:     Correcting the expected test results violations.
+
+changeset:   55:36dde3a0f6e8
+parent:      18:fc3c966ba148
+user:        Andy Reeves
+date:        Mon Jun 14 18:54:38 2010 +0100
+summary:     Allow element documentation to begin without a capital letter if it starts with a <c> or <paramref>. Add new test data for positive and negative tests.
+
+changeset:   54:1c50bbad7281
+parent:      50:f1a1f7cd9f80
+parent:      53:8c0c11e334ba
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Jun 21 10:45:49 2010 -0700
+summary:     Accepting 6642 with some edits.
+
+changeset:   53:8c0c11e334ba
+user:        Andy Reeves
+date:        Mon Jun 14 22:17:47 2010 +0100
+summary:     Fix styleing errors in DocumentationRules.cs
+
+changeset:   52:530edeb08034
+user:        Andy Reeves
+date:        Mon Jun 14 21:34:06 2010 +0100
+summary:     Use StringBuilder where appropriate for Extracting Generics from types. Update tests.
+
+changeset:   51:c98820730cca
+parent:      18:fc3c966ba148
+user:        Andy Reeves
+date:        Mon Jun 14 20:27:51 2010 +0100
+summary:     Fixing the documentation for constructor checks for nested classes. RegEx's have been updated. New positive and negative constructor tests for std classes and generics too.
+
+changeset:   50:f1a1f7cd9f80
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Jun 10 15:34:16 2010 -0700
+summary:     Added additional rules for inheritdoc
+
+changeset:   49:f5515cd99d0a
+parent:      46:1a1003ee7a5d
+parent:      48:7e4cba03f21d
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Jun 10 14:34:50 2010 -0700
+summary:     merge
+
+changeset:   48:7e4cba03f21d
+user:        Andy Reeves
+date:        Thu Jun 10 19:02:12 2010 +0100
+summary:     Add basic support for <inheritdoc> as an element header. Updated test data too.
+
+changeset:   47:c84096594423
+parent:      18:fc3c966ba148
+user:        Andy Reeves
+date:        Thu Jun 10 17:28:11 2010 +0100
+summary:     test file
+
+changeset:   46:1a1003ee7a5d
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Jun 10 14:27:31 2010 -0700
+summary:     Added a comment to the test file
+
+changeset:   45:7e9b1336cd1c
+parent:      19:504510c3943c
+user:        Andy Reeves
+date:        Thu Jun 10 18:23:46 2010 +0100
+summary:     Allow <code> elemnt in headers to have blank lines. Added test data and test cases too.
+
+changeset:   44:d6b741aff7f6
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Thu Jun 10 13:11:52 2010 -0700
+summary:     Removing email link from SDK docs
+
+changeset:   43:518efcff23ec
+branch:      v4.4.0
+parent:      42:63868b0881de
+parent:      41:b67473510a78
+user:        Andy Reeves
+date:        Wed Jun 09 12:11:32 2010 +0100
+summary:     Adding email address for feedback. uses stylecop@microsoft.com. May need to be edited.
+
+changeset:   42:63868b0881de
+branch:      v4.4.0
+parent:      40:fe99392913b4
+user:        Andy Reeves
+date:        Wed Jun 09 10:34:34 2010 +0100
+summary:     Fixing renamed manual docs links (only 2 links were broken)
+
+changeset:   41:b67473510a78
+branch:      v4.4.0
+parent:      36:77b4074c1392
+user:        Andy Reeves
+date:        Fri Jun 04 07:39:24 2010 +0100
+summary:     Correcting spelling mistake in the directory tidy up of SDK docs build.
+
+changeset:   40:fe99392913b4
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Jun 08 16:04:39 2010 -0700
+summary:     Updated SDK docs
+
+changeset:   39:9ed766d09424
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon Jun 07 10:53:15 2010 -0700
+summary:     Removing old version of builddocs.cmd from rules dir
+
+changeset:   38:3a61430d5fdb
+branch:      v4.4.0
+parent:      37:e0de5b0185ce
+parent:      35:05d45e1a87ec
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Fri Jun 04 11:55:01 2010 -0700
+summary:     Commiting merge
+
+changeset:   37:e0de5b0185ce
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Fri Jun 04 11:53:58 2010 -0700
+summary:     Fixing build issue with doc build
+
+changeset:   36:77b4074c1392
+branch:      v4.4.0
+parent:      33:2b8f38cbd5be
+user:        Andy Reeves
+date:        Thu Jun 03 10:48:44 2010 +0100
+summary:     Add the SDK docs build - BuildDocs.cmd now builds the rules.chm and then the sdk.chm. Have the solution generate xml docs files in builds. Switch languages to en-us rather than en-gb. Add the codeplex Sandcastle Help File Builder to the Tools. Add Sandcastle to the Tools.
+
+changeset:   35:05d45e1a87ec
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Wed Jun 02 14:29:02 2010 -0700
+summary:     Updated the rules documentation for version 4.4.0
+
+changeset:   34:f2644bdcc7b0
+branch:      v4.4.0
+parent:      25:0dca434c13be
+parent:      33:2b8f38cbd5be
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Tue Jun 01 15:35:00 2010 -0700
+summary:     Merging doc rule cleanup from AndyR
+
+changeset:   33:2b8f38cbd5be
+branch:      v4.4.0
+user:        Andy Reeves
+date:        Sun May 30 12:39:48 2010 +0100
+summary:     All docs rules files have now been manually corrected.
+
+changeset:   32:32f048fe2677
+branch:      v4.4.0
+user:        Andy Reeves
+date:        Thu May 27 18:51:42 2010 +0100
+summary:     Layout rules are re-formatted. Only 1600's to do now.
+
+changeset:   31:18501a6113ad
+branch:      v4.4.0
+user:        Andy Reeves
+date:        Thu May 27 17:47:16 2010 +0100
+summary:     Category of rule was incorrect.
+
+changeset:   30:0fb5751f01ec
+branch:      v4.4.0
+user:        Andy Reeves
+date:        Thu May 27 17:46:18 2010 +0100
+summary:     Maintainability rules updated. Just Layout (1500's) and documentation (1600's) to go.
+
+changeset:   29:7e3a3ff0eb5b
+branch:      v4.4.0
+user:        Andy Reeves
+date:        Thu May 27 17:05:13 2010 +0100
+summary:     Naming rules all updated.
+
+changeset:   28:75602561f3a0
+branch:      v4.4.0
+user:        Andy Reeves
+date:        Thu May 27 16:27:55 2010 +0100
+summary:     Ordering Rules all reformatted.
+
+changeset:   27:3bc86fea784b
+branch:      v4.4.0
+user:        Andy Reeves
+date:        Thu May 27 10:49:57 2010 +0100
+summary:     Update and simplify the Readability rules. Other rules to follow.
+
+changeset:   26:19a3bf3bf352
+branch:      v4.4.0
+parent:      22:5dc59913965c
+user:        Andy Reeves
+date:        Wed May 26 12:41:42 2010 +0100
+summary:     Moving std text into a ls file. Simplyfying the docs layout for ease of maintenance. All Spacing rules updated. Other rules to follow.
+
+changeset:   25:0dca434c13be
+branch:      v4.4.0
+parent:      24:a09efdb0237d
+parent:      23:c99c3caca56b
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Fri May 28 11:40:56 2010 -0700
+summary:     Commiting merge from main
+
+changeset:   24:a09efdb0237d
+branch:      v4.4.0
+parent:      19:504510c3943c
+user:        BoLund
+date:        Wed May 26 20:56:57 2010 -0700
+summary:     Fix for issue 6669:
+
+changeset:   23:c99c3caca56b
+branch:      v4.4.0
+user:        Jason Allor <jason.allor@microsoft.com>
+date:        Mon May 24 17:01:40 2010 -0700
+summary:     Updating setup to pick up rules chm from new location
+
+changeset:   22:5dc59913965c
+branch:      v4.4.0
+user:        Andy Reeves
+date:        Mon May 24 21:11:25 2010 +0100
+summary:     Ensure the correct bin folder is created if not already there.
+
+changeset:   21:d1d2b6af414d
+branch:      v4.4.0
+user:        Andy Reeves
+date:        Mon May 24 21:04:43 2010 +0100
+summary:     Update to the doc gen.
+
+changeset:   20:1cb651eead74
+branch:      v4.4.0
+parent:      14:63c44bb02d54
+user:        Andy Reeves
+date:        Mon May 24 20:20:15 2010 +0100
+summary:     Adding new documentation build.
+
+changeset:   19:504510c3943c
+user:        BoLund
+date:        Sun May 23 09:24:31 2010 -0700
+summary:     Backed out changeset: fc3c966ba148
+
+changeset:   18:fc3c966ba148
+user:        BoLund
+date:        Wed May 19 22:25:35 2010 -0700
+summary:     Commit removing temp file
+
+changeset:   17:0fcac78db018
+user:        BoLund
+date:        Wed May 19 22:25:02 2010 -0700
+summary:     removing mecurial test file created by Previous checkin
+
+changeset:   16:10d414fc0f32
+user:        BoLund_cp
+date:        Wed May 19 22:21:26 2010 -0700
+summary:     submitting a test file
+
+changeset:   15:8ede854d4c9f
+parent:      9:d135a2dcfe78
+user:        Jason Allor
+date:        Wed May 19 10:09:54 2010 -0700
+summary:     Removing file
+
+changeset:   14:63c44bb02d54
+branch:      v4.4.0
+user:        Jason Allor
+date:        Wed May 19 10:09:11 2010 -0700
+summary:     Reverting product version to 4.4.0.9
+
+changeset:   13:6d6851dc70cb
+branch:      v4.4.0
+parent:      12:b296d040815d
+parent:      9:d135a2dcfe78
+user:        Jason Allor
+date:        Wed May 19 10:08:26 2010 -0700
+summary:     roject/Src/WixSetup/StyleCop.Wix.sln.cache
+
+changeset:   12:b296d040815d
+branch:      v4.4.0
+user:        Jason Allor
+date:        Wed May 19 09:57:32 2010 -0700
+summary:     Reverting version to 4.4.0.9
+
+changeset:   11:328fb1b0b81e
+branch:      v4.4.0
+user:        Jason Allor
+date:        Wed May 19 09:56:40 2010 -0700
+summary:     Checking in version change and removing unneeded file
+
+changeset:   10:8b118e370fbb
+branch:      v4.4.0
+parent:      3:ee31259d2381
+user:        Jason Allor
+date:        Wed May 19 09:54:02 2010 -0700
+summary:     Removing files which should not be in the enlistment
+
+changeset:   9:d135a2dcfe78
+user:        Jason Allor
+date:        Wed May 19 09:48:21 2010 -0700
+summary:     Removing file which should not have been added to enlistment
+
+changeset:   8:1c24ee49b414
+user:        Jason Allor
+date:        Wed May 19 09:41:31 2010 -0700
+summary:     Removing cache files from enlistment
+
+changeset:   7:967b709fd5c9
+user:        Jason Allor
+date:        Wed May 19 09:33:42 2010 -0700
+summary:     Adding missing Docs bin directory
+
+changeset:   6:d5e77ccccfed
+user:        Jason Allor
+date:        Wed May 19 09:28:14 2010 -0700
+summary:     Removing cache files from enlistment
+
+changeset:   5:149d544a0b65
+user:        Jason Allor
+date:        Wed May 19 09:27:10 2010 -0700
+summary:     Adding missing Bin dirs from VS SDKs.
+
+changeset:   4:ef7f28914fc7
+parent:      2:635a05adb466
+user:        Jason Allor
+date:        Tue May 18 16:03:51 2010 -0700
+summary:     Updating product version to 4.4.1.0 in the default branch.
+
+changeset:   3:ee31259d2381
+branch:      v4.4.0
+user:        Jason Allor
+date:        Tue May 18 16:02:48 2010 -0700
+summary:     Created release branch for v4.4.0.
+
+changeset:   2:635a05adb466
+user:        Jason Allor
+date:        Tue May 18 16:01:50 2010 -0700
+summary:     Reverting version to 4.4.0.9
+
+changeset:   1:4c950baa36dc
+user:        Jason Allor
+date:        Tue May 18 15:55:57 2010 -0700
+summary:     Updating the product version to 4.1.0 in the default branch
+
+changeset:   0:1d047e504406
+user:        Jason Allor
+date:        Tue May 18 09:55:21 2010 -0700
+summary:     Initial source
+
